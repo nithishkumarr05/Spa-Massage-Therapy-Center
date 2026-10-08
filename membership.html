@@ -1,0 +1,1990 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-theme="serene-sage">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership | Serenity Spa & Massage Therapy Center</title>
+<link rel="icon" type="image/svg+xml" href="Assets/massage.png">
+    <meta name="description"
+        content="Join Serenity Spa membership. Monthly wellness plans, exclusive offers, priority booking, and member-only rituals.">
+    <!-- Tailwind CSS with Local & CDN Fallback -->
+    <script src="tailwind.js"></script>
+    <script>
+        if (typeof tailwind === 'undefined') {
+            document.write('<script src="https://cdn.tailwindcss.com"><\/script>');
+        }
+    </script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'spa-sage': 'rgba(var(--color-rgb-primary), <alpha-value>)',
+                        'spa-sage-light': 'rgba(var(--color-rgb-light), <alpha-value>)',
+                        'spa-sage-dark': 'rgba(var(--color-rgb-dark), <alpha-value>)',
+                        'spa-sage-bright': 'rgba(var(--color-rgb-bright), <alpha-value>)',
+                        'spa-accent': 'rgba(var(--color-rgb-accent), <alpha-value>)',
+                        'bg-warm': 'var(--color-bg-warm)',
+                        'neutral-dark': 'var(--color-text-dark)',
+                        'neutral-light': '#E8F0EC',
+                        'dark-bg': '#0A1310',
+                        'dark-card': '#101D18',
+                        'dark-surface': '#16261F',
+                    },
+                    fontFamily: {
+                        'sans': ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        'serif': ['Cormorant Garamond', 'serif'],
+                        'display': ['Cormorant Garamond', 'Outfit', 'serif'],
+                        'premium': ['Cormorant Garamond', 'Outfit', 'serif'],
+                        'alt': ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'fade-in': 'fadeIn 0.3s ease-out',
+                        'pulse-glow': 'pulseGlow 3s infinite',
+                        'float-slow': 'floatSlow 6s ease-in-out infinite',
+                        'breathe': 'breathe 5s ease-in-out infinite',
+                        'shimmer': 'shimmer 3s linear infinite',
+                    },
+                    keyframes: {
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.6' },
+                            '50%': { opacity: '1' },
+                        },
+                        floatSlow: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        },
+                        breathe: {
+                            '0%, 100%': { transform: 'scale(1)', opacity: '0.4' },
+                            '50%': { transform: 'scale(1.15)', opacity: 0.15 },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+        if (localStorage.getItem('dir') === 'rtl') {
+            document.documentElement.dir = 'rtl';
+            document.documentElement.lang = 'ar';
+        }
+    </script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Spa Stylesheet -->
+    <style>
+        :root,
+        [data-theme="serene-sage"] {
+            --color-primary: #5B8C7B;
+            --color-primary-light: #8FB8A8;
+            --color-primary-dark: #3D6355;
+            --color-primary-bright: #C2DDD1;
+            --color-accent: #D4A857;
+            --color-bg-warm: #F7FAF8;
+            --color-text-dark: #14201B;
+            --color-rgb-primary: 91, 140, 123;
+            --color-rgb-light: 143, 184, 168;
+            --color-rgb-dark: 61, 99, 85;
+            --color-rgb-bright: 194, 221, 209;
+            --color-rgb-accent: 212, 168, 87;
+        }
+
+        [data-theme="rose-noir"] {
+            --color-primary: #C2707E;
+            --color-primary-light: #DE9DA9;
+            --color-primary-dark: #8F3B4A;
+            --color-primary-bright: #F5C6CE;
+            --color-accent: #E2A676;
+            --color-bg-warm: #FCF8F8;
+            --color-text-dark: #1E1014;
+            --color-rgb-primary: 194, 112, 126;
+            --color-rgb-light: 222, 157, 169;
+            --color-rgb-dark: 143, 59, 74;
+            --color-rgb-bright: 245, 198, 206;
+            --color-rgb-accent: 226, 166, 118;
+        }
+
+        [data-theme="royal-sapphire"] {
+            --color-primary: #2563EB;
+            --color-primary-light: #60A5FA;
+            --color-primary-dark: #1E40AF;
+            --color-primary-bright: #93C5FD;
+            --color-accent: #F59E0B;
+            --color-bg-warm: #F8FAFC;
+            --color-text-dark: #0F172A;
+            --color-rgb-primary: 37, 99, 235;
+            --color-rgb-light: 96, 165, 250;
+            --color-rgb-dark: 30, 64, 175;
+            --color-rgb-bright: 147, 197, 253;
+            --color-rgb-accent: 245, 158, 11;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--color-bg-warm);
+            color: var(--color-text-dark);
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        .dark body {
+            background-color: #0A1310;
+            color: #E6EFEA;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        .spa-gradient-text,
+        .sage-gradient-text {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: var(--color-bg-warm); }
+        .dark ::-webkit-scrollbar-track { background: #0A1310; }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(var(--color-rgb-primary), 0.35);
+            border-radius: 9999px;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+        ::-webkit-scrollbar-thumb:hover { background: var(--color-primary); }
+        .dark ::-webkit-scrollbar-thumb { background: rgba(var(--color-rgb-bright), 0.35); }
+        .dark ::-webkit-scrollbar-thumb:hover { background: var(--color-primary-bright); }
+        * { scrollbar-width: thin; scrollbar-color: rgba(var(--color-rgb-primary), 0.4) transparent; }
+
+        .dark .text-spa-sage { color: var(--color-primary-bright) !important; }
+        .dark .bg-spa-sage { background-color: var(--color-primary-bright) !important; }
+        .dark .border-spa-sage { border-color: var(--color-primary-bright) !important; }
+        .dark .from-spa-sage { --tw-gradient-from: var(--color-primary-bright) !important; }
+        
+        .dark .spa-gradient-text,
+        .dark .sage-gradient-text {
+            background: linear-gradient(135deg, var(--color-primary-bright) 0%, var(--color-primary-light) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cta-luxury-banner {
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, var(--color-primary-dark) 100%) !important;
+        }
+        .dark .cta-luxury-banner {
+            background: linear-gradient(135deg, #0A1310 0%, #101D18 50%, #0A1310 100%) !important;
+        }
+
+        .dark .service-icon {
+            background: rgba(var(--color-rgb-bright), 0.12) !important;
+            color: var(--color-primary-bright) !important;
+            border: 1px solid rgba(var(--color-rgb-bright), 0.25);
+        }
+
+        .dark .badge {
+            background: rgba(10, 19, 16, 0.85) !important;
+            color: #FFFFFF !important;
+            border: 1px solid rgba(255, 255, 255, 0.35) !important;
+        }
+
+        .dark .dropdown-item:hover { color: var(--color-primary-bright) !important; }
+        .dark .nav-item:hover { color: var(--color-primary-bright) !important; }
+        .dark .nav-item::after { background: var(--color-primary-bright) !important; }
+        .dark .dropdown-item i { color: var(--color-primary-bright) !important; }
+        .dark .premium-line { background: linear-gradient(90deg, var(--color-primary-bright), rgba(var(--color-rgb-bright), 0.1)); }
+
+        .nav-item {
+            position: relative;
+            padding: 0.5rem 0;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.02em;
+            color: var(--color-text-dark);
+            transition: color 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .dark .nav-item { color: #E6EFEA; }
+        .nav-item:hover { color: var(--color-primary); }
+        .dark .nav-item:hover { color: var(--color-primary-bright); }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+            transition: width 0.3s ease;
+        }
+        .dark .nav-item::after {
+            background: linear-gradient(90deg, var(--color-primary-bright), var(--color-primary-light));
+        }
+        [dir="rtl"] .nav-item::after { left: auto; right: 0; }
+        .nav-item:hover::after,
+        .nav-item.active::after { width: 100%; }
+        .nav-item.active { color: var(--color-primary) !important; font-weight: 700; }
+        .dark .nav-item.active { color: var(--color-primary-bright) !important; }
+
+        .mobile-menu-item.active { color: var(--color-primary) !important; font-weight: 700; }
+        .dark .mobile-menu-item.active { color: var(--color-primary-bright) !important; }
+
+        .dropdown { position: relative; }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 230px;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 16px;
+            padding: 0.85rem 0;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.18);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1000;
+            border: 1px solid rgba(var(--color-rgb-primary), 0.2);
+            backdrop-filter: blur(12px);
+        }
+        .dark .dropdown-menu {
+            background: rgba(22, 38, 31, 0.98);
+            border-color: rgba(var(--color-rgb-bright), 0.25);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+        }
+        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 0;
+            right: 0;
+            height: 12px;
+        }
+        [dir="rtl"] .dropdown-menu { left: auto; right: 0; }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1.6rem;
+            color: var(--color-text-dark);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .dark .dropdown-item { color: #E6EFEA; }
+        .dropdown-item:hover {
+            background: rgba(var(--color-rgb-primary), 0.1);
+            color: var(--color-primary);
+            padding-left: 1.85rem;
+        }
+        .dark .dropdown-item:hover { background: rgba(var(--color-rgb-bright), 0.15); color: var(--color-primary-bright); }
+        [dir="rtl"] .dropdown-item:hover { padding-left: 1.6rem; padding-right: 1.85rem; }
+        .dropdown-item i { margin-right: 0.85rem; width: 20px; text-align: center; color: var(--color-primary); }
+        [dir="rtl"] .dropdown-item i { margin-right: 0; margin-left: 0.85rem; }
+        .dark .dropdown-item i { color: var(--color-primary-bright); }
+
+        [dir="rtl"] .desktop-toggle-group { margin-left: 0; margin-right: 1.25rem; }
+
+        .toggle-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(var(--color-rgb-primary), 0.12);
+            color: var(--color-primary);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(var(--color-rgb-primary), 0.2);
+            cursor: pointer;
+        }
+        .dark .toggle-btn {
+            background: rgba(var(--color-rgb-bright), 0.12);
+            color: var(--color-primary-bright);
+            border-color: rgba(var(--color-rgb-bright), 0.25);
+        }
+        .toggle-btn:hover { background: var(--color-primary); color: white; transform: scale(1.08); }
+        .dark .toggle-btn:hover { background: var(--color-primary-bright); color: #0A1310; transform: scale(1.08); }
+        .toggle-btn.active { background: var(--color-primary); color: white; }
+        .dark .toggle-btn.active { background: var(--color-primary-bright); color: #0A1310; }
+
+        @media (max-width: 1279px) {
+            .desktop-toggle-group { display: none !important; }
+        }
+
+        .mobile-menu {
+            background: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        .mobile-menu:not(.open) {
+            border: none !important;
+            border-width: 0 !important;
+            margin-top: 0 !important;
+            padding: 0 !important;
+            box-shadow: none !important;
+            pointer-events: none !important;
+        }
+        .dark .mobile-menu { background: #0A1310; border-color: rgba(var(--color-rgb-bright), 0.2); }
+        .mobile-menu.open { max-height: 85vh; overflow-y: auto; }
+
+        .mobile-menu-item {
+            display: block;
+            padding: 1.1rem 1.75rem;
+            font-weight: 600;
+            color: var(--color-text-dark);
+            border-bottom: 1px solid rgba(var(--color-rgb-primary), 0.1);
+            transition: all 0.2s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            font-size: 0.9rem;
+        }
+        .dark .mobile-menu-item { color: #E6EFEA; border-bottom-color: rgba(var(--color-rgb-bright), 0.15); }
+        .mobile-menu-item:hover { background-color: rgba(var(--color-rgb-primary), 0.06); color: var(--color-primary); }
+        .dark .mobile-menu-item:hover { background-color: rgba(var(--color-rgb-bright), 0.12); color: var(--color-primary-bright); }
+
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: rgba(var(--color-rgb-primary), 0.04);
+        }
+        .dark .mobile-dropdown-content { background: rgba(22, 38, 31, 0.8); }
+        .mobile-dropdown-content.show { max-height: 300px; }
+
+        .mobile-dropdown-item {
+            display: block;
+            padding: 0.85rem 2.75rem;
+            font-size: 0.92rem;
+            color: var(--color-text-dark);
+            transition: all 0.2s ease;
+            border-bottom: 1px solid rgba(var(--color-rgb-primary), 0.08);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .dark .mobile-dropdown-item { color: #C6D4CD; border-bottom-color: rgba(var(--color-rgb-bright), 0.1); }
+        .mobile-dropdown-item:hover { color: var(--color-primary); background-color: rgba(var(--color-rgb-primary), 0.1); }
+        .dark .mobile-dropdown-item:hover { background-color: rgba(var(--color-rgb-bright), 0.15); color: var(--color-primary-bright); }
+
+        .desktop-nav-container { display: flex; align-items: center; gap: 2rem; }
+
+        .service-icon {
+            width: 84px;
+            height: 84px;
+            background: rgba(var(--color-rgb-primary), 0.12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            font-size: 2.2rem;
+            color: var(--color-primary);
+            border: 1px solid rgba(var(--color-rgb-primary), 0.25);
+            box-shadow: 0 10px 20px -5px rgba(var(--color-rgb-primary), 0.15);
+        }
+        .dark .service-icon {
+            background: rgba(var(--color-rgb-bright), 0.12);
+            color: var(--color-primary-bright);
+            border-color: rgba(var(--color-rgb-bright), 0.3);
+        }
+
+        .badge {
+            background: rgba(10, 19, 16, 0.75) !important;
+            color: #FFFFFF !important;
+            padding: 0.35rem 1.1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.82rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        .dark .badge {
+            background: rgba(10, 19, 16, 0.85) !important;
+            color: #FFFFFF !important;
+            border: 1px solid rgba(255, 255, 255, 0.35) !important;
+        }
+
+        footer {
+            background: white;
+            color: var(--color-text-dark);
+            border-top: 1px solid rgba(var(--color-rgb-primary), 0.18);
+        }
+        .dark footer {
+            background: #0A1310;
+            color: #E6EFEA;
+            border-color: rgba(var(--color-rgb-bright), 0.2);
+        }
+        footer a:hover { color: var(--color-primary); }
+        .dark footer a:hover { color: var(--color-primary-bright); }
+
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(var(--color-rgb-primary), 0.1);
+            color: var(--color-primary);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(var(--color-rgb-primary), 0.2);
+        }
+        .dark .social-icon {
+            background: rgba(var(--color-rgb-bright), 0.12);
+            color: var(--color-primary-bright);
+            border-color: rgba(var(--color-rgb-bright), 0.25);
+        }
+        .social-icon:hover { background: var(--color-primary); color: white; transform: translateY(-3px) scale(1.05); }
+        .dark .social-icon:hover { background: var(--color-primary-bright); color: #0A1310; }
+
+        .premium-line {
+            width: 90px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light), transparent);
+            margin: 24px 0;
+            border-radius: 2px;
+        }
+        .dark .premium-line {
+            background: linear-gradient(90deg, var(--color-primary-bright), var(--color-primary-light), transparent);
+        }
+
+        .double-bezel-outer {
+            position: relative;
+            border-radius: 2rem;
+            padding: 0.375rem;
+            background: linear-gradient(180deg, rgba(var(--color-rgb-primary), 0.25) 0%, rgba(var(--color-rgb-primary), 0.05) 100%);
+            border: 1px solid rgba(var(--color-rgb-primary), 0.2);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .dark .double-bezel-outer {
+            background: linear-gradient(180deg, rgba(var(--color-rgb-bright), 0.2) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border-color: rgba(var(--color-rgb-bright), 0.2);
+            box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.7);
+        }
+        .double-bezel-outer:hover {
+            transform: translateY(-6px);
+            border-color: rgba(var(--color-rgb-primary), 0.45);
+            box-shadow: 0 30px 60px -15px rgba(var(--color-rgb-primary), 0.25);
+        }
+        .dark .double-bezel-outer:hover {
+            border-color: rgba(var(--color-rgb-bright), 0.45);
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.9);
+        }
+
+        .double-bezel-inner {
+            border-radius: calc(2rem - 0.375rem);
+            background: #FFFFFF;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8);
+        }
+        .dark .double-bezel-inner {
+            background: #101D18;
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08);
+        }
+
+        .btn-nested {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.85rem;
+            padding: 0.65rem 0.75rem 0.65rem 1.75rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+            color: #FFFFFF !important;
+            box-shadow: 0 10px 25px -5px rgba(var(--color-rgb-primary), 0.35);
+        }
+        .dark .btn-nested {
+            background: linear-gradient(135deg, var(--color-primary-bright) 0%, var(--color-primary) 100%);
+            color: #0A1310 !important;
+            box-shadow: 0 10px 25px -5px rgba(var(--color-rgb-bright), 0.3);
+        }
+        .btn-nested .icon-circle {
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .dark .btn-nested .icon-circle { background: rgba(10, 19, 16, 0.25); }
+        .btn-nested:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 35px -8px rgba(var(--color-rgb-primary), 0.5);
+        }
+        .dark .btn-nested:hover { box-shadow: 0 18px 35px -8px rgba(var(--color-rgb-bright), 0.45); }
+        .btn-nested:hover .icon-circle { transform: translateX(3px) rotate(45deg); }
+        .btn-nested:active { transform: scale(0.98); }
+
+        .btn-frosted {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            padding: 0.85rem 1.75rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            border: 1px solid rgba(var(--color-rgb-primary), 0.3);
+            color: var(--color-text-dark);
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .dark .btn-frosted {
+            border-color: rgba(var(--color-rgb-bright), 0.3);
+            color: #E6EFEA;
+            background: rgba(16, 29, 24, 0.6);
+        }
+        .btn-frosted:hover {
+            background: rgba(var(--color-rgb-primary), 0.12);
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+        .dark .btn-frosted:hover {
+            background: rgba(var(--color-rgb-bright), 0.15);
+            border-color: var(--color-primary-bright);
+        }
+
+        @keyframes shimmerPulse {
+            0%, 100% { opacity: 0.85; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.02); }
+        }
+        .eyebrow-pill { animation: shimmerPulse 4s ease-in-out infinite; }
+
+        /* ============ MEMBERSHIP PAGE SPECIFIC ============ */
+
+        .anchor-offset { scroll-margin-top: 7rem; }
+
+        /* Hero floating stat card */
+        .hero-stat-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(var(--color-rgb-primary), 0.25);
+            border-radius: 1.5rem;
+            padding: 1.25rem 1.5rem;
+            box-shadow: 0 25px 50px -15px rgba(var(--color-rgb-primary), 0.2);
+        }
+        .dark .hero-stat-card {
+            background: rgba(16, 29, 24, 0.85);
+            border-color: rgba(var(--color-rgb-bright), 0.25);
+            box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.6);
+        }
+
+        /* ========== PRICING TIER CARDS ========== */
+        .tier-card {
+            position: relative;
+            border-radius: 2rem;
+            padding: 0.375rem;
+            background: linear-gradient(180deg, rgba(var(--color-rgb-primary), 0.22) 0%, rgba(var(--color-rgb-primary), 0.05) 100%);
+            border: 1px solid rgba(var(--color-rgb-primary), 0.2);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            height: 100%;
+        }
+        .dark .tier-card {
+            background: linear-gradient(180deg, rgba(var(--color-rgb-bright), 0.18) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border-color: rgba(var(--color-rgb-bright), 0.2);
+        }
+        .tier-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 35px 65px -18px rgba(var(--color-rgb-primary), 0.35);
+            border-color: rgba(var(--color-rgb-primary), 0.45);
+        }
+        .dark .tier-card:hover {
+            box-shadow: 0 35px 65px -18px rgba(0, 0, 0, 0.9);
+            border-color: rgba(var(--color-rgb-bright), 0.45);
+        }
+
+        /* Featured tier (middle) - elevated */
+        .tier-card.featured {
+            background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            border-color: var(--color-primary);
+            transform: scale(1.04);
+            z-index: 5;
+            box-shadow: 0 40px 75px -20px rgba(var(--color-rgb-primary), 0.55);
+        }
+        .dark .tier-card.featured {
+            background: linear-gradient(180deg, var(--color-primary) 0%, #0A1310 100%);
+            border-color: var(--color-primary-bright);
+            box-shadow: 0 40px 75px -20px rgba(0, 0, 0, 0.95);
+        }
+        .tier-card.featured:hover {
+            transform: scale(1.04) translateY(-8px);
+            box-shadow: 0 50px 90px -20px rgba(var(--color-rgb-primary), 0.65);
+        }
+        @media (max-width: 1023px) {
+            .tier-card.featured { transform: scale(1); }
+            .tier-card.featured:hover { transform: translateY(-8px); }
+        }
+
+        .tier-inner {
+            border-radius: calc(2rem - 0.375rem);
+            background: #FFFFFF;
+            padding: 1.25rem 1.25rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        .dark .tier-inner {
+            background: #101D18;
+        }
+        .tier-card.featured .tier-inner {
+            background: transparent;
+            color: white;
+        }
+
+        /* Featured badge */
+        .featured-badge {
+            position: absolute;
+            top: -1px;
+            right: 1.5rem;
+            background: linear-gradient(135deg, var(--color-accent), #B88A3A);
+            color: white;
+            padding: 0.5rem 1.15rem;
+            border-radius: 0 0 1rem 1rem;
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+        [dir="rtl"] .featured-badge {
+            right: auto;
+            left: 1.5rem;
+        }
+
+        /* Price display */
+        .price-display {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: -0.03em;
+        }
+
+        /* Feature check list */
+        .tier-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.3rem 0;
+            font-size: 0.83rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.5;
+        }
+        .tier-feature i {
+            margin-top: 0.15rem;
+            font-size: 0.7rem;
+            flex-shrink: 0;
+        }
+        .tier-feature.muted {
+            opacity: 0.45;
+        }
+        .tier-feature.muted i {
+            opacity: 0.5;
+        }
+
+        /* ========== BENEFIT MATRIX ========== */
+        .matrix-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            align-items: center;
+            gap: 0;
+            border-bottom: 1px solid rgba(var(--color-rgb-primary), 0.12);
+        }
+        .dark .matrix-row {
+            border-bottom-color: rgba(var(--color-rgb-bright), 0.12);
+        }
+        .matrix-header {
+            font-weight: 800;
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--color-primary);
+            padding: 1.25rem 0.75rem;
+        }
+        .dark .matrix-header { color: var(--color-primary-bright); }
+        .matrix-cell {
+            padding: 1rem 0.75rem;
+            font-size: 0.85rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* ========== MONTHLY PACKAGE SELECTOR ========== */
+        .package-card {
+            position: relative;
+            border-radius: 1.75rem;
+            padding: 0.3rem;
+            background: linear-gradient(180deg, rgba(var(--color-rgb-primary), 0.18), rgba(var(--color-rgb-primary), 0.04));
+            border: 1px solid rgba(var(--color-rgb-primary), 0.2);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            height: 100%;
+        }
+        .dark .package-card {
+            background: linear-gradient(180deg, rgba(var(--color-rgb-bright), 0.15), rgba(255, 255, 255, 0.02));
+            border-color: rgba(var(--color-rgb-bright), 0.2);
+        }
+        .package-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(var(--color-rgb-primary), 0.5);
+            box-shadow: 0 25px 50px -15px rgba(var(--color-rgb-primary), 0.3);
+        }
+        .dark .package-card:hover {
+            border-color: rgba(var(--color-rgb-bright), 0.5);
+            box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.7);
+        }
+
+        .package-inner {
+            border-radius: calc(1.75rem - 0.3rem);
+            background: white;
+            padding: 1.75rem 1.5rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .dark .package-inner {
+            background: #101D18;
+        }
+
+        /* ========== OFFER CARDS ========== */
+        .offer-card {
+            position: relative;
+            border-radius: 1.75rem;
+            padding: 2rem 1.75rem;
+            background: white;
+            border: 1px solid rgba(var(--color-rgb-primary), 0.15);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .dark .offer-card {
+            background: #101D18;
+            border-color: rgba(var(--color-rgb-bright), 0.15);
+        }
+        .offer-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(var(--color-rgb-primary), 0.4);
+            box-shadow: 0 30px 55px -18px rgba(var(--color-rgb-primary), 0.25);
+        }
+        .dark .offer-card:hover {
+            border-color: rgba(var(--color-rgb-bright), 0.4);
+            box-shadow: 0 30px 55px -18px rgba(0, 0, 0, 0.8);
+        }
+        .offer-card::after {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(var(--color-rgb-primary), 0.12), transparent 70%);
+            pointer-events: none;
+        }
+        .dark .offer-card::after {
+            background: radial-gradient(circle, rgba(var(--color-rgb-bright), 0.15), transparent 70%);
+        }
+
+        /* Discount tag */
+        .discount-tag {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            background: linear-gradient(135deg, var(--color-accent), #B88A3A);
+            color: white;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 0.5rem 0.85rem;
+            border-radius: 0.9rem;
+            box-shadow: 0 8px 20px -6px rgba(212, 168, 87, 0.5);
+            z-index: 2;
+            line-height: 1;
+        }
+        [dir="rtl"] .discount-tag {
+            right: auto;
+            left: 1.25rem;
+        }
+
+        /* ========== JOIN SECTION ========== */
+        .join-banner {
+            position: relative;
+            border-radius: 2.5rem;
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 55%, var(--color-primary-dark) 100%);
+            overflow: hidden;
+            padding: 3.5rem 2rem;
+        }
+        .dark .join-banner {
+            background: linear-gradient(135deg, #0A1310 0%, #16261F 55%, #0A1310 100%);
+        }
+        .join-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(var(--color-rgb-bright), 0.22), transparent 70%);
+            pointer-events: none;
+        }
+        .join-banner::after {
+            content: '';
+            position: absolute;
+            bottom: -60%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(var(--color-rgb-accent), 0.18), transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Step numbers */
+        .step-number {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1.5px solid rgba(255, 255, 255, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-size: 1.35rem;
+            color: white;
+            backdrop-filter: blur(8px);
+            flex-shrink: 0;
+        }
+
+        /* Stat divider */
+        .stat-mini {
+            text-align: center;
+            padding: 0 1rem;
+        }
+        .stat-mini-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            line-height: 1;
+        }
+        .stat-mini-label {
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            opacity: 0.7;
+            margin-top: 0.4rem;
+            font-weight: 700;
+        }
+
+        /* Toggle switch for billing period */
+        .billing-toggle {
+            display: inline-flex;
+            background: rgba(var(--color-rgb-primary), 0.1);
+            border-radius: 9999px;
+            padding: 0.35rem;
+            border: 1px solid rgba(var(--color-rgb-primary), 0.2);
+        }
+        .dark .billing-toggle {
+            background: rgba(var(--color-rgb-bright), 0.1);
+            border-color: rgba(var(--color-rgb-bright), 0.2);
+        }
+        .billing-option {
+            padding: 0.55rem 1.4rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-dark);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            white-space: nowrap;
+        }
+        .dark .billing-option { color: #E6EFEA; }
+        .billing-option.active {
+            background: var(--color-primary);
+            color: white;
+            box-shadow: 0 8px 18px -6px rgba(var(--color-rgb-primary), 0.5);
+        }
+        .dark .billing-option.active {
+            background: var(--color-primary-bright);
+            color: #0A1310;
+        }
+    </style>
+</head>
+
+<body class="bg-bg-warm dark:bg-dark-bg text-neutral-dark dark:text-gray-200 transition-colors duration-400">
+
+    <!-- ========== FLOATING ISLAND HEADER ========== -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 pt-3 sm:pt-4 transition-all duration-300 pointer-events-none">
+        <nav
+            class="max-w-7xl mx-auto pointer-events-auto bg-white/85 dark:bg-[#101D18]/90 backdrop-blur-xl rounded-full px-5 sm:px-7 py-2.5 sm:py-3 border border-spa-sage/25 dark:border-spa-sage-bright/25 shadow-[0_20px_45px_-15px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_45px_-15px_rgba(0,0,0,0.7)] flex items-center justify-between transition-colors duration-400">
+            <a href="index.html" class="flex items-center gap-3 group shrink-0" dir="ltr">
+                <div class="w-10 h-10 bg-gradient-to-br from-spa-sage-light to-spa-sage rounded-2xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:rotate-6 transition duration-300">
+                    <i class="fas fa-spa text-white dark:text-dark-bg text-lg"></i>
+                </div>
+                <div>
+                    <span class="text-lg md:text-2xl font-serif font-bold tracking-wide text-neutral-dark dark:text-white">
+                        Serenity <span class="spa-gradient-text">Spa</span>
+                    </span>
+                </div>
+            </a>
+
+            <div class="hidden xl:flex items-center">
+                <div class="desktop-nav-container">
+                    <div class="flex items-center gap-4 xl:gap-6">
+                        <div class="dropdown">
+                            <button class="nav-item flex items-center gap-1.5">
+                                Home <i class="fas fa-chevron-down text-[9px] opacity-70"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="index.html" class="dropdown-item">Home 1</a>
+                                <a href="home2.html" class="dropdown-item">Home 2</a>
+                            </div>
+                        </div>
+                        <a href="about.html" class="nav-item">About</a>
+                        <a href="treatments.html" class="nav-item">Treatments</a>
+                        <a href="membership.html" class="nav-item active" style="color: var(--color-primary) !important;">Membership</a>
+                        <a href="contact.html" class="nav-item">Contact</a>
+                        <div class="dropdown">
+                            <button class="nav-item flex items-center gap-1.5">
+                                Dashboard <i class="fas fa-chevron-down text-[9px] opacity-70"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="admin.html" class="dropdown-item">Admin Panel</a>
+                                <a href="client.html" class="dropdown-item">Customer Portal</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 ml-4 desktop-toggle-group">
+                        <button id="theme-toggle" class="toggle-btn !w-9 !h-9" title="Toggle Dark/Light Mode">
+                            <i class="fas fa-moon text-sm"></i>
+                            <i class="fas fa-sun text-sm hidden"></i>
+                        </button>
+                        <button id="rtl-toggle" class="toggle-btn !w-9 !h-9 font-serif font-bold text-xs" title="Toggle RTL/LTR">⇄</button>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 ml-2">
+                    <a href="login.html" class="btn-nested !py-2 !px-4 !text-xs group">
+                        <span>Sign In</span>
+                        <span class="icon-circle !w-6 !h-6">
+                            <i class="fas fa-arrow-right text-[10px]"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <button id="mobile-toggle"
+                class="xl:hidden text-neutral-dark dark:text-gray-300 p-2 focus:outline-none hover:text-spa-sage transition-colors"
+                aria-label="Toggle Navigation Menu">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </nav>
+
+        <div id="mobile-menu" class="mobile-menu xl:hidden max-w-7xl mx-auto mt-2 rounded-3xl border border-spa-sage/20 dark:border-spa-sage-bright/25 shadow-2xl overflow-hidden pointer-events-auto">
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-btn flex items-center justify-between w-full mobile-menu-item">
+                    <span>Home</span> <i class="fas fa-chevron-down text-xs"></i>
+                </button>
+                <div class="mobile-dropdown-content">
+                    <a href="index.html" class="mobile-dropdown-item">Home 1</a>
+                    <a href="home2.html" class="mobile-dropdown-item">Home 2</a>
+                </div>
+            </div>
+            <a href="about.html" class="mobile-menu-item">About</a>
+            <a href="treatments.html" class="mobile-menu-item">Treatments</a>
+            <a href="membership.html" class="mobile-menu-item active" style="color: var(--color-primary) !important;">Membership</a>
+            <a href="contact.html" class="mobile-menu-item">Contact</a>
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-btn flex items-center justify-between w-full mobile-menu-item">
+                    <span>Dashboard</span> <i class="fas fa-chevron-down text-xs"></i>
+                </button>
+                <div class="mobile-dropdown-content">
+                    <a href="admin.html" class="mobile-dropdown-item">Admin Panel</a>
+                    <a href="client.html" class="mobile-dropdown-item">Customer Portal</a>
+                </div>
+            </div>
+            <div class="p-5 flex flex-col gap-3">
+                <a href="login.html" class="btn-nested justify-center !py-3 w-full text-center">
+                    <span>Sign In</span>
+                    <span class="icon-circle !w-7 !h-7"><i class="fas fa-arrow-right text-xs"></i></span>
+                </a>
+                <a href="signup.html" class="btn-frosted justify-center w-full">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Create Account</span>
+                </a>
+            </div>
+            <div class="flex justify-center gap-3 p-4 border-t border-gray-100 dark:border-gray-800">
+                <button id="theme-toggle-mobile" class="toggle-btn"><i class="fas fa-moon"></i><i class="fas fa-sun hidden"></i></button>
+                <button id="rtl-toggle-mobile" class="toggle-btn">⇄</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== SECTION 1: HERO – MEMBERSHIP ========== -->
+    <section
+        class="min-h-[auto] lg:min-h-[78vh] flex items-center pt-28 pb-12 sm:pt-32 sm:pb-14 lg:pt-36 lg:pb-20 bg-bg-warm dark:bg-dark-bg overflow-hidden transition-colors duration-400 relative">
+        <!-- Ambient Radial Glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-br from-spa-sage/12 via-spa-sage-bright/8 to-transparent rounded-full blur-3xl pointer-events-none -z-0"></div>
+        <div class="absolute -top-24 right-0 w-96 h-96 bg-spa-sage/10 dark:bg-spa-sage-bright/8 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 relative z-10 w-full">
+            <div class="max-w-4xl mx-auto text-center animate-slide-up">
+                <div
+                    class="eyebrow-pill inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-spa-sage/10 dark:bg-spa-sage-bright/10 border border-spa-sage/25 dark:border-spa-sage-bright/25 mb-6 backdrop-blur-md">
+                    <i class="fas fa-crown text-spa-sage dark:text-spa-sage-bright text-xs"></i>
+                    <span
+                        class="text-[11px] font-bold font-sans dark:text-spa-sage-bright tracking-[0.22em] uppercase">MEMBERSHIP • WELLNESS UNLOCKED</span>
+                </div>
+
+                <h1
+                    class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-neutral-dark dark:text-white leading-[1.08] tracking-tight mb-6">
+                    Your Wellness, <br class="hidden sm:inline">
+                    <span class="spa-gradient-text italic font-serif">Made Affordable.</span>
+                </h1>
+
+                <div class="premium-line mx-auto !my-6"></div>
+
+                <p
+                    class="text-base sm:text-lg lg:text-xl text-neutral-dark/85 dark:text-gray-300 max-w-2xl mx-auto mb-10 font-sans font-light leading-relaxed">
+                    One simple monthly membership. Real savings on every session, priority booking, and member-only rituals you won't find anywhere else.
+                </p>
+
+                <!-- Buttons -->
+                <div class="flex flex-wrap gap-4 mb-12 justify-center items-center">
+                    <a href="#plans" class="btn-nested group">
+                        <span>View Plans</span>
+                        <span class="icon-circle">
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </span>
+                    </a>
+                    <a href="#benefits" class="btn-frosted group">
+                        <i class="fas fa-star text-spa-sage dark:text-spa-sage-bright group-hover:scale-110 transition-transform"></i>
+                        <span>Member Benefits</span>
+                    </a>
+                </div>
+
+                <!-- Trust bar -->
+                <div
+                    class="flex items-center justify-center gap-6 sm:gap-8 text-xs sm:text-sm font-medium text-neutral-dark/80 dark:text-gray-400 font-sans flex-wrap border-t border-spa-sage/15 dark:border-spa-sage-bright/15 pt-8 max-w-2xl mx-auto">
+                    <span class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-spa-sage dark:text-spa-sage-bright text-xs"></i>
+                        No Lock-In Contract
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-spa-sage dark:text-spa-sage-bright text-xs"></i>
+                        Cancel Anytime
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-spa-sage dark:text-spa-sage-bright text-xs"></i>
+                        Rollover Sessions
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 2: MEMBERSHIP PLANS – PRICING TIERS ========== -->
+    <section id="plans" class="anchor-offset py-16 sm:py-24 lg:py-28 bg-white dark:bg-dark-card transition-colors duration-400 border-y border-neutral-light/50 dark:border-gray-800/60 relative overflow-hidden">
+        <!-- Ambient Glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[400px] bg-gradient-to-r from-spa-sage/8 via-spa-sage-bright/8 to-transparent rounded-full blur-3xl pointer-events-none -z-0"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+                <span class="text-spa-sage dark:text-spa-sage-bright font-bold text-xs tracking-[0.25em] font-sans uppercase">CHOOSE YOUR PLAN</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-neutral-dark dark:text-white mt-3 leading-tight">
+                    Membership <span class="spa-gradient-text italic font-serif">Plans</span>
+                </h2>
+                <div class="premium-line mx-auto !my-4"></div>
+                <p class="text-sm sm:text-base opacity-80 font-sans font-light max-w-lg mx-auto leading-relaxed">
+                    Three tiers, one goal: making regular self-care affordable. All plans include rollover sessions and no lock-in contract.
+                </p>
+            </div>
+
+            <!-- Billing toggle -->
+            <div class="flex justify-center mb-12 sm:mb-16">
+                <div class="billing-toggle">
+                    <button type="button" class="billing-option active" data-billing="monthly">Monthly</button>
+                    <button type="button" class="billing-option" data-billing="yearly">Yearly · Save 20%</button>
+                </div>
+            </div>
+
+            <!-- Pricing tiers grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7 max-w-6xl mx-auto items-stretch lg:items-center">
+
+                <!-- TIER 1: Essential -->
+                <div class="tier-card">
+                    <div class="tier-inner">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-spa-sage/12 dark:bg-spa-sage-bright/12 text-spa-sage dark:text-spa-sage-bright flex items-center justify-center text-lg mb-3 border border-spa-sage/20">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <h3 class="font-serif font-bold text-2xl text-neutral-dark dark:text-white mb-1">Essential</h3>
+                            <p class="text-[11px] font-sans uppercase tracking-widest text-spa-sage dark:text-spa-sage-bright font-bold mb-4">For Occasional Self-Care</p>
+
+                            <div class="flex items-baseline gap-1 mb-1">
+                                <span class="price-display text-5xl text-neutral-dark dark:text-white" data-monthly="$59" data-yearly="$47">$59</span>
+                                <span class="text-sm opacity-70 font-sans font-medium">/month</span>
+                            </div>
+                            <p class="text-[11px] font-sans opacity-60 mb-4">Billed monthly, cancel anytime</p>
+
+                            <div class="space-y-0 mb-4">
+                                <div class="tier-feature">
+                                    <i class="fas fa-check text-spa-sage dark:text-spa-sage-bright"></i>
+                                    <span><strong>1 × 60-min</strong> massage per month</span>
+                                </div>
+                                <div class="tier-feature">
+                                    <i class="fas fa-check text-spa-sage dark:text-spa-sage-bright"></i>
+                                    <span>10% off additional sessions</span>
+                                </div>
+                                <div class="tier-feature">
+                                    <i class="fas fa-check text-spa-sage dark:text-spa-sage-bright"></i>
+                                    <span>Rollover up to 2 sessions</span>
+                                </div>
+                                <div class="tier-feature">
+                                    <i class="fas fa-check text-spa-sage dark:text-spa-sage-bright"></i>
+                                    <span>Member-only monthly newsletter</span>
+                                </div>
+                                <div class="tier-feature muted">
+                                    <i class="fas fa-times"></i>
+                                    <span>Priority weekend booking</span>
+                                </div>
+                                <div class="tier-feature muted">
+                                    <i class="fas fa-times"></i>
+                                    <span>Complimentary add-ons</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="signup.html" class="btn-frosted justify-center w-full">
+                            <i class="fas fa-arrow-right"></i>
+                            <span>Get Started</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TIER 2: Balance (FEATURED) -->
+                <div class="tier-card featured">
+                    <div class="featured-badge">
+                        <i class="fas fa-star text-[8px] mr-1"></i> Most Popular
+                    </div>
+                    <div class="tier-inner">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center text-lg mb-3 border border-white/30">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <h3 class="font-serif font-bold text-2xl mb-1">Balance</h3>
+                            <p class="text-[11px] font-sans uppercase tracking-widest opacity-80 font-bold mb-4">Our Best-Selling Plan</p>
+
+                            <div class="flex items-baseline gap-1 mb-1">
+                                <span class="price-display text-5xl" data-monthly="$109" data-yearly="$87">$109</span>
+                                <span class="text-sm opacity-80 font-sans font-medium">/month</span>
+                            </div>
+                            <p class="text-[11px] font-sans opacity-70 mb-4">Billed monthly, cancel anytime</p>
+
+                            <div class="space-y-0 mb-4">
+                                <div class="tier-feature">
+                                    <i class="fas fa-check"></i>
+                                    <span><strong>2 × 60-min</strong> massages per month</span>
+                                </div>
+                                <div class="tier-feature">
+                                    <i class="fas fa-check"></i>
+                                    <span><strong>20% off</strong> additional sessions</span>
+                                </div>
+                                <div class="tier-feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Rollover up to 4 sessions</span>
+                                </div>
+                                <div class="tier-feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Priority weekend booking</span>
+                                </div>
+                                <div class="tier-feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>1 free add-on per month</span>
+                                </div>
+                                <div class="tier-feature muted">
+                                    <i class="fas fa-times"></i>
+                                    <span>Complimentary guest pass</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="signup.html" class="inline-flex items-center justify-center gap-2 w-full bg-white text-neutral-dark px-6 py-4 rounded-full font-bold text-xs font-sans uppercase tracking-widest hover:shadow-2xl transition duration-300">
+                            <i class="fas fa-crown"></i>
+                            <span>Become a Member</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TIER 3: Sanctuary -->
+                <div class="tier-card">
+                    <div class="tier-inner">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-spa-sage/12 dark:bg-spa-sage-bright/12 text-spa-sage dark:text-spa-sage-bright flex items-center justify-center text-lg mb-3 border border-spa-sage/20">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <h3 class="font-serif font-bold text-2xl text-neutral-dark dark:text-white mb-1">Sanctuary</h3>
+                            <p class="text-[11px] font-sans uppercase tracking-widest text-spa-sage dark:text-spa-sage-bright font-bold mb-4">Complete Wellness Access</p>
+
+                            <div class="flex items-baseline gap-1 mb-1">
+                                <span class="price-display text-5xl text-neutral-dark dark:text-white" data-monthly="$189" data-yearly="$151">$189</span>
+                                <span class="text-sm opacity-70 font-sans font-medium">/month</span>
+                            </div>
+                            <p class="text-[11px] font-sans opacity-60 mb-4">Billed monthly, cancel anytime</p>
+
+                            <div class="space-y-0 mb-4">
+                                <div class="tier-feature">
+                                    <i class="fas fa-check text-spa-sage dark:text-spa-sage-bright"></i>
+                                    <span><strong>4 × 60-min</strong> massages per month</span>
+                                </div>
+                                <div class="tier-feature">
+                                    <i class="fas fa-check text-spa-sage dark:text-spa-sage-bright"></i>
+                                    <span><strong>25% off</strong> additional sessions</span>
+                                </div>
+                                <div class="tier-feature">
+                                    <i class="fas fa-check text-spa-sage dark:text-spa-sage-bright"></i>
+                                    <span>Unlimited rollover sessions</span>
+                                </div>
+                                <div class="tier-feature">
+                                    <i class="fas fa-check text-spa-sage dark:text-spa-sage-bright"></i>
+                                    <span>Priority weekend booking</span>
+                                </div>
+                                <div class="tier-feature">
+                                    <i class="fas fa-check text-spa-sage dark:text-spa-sage-bright"></i>
+                                    <span>2 free add-ons per month</span>
+                                </div>
+                                <div class="tier-feature">
+                                    <i class="fas fa-check text-spa-sage dark:text-spa-sage-bright"></i>
+                                    <span>1 complimentary guest pass / quarter</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="signup.html" class="btn-frosted justify-center w-full">
+                            <i class="fas fa-arrow-right"></i>
+                            <span>Get Started</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fine print -->
+            <p class="text-center text-[11px] opacity-60 font-sans mt-10 max-w-2xl mx-auto">
+                <i class="fas fa-info-circle mr-1 text-spa-sage dark:text-spa-sage-bright"></i>
+                All plans auto-renew. Pause or cancel anytime from your account dashboard. Unused rollover sessions expire after 6 months.
+            </p>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 3: MEMBERSHIP BENEFITS – MATRIX COMPARISON ========== -->
+    <section id="benefits" class="anchor-offset py-16 sm:py-24 lg:py-28 bg-bg-warm dark:bg-dark-bg transition-colors duration-400 relative overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-r from-spa-sage/8 via-spa-sage-bright/8 to-transparent rounded-full blur-3xl pointer-events-none -z-0"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-14 sm:mb-18">
+                <span class="eyebrow-pill inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-spa-sage/10 dark:bg-spa-sage-bright/10 border border-spa-sage/25 dark:border-spa-sage-bright/25 mb-4 backdrop-blur-md">
+                    <i class="fas fa-heart text-spa-sage dark:text-spa-sage-bright text-xs"></i>
+                    <span class="text-[10px] sm:text-[11px] font-bold font-sans tracking-[0.25em] uppercase text-spa-sage dark:text-spa-sage-bright">MEMBER BENEFITS</span>
+                </span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-neutral-dark dark:text-white mt-1 leading-tight">
+                    What You <span class="spa-gradient-text italic font-serif">Actually Get</span>
+                </h2>
+                <div class="premium-line mx-auto !my-4"></div>
+                <p class="text-sm sm:text-base opacity-80 font-sans font-light max-w-lg mx-auto leading-relaxed">
+                    A side-by-side look at exactly what each tier unlocks. No fine print, no surprises.
+                </p>
+            </div>
+
+            <!-- Benefit matrix -->
+            <div class="max-w-4xl mx-auto double-bezel-outer">
+                <div class="double-bezel-inner p-5 sm:p-8 lg:p-10 overflow-x-auto">
+                    <div class="min-w-[550px] md:min-w-full">
+                        <!-- Desktop header row -->
+                        <div class="matrix-row !border-b-2 !border-spa-sage/30 dark:!border-spa-sage-bright/30">
+                            <div class="matrix-header !pl-0">Benefit</div>
+                            <div class="matrix-header text-center">Essential</div>
+                            <div class="matrix-header text-center" style="color: var(--color-primary) !important;">Balance</div>
+                            <div class="matrix-header text-center">Sanctuary</div>
+                        </div>
+
+                    <!-- Row 1: Monthly sessions -->
+                    <div class="matrix-row">
+                        <div class="matrix-cell font-sans font-semibold text-neutral-dark dark:text-white flex flex-col sm:block">
+                            <span>Monthly Massage Sessions</span>
+                        </div>
+                        <div class="matrix-cell text-center font-serif font-bold text-lg text-spa-sage dark:text-spa-sage-bright">1</div>
+                        <div class="matrix-cell text-center font-serif font-bold text-lg text-spa-sage dark:text-spa-sage-bright">2</div>
+                        <div class="matrix-cell text-center font-serif font-bold text-lg text-spa-sage dark:text-spa-sage-bright">4</div>
+                    </div>
+
+                    <!-- Row 2: Session discount -->
+                    <div class="matrix-row">
+                        <div class="matrix-cell font-sans font-semibold text-neutral-dark dark:text-white">Session Discount</div>
+                        <div class="matrix-cell text-center font-sans text-sm opacity-85">10%</div>
+                        <div class="matrix-cell text-center font-sans text-sm font-bold text-spa-sage dark:text-spa-sage-bright">20%</div>
+                        <div class="matrix-cell text-center font-sans text-sm opacity-85">25%</div>
+                    </div>
+
+                    <!-- Row 3: Rollover -->
+                    <div class="matrix-row">
+                        <div class="matrix-cell font-sans font-semibold text-neutral-dark dark:text-white">Session Rollover</div>
+                        <div class="matrix-cell text-center font-sans text-sm opacity-85">Up to 2</div>
+                        <div class="matrix-cell text-center font-sans text-sm opacity-85">Up to 4</div>
+                        <div class="matrix-cell text-center font-sans text-sm font-bold text-spa-sage dark:text-spa-sage-bright">Unlimited</div>
+                    </div>
+
+                    <!-- Row 4: Priority booking -->
+                    <div class="matrix-row">
+                        <div class="matrix-cell font-sans font-semibold text-neutral-dark dark:text-white">Priority Weekend Booking</div>
+                        <div class="matrix-cell text-center">
+                            <i class="fas fa-times-circle text-lg opacity-30"></i>
+                        </div>
+                        <div class="matrix-cell text-center">
+                            <i class="fas fa-check-circle text-lg text-spa-sage dark:text-spa-sage-bright"></i>
+                        </div>
+                        <div class="matrix-cell text-center">
+                            <i class="fas fa-check-circle text-lg text-spa-sage dark:text-spa-sage-bright"></i>
+                        </div>
+                    </div>
+
+                    <!-- Row 5: Free add-ons -->
+                    <div class="matrix-row">
+                        <div class="matrix-cell font-sans font-semibold text-neutral-dark dark:text-white">Complimentary Add-Ons</div>
+                        <div class="matrix-cell text-center">
+                            <i class="fas fa-times-circle text-lg opacity-30"></i>
+                        </div>
+                        <div class="matrix-cell text-center font-sans text-sm opacity-85">1 / month</div>
+                        <div class="matrix-cell text-center font-sans text-sm opacity-85">2 / month</div>
+                    </div>
+
+                    <!-- Row 6: Guest pass -->
+                    <div class="matrix-row">
+                        <div class="matrix-cell font-sans font-semibold text-neutral-dark dark:text-white">Guest Passes</div>
+                        <div class="matrix-cell text-center">
+                            <i class="fas fa-times-circle text-lg opacity-30"></i>
+                        </div>
+                        <div class="matrix-cell text-center">
+                            <i class="fas fa-times-circle text-lg opacity-30"></i>
+                        </div>
+                        <div class="matrix-cell text-center font-sans text-sm opacity-85">1 / quarter</div>
+                    </div>
+
+                    <!-- Row 7: Member events -->
+                    <div class="matrix-row">
+                        <div class="matrix-cell font-sans font-semibold text-neutral-dark dark:text-white">Member-Only Events</div>
+                        <div class="matrix-cell text-center">
+                            <i class="fas fa-times-circle text-lg opacity-30"></i>
+                        </div>
+                        <div class="matrix-cell text-center">
+                            <i class="fas fa-check-circle text-lg text-spa-sage dark:text-spa-sage-bright"></i>
+                        </div>
+                        <div class="matrix-cell text-center">
+                            <i class="fas fa-check-circle text-lg text-spa-sage dark:text-spa-sage-bright"></i>
+                        </div>
+                    </div>
+
+                    <!-- Row 8: Birthday ritual -->
+                    <div class="matrix-row !border-b-0">
+                        <div class="matrix-cell font-sans font-semibold text-neutral-dark dark:text-white">Birthday Ritual Gift</div>
+                        <div class="matrix-cell text-center font-sans text-xs opacity-60">—</div>
+                        <div class="matrix-cell text-center font-sans text-xs opacity-60">—</div>
+                        <div class="matrix-cell text-center font-sans text-xs font-bold text-spa-sage dark:text-spa-sage-bright">60-min free</div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA below matrix -->
+            <div class="text-center mt-12">
+                <a href="#join" class="btn-nested group">
+                    <span>Start Your Membership</span>
+                    <span class="icon-circle">
+                        <i class="fas fa-arrow-right text-xs"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 4: MONTHLY PACKAGES – ALTERNATE OPTIONS ========== -->
+    <section class="py-16 sm:py-24 lg:py-28 bg-white dark:bg-dark-card transition-colors duration-400 border-y border-neutral-light/50 dark:border-gray-800/60 relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-14 sm:mb-18">
+                <span class="text-spa-sage dark:text-spa-sage-bright font-bold text-xs tracking-[0.25em] font-sans uppercase">PREFER A PACKAGE?</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-neutral-dark dark:text-white mt-3 leading-tight">
+                    Monthly <span class="spa-gradient-text italic font-serif">Packages</span>
+                </h2>
+                <div class="premium-line mx-auto !my-4"></div>
+                <p class="text-sm sm:text-base opacity-80 font-sans font-light max-w-lg mx-auto leading-relaxed">
+                    Not ready for a recurring membership? Purchase a one-time monthly package — no auto-renewal, no commitment.
+                </p>
+            </div>
+
+            <!-- Package cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7 max-w-5xl mx-auto">
+                <!-- Package 1 -->
+                <div class="package-card">
+                    <div class="package-inner">
+                        <div class="flex items-start justify-between mb-5">
+                            <div class="w-11 h-11 rounded-xl bg-spa-sage/12 dark:bg-spa-sage-bright/12 text-spa-sage dark:text-spa-sage-bright flex items-center justify-center border border-spa-sage/20">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-spa-sage dark:text-spa-sage-bright bg-spa-sage/10 dark:bg-spa-sage-bright/10 px-2.5 py-1 rounded-full border border-spa-sage/20">Starter</span>
+                        </div>
+                        <h3 class="font-serif font-bold text-xl text-neutral-dark dark:text-white mb-1">3-Session Pack</h3>
+                        <p class="text-[11px] font-sans opacity-70 mb-5">Perfect for a monthly reset</p>
+
+                        <div class="flex items-baseline gap-1 mb-1">
+                            <span class="price-display text-4xl text-neutral-dark dark:text-white">$249</span>
+                        </div>
+                        <p class="text-[11px] font-sans opacity-60 mb-6 line-through">Regular $285 · Save $36</p>
+
+                        <ul class="space-y-2 mb-6 text-xs font-sans opacity-85">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-spa-sage dark:text-spa-sage-bright text-[10px]"></i> 3 × 60-min massages</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-spa-sage dark:text-spa-sage-bright text-[10px]"></i> Valid for 3 months</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-spa-sage dark:text-spa-sage-bright text-[10px]"></i> Shareable with family</li>
+                        </ul>
+
+                        <a href="contact.html" class="btn-frosted justify-center w-full mt-auto !py-3 !text-[11px]">
+                            <span>Buy Package</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Package 2 (highlighted) -->
+                <div class="package-card" style="background: linear-gradient(180deg, var(--color-primary), var(--color-primary-dark)); border-color: var(--color-primary);">
+                    <div class="package-inner" style="background: transparent;">
+                        <div class="flex items-start justify-between mb-5">
+                            <div class="w-11 h-11 rounded-xl bg-white/20 text-white flex items-center justify-center border border-white/30">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-white bg-white/20 px-2.5 py-1 rounded-full border border-white/30">Best Value</span>
+                        </div>
+                        <h3 class="font-serif font-bold text-xl text-white mb-1">6-Session Pack</h3>
+                        <p class="text-[11px] font-sans text-white/80 mb-5">For consistent weekly care</p>
+
+                        <div class="flex items-baseline gap-1 mb-1">
+                            <span class="price-display text-4xl text-white">$459</span>
+                        </div>
+                        <p class="text-[11px] font-sans text-white/70 mb-6 line-through">Regular $570 · Save $111</p>
+
+                        <ul class="space-y-2 mb-6 text-xs font-sans text-white/90">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-white text-[10px]"></i> 6 × 60-min massages</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-white text-[10px]"></i> Valid for 6 months</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-white text-[10px]"></i> Shareable with family</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-white text-[10px]"></i> Priority weekend booking</li>
+                        </ul>
+
+                        <a href="contact.html" class="inline-flex items-center justify-center gap-2 w-full bg-white text-neutral-dark px-6 py-3 rounded-full font-bold text-[11px] font-sans uppercase tracking-widest hover:shadow-2xl transition duration-300 mt-auto">
+                            <span>Buy Package</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="package-card">
+                    <div class="package-inner">
+                        <div class="flex items-start justify-between mb-5">
+                            <div class="w-11 h-11 rounded-xl bg-spa-sage/12 dark:bg-spa-sage-bright/12 text-spa-sage dark:text-spa-sage-bright flex items-center justify-center border border-spa-sage/20">
+                                <i class="fas fa-boxes"></i>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-spa-sage dark:text-spa-sage-bright bg-spa-sage/10 dark:bg-spa-sage-bright/10 px-2.5 py-1 rounded-full border border-spa-sage/20">Ultimate</span>
+                        </div>
+                        <h3 class="font-serif font-bold text-xl text-neutral-dark dark:text-white mb-1">12-Session Pack</h3>
+                        <p class="text-[11px] font-sans opacity-70 mb-5">Deepest savings for regulars</p>
+
+                        <div class="flex items-baseline gap-1 mb-1">
+                            <span class="price-display text-4xl text-neutral-dark dark:text-white">$849</span>
+                        </div>
+                        <p class="text-[11px] font-sans opacity-60 mb-6 line-through">Regular $1,140 · Save $291</p>
+
+                        <ul class="space-y-2 mb-6 text-xs font-sans opacity-85">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-spa-sage dark:text-spa-sage-bright text-[10px]"></i> 12 × 60-min massages</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-spa-sage dark:text-spa-sage-bright text-[10px]"></i> Valid for 12 months</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-spa-sage dark:text-spa-sage-bright text-[10px]"></i> Shareable with family</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-spa-sage dark:text-spa-sage-bright text-[10px]"></i> Priority weekend booking</li>
+                        </ul>
+
+                        <a href="contact.html" class="btn-frosted justify-center w-full mt-auto !py-3 !text-[11px]">
+                            <span>Buy Package</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 5: EXCLUSIVE OFFERS – STACKED DECK ========== -->
+    <section class="py-16 sm:py-24 lg:py-28 bg-bg-warm dark:bg-dark-bg transition-colors duration-400 relative overflow-hidden">
+        <div class="absolute -top-24 left-0 w-96 h-96 bg-spa-sage/8 dark:bg-spa-sage-bright/8 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-14 sm:mb-18">
+                <span class="eyebrow-pill inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-spa-sage/10 dark:bg-spa-sage-bright/10 border border-spa-sage/25 dark:border-spa-sage-bright/25 mb-4 backdrop-blur-md">
+                    <i class="fas fa-tags text-spa-sage dark:text-spa-sage-bright text-xs"></i>
+                    <span class="text-[10px] sm:text-[11px] font-bold font-sans tracking-[0.25em] uppercase text-spa-sage dark:text-spa-sage-bright">LIMITED-TIME</span>
+                </span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-neutral-dark dark:text-white mt-1 leading-tight">
+                    Exclusive <span class="spa-gradient-text italic font-serif">Offers</span>
+                </h2>
+                <div class="premium-line mx-auto !my-4"></div>
+                <p class="text-sm sm:text-base opacity-80 font-sans font-light max-w-lg mx-auto leading-relaxed">
+                    Time-sensitive perks for new and returning members. Each one stacks with your existing plan discount.
+                </p>
+            </div>
+
+            <!-- Offers grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-7 max-w-5xl mx-auto">
+
+                <!-- Offer 1 -->
+                <div class="offer-card group">
+                    <div class="discount-tag">50% OFF</div>
+                    <div class="w-12 h-12 rounded-2xl bg-spa-sage/12 dark:bg-spa-sage-bright/12 text-spa-sage dark:text-spa-sage-bright flex items-center justify-center text-lg mb-5 border border-spa-sage/20">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-2xl text-neutral-dark dark:text-white mb-2">First Month, Half Price</h3>
+                    <p class="text-xs sm:text-sm opacity-80 leading-relaxed font-sans mb-5 flex-1">
+                        New to Serenity? Your first month on any membership plan is 50% off — automatically applied at checkout. No promo code needed.
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-spa-sage/15 dark:border-gray-800">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-spa-sage dark:text-spa-sage-bright">New Members Only</span>
+                        <span class="w-1 h-1 rounded-full bg-spa-sage/40"></span>
+                        <span class="text-[10px] font-sans opacity-60">Auto-applied</span>
+                    </div>
+                </div>
+
+                <!-- Offer 2 -->
+                <div class="offer-card group">
+                    <div class="discount-tag">+1 FREE</div>
+                    <div class="w-12 h-12 rounded-2xl bg-spa-sage/12 dark:bg-spa-sage-bright/12 text-spa-sage dark:text-spa-sage-bright flex items-center justify-center text-lg mb-5 border border-spa-sage/20">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-2xl text-neutral-dark dark:text-white mb-2">Refer a Friend, Both Win</h3>
+                    <p class="text-xs sm:text-sm opacity-80 leading-relaxed font-sans mb-5 flex-1">
+                        When your friend joins any membership tier, you both get a free 60-minute massage added to your account. No limit on referrals.
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-spa-sage/15 dark:border-gray-800">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-spa-sage dark:text-spa-sage-bright">Unlimited Referrals</span>
+                        <span class="w-1 h-1 rounded-full bg-spa-sage/40"></span>
+                        <span class="text-[10px] font-sans opacity-60">Both parties</span>
+                    </div>
+                </div>
+
+                <!-- Offer 3 -->
+                <div class="offer-card group">
+                    <div class="discount-tag">+15%</div>
+                    <div class="w-12 h-12 rounded-2xl bg-spa-sage/12 dark:bg-spa-sage-bright/12 text-spa-sage dark:text-spa-sage-bright flex items-center justify-center text-lg mb-5 border border-spa-sage/20">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-2xl text-neutral-dark dark:text-white mb-2">Annual Prepay Bonus</h3>
+                    <p class="text-xs sm:text-sm opacity-80 leading-relaxed font-sans mb-5 flex-1">
+                        Prepay your membership for 12 months and get an extra 15% off on top of the yearly discount — that's 35% off in total.
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-spa-sage/15 dark:border-gray-800">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-spa-sage dark:text-spa-sage-bright">Stackable</span>
+                        <span class="w-1 h-1 rounded-full bg-spa-sage/40"></span>
+                        <span class="text-[10px] font-sans opacity-60">Yearly plans only</span>
+                    </div>
+                </div>
+
+                <!-- Offer 4 -->
+                <div class="offer-card group">
+                    <div class="discount-tag">FREE</div>
+                    <div class="w-12 h-12 rounded-2xl bg-spa-sage/12 dark:bg-spa-sage-bright/12 text-spa-sage dark:text-spa-sage-bright flex items-center justify-center text-lg mb-5 border border-spa-sage/20">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-2xl text-neutral-dark dark:text-white mb-2">Birthday Ritual Gift</h3>
+                    <p class="text-xs sm:text-sm opacity-80 leading-relaxed font-sans mb-5 flex-1">
+                        Sanctuary members receive a complimentary 60-minute signature massage during their birthday month — our gift to you.
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-spa-sage/15 dark:border-gray-800">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-spa-sage dark:text-spa-sage-bright">Sanctuary Tier</span>
+                        <span class="w-1 h-1 rounded-full bg-spa-sage/40"></span>
+                        <span class="text-[10px] font-sans opacity-60">Every year</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Small note -->
+            <p class="text-center text-[11px] opacity-60 font-sans mt-10 max-w-2xl mx-auto">
+                <i class="fas fa-clock mr-1 text-spa-sage dark:text-spa-sage-bright"></i>
+                Offers are subject to availability and may be updated seasonally. Current offers valid through the end of the quarter.
+            </p>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 6: JOIN OUR MEMBERSHIP – FINAL CTA ========== -->
+    <section id="join" class="anchor-offset py-16 sm:py-20 lg:py-24 bg-white dark:bg-dark-card transition-colors duration-400 border-t border-neutral-light/50 dark:border-gray-800/60">
+        <div class="container mx-auto px-6">
+            <div class="join-banner max-w-6xl mx-auto">
+                <div class="relative z-10 grid lg:grid-cols-12 gap-10 items-center">
+                    <!-- Left: Copy -->
+                    <div class="lg:col-span-7 text-center lg:text-left">
+                        <span class="text-white/75 font-bold text-[10px] tracking-[0.25em] font-sans uppercase">JOIN OUR MEMBERSHIP</span>
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white mt-3 mb-5 leading-tight">
+                            Start Feeling Better <span class="italic">This Month.</span>
+                        </h2>
+                        <p class="text-sm sm:text-base text-white/85 font-sans font-light leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
+                            Three simple steps. No contracts. No pressure. Just consistent, affordable self-care that actually changes how you feel.
+                        </p>
+
+                        <!-- Steps -->
+                        <div class="space-y-5 max-w-md mx-auto lg:mx-0">
+                            <div class="flex items-start gap-4 text-left">
+                                <div class="step-number">1</div>
+                                <div>
+                                    <h4 class="font-serif font-bold text-white text-lg mb-1">Pick Your Plan</h4>
+                                    <p class="text-xs text-white/75 font-sans leading-relaxed">Choose Essential, Balance, or Sanctuary based on how often you want to be treated.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 text-left">
+                                <div class="step-number">2</div>
+                                <div>
+                                    <h4 class="font-serif font-bold text-white text-lg mb-1">Create Your Account</h4>
+                                    <p class="text-xs text-white/75 font-sans leading-relaxed">Sign up in under 60 seconds. Add your payment method securely. First month is 50% off.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 text-left">
+                                <div class="step-number">3</div>
+                                <div>
+                                    <h4 class="font-serif font-bold text-white text-lg mb-1">Book & Relax</h4>
+                                    <p class="text-xs text-white/75 font-sans leading-relaxed">Log into your member portal, pick a time, and let us handle the rest. Cancel anytime.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Action card -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-white/95 dark:bg-[#101D18]/95 backdrop-blur-xl rounded-3xl p-7 sm:p-8 shadow-2xl border border-white/30 dark:border-spa-sage-bright/25">
+                            <div class="flex items-center gap-3 mb-5">
+                                <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-spa-sage to-spa-sage-dark text-white flex items-center justify-center shadow-md">
+                                    <i class="fas fa-crown"></i>
+                                </div>
+                                <div>
+                                    <div class="font-serif font-bold text-lg text-neutral-dark dark:text-white leading-none">Ready When You Are</div>
+                                    <div class="text-[10px] font-sans uppercase tracking-widest text-spa-sage dark:text-spa-sage-bright font-bold mt-1">Takes 60 seconds</div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-3 mb-6 pt-5 border-t border-spa-sage/15 dark:border-gray-800">
+                                <div class="flex items-center gap-3 text-xs font-sans">
+                                    <i class="fas fa-check-circle text-spa-sage dark:text-spa-sage-bright"></i>
+                                    <span class="text-neutral-dark dark:text-gray-200">No lock-in contract</span>
+                                </div>
+                                <div class="flex items-center gap-3 text-xs font-sans">
+                                    <i class="fas fa-check-circle text-spa-sage dark:text-spa-sage-bright"></i>
+                                    <span class="text-neutral-dark dark:text-gray-200">Cancel or pause anytime</span>
+                                </div>
+                                <div class="flex items-center gap-3 text-xs font-sans">
+                                    <i class="fas fa-check-circle text-spa-sage dark:text-spa-sage-bright"></i>
+                                    <span class="text-neutral-dark dark:text-gray-200">Secure payment processing</span>
+                                </div>
+                                <div class="flex items-center gap-3 text-xs font-sans">
+                                    <i class="fas fa-check-circle text-spa-sage dark:text-spa-sage-bright"></i>
+                                    <span class="text-neutral-dark dark:text-gray-200">Manage everything in your portal</span>
+                                </div>
+                            </div>
+
+                            <div class="space-y-3">
+                                <a href="signup.html" class="btn-nested justify-center w-full">
+                                    <span>Create Membership</span>
+                                    <span class="icon-circle">
+                                        <i class="fas fa-arrow-right text-xs"></i>
+                                    </span>
+                                </a>
+                                <a href="contact.html" class="btn-frosted justify-center w-full">
+                                    <i class="fas fa-comments"></i>
+                                    <span>Talk to Us First</span>
+                                </a>
+                            </div>
+
+                            <p class="text-[10px] text-center opacity-60 font-sans mt-5">
+                                Already a member? <a href="login.html" class="text-spa-sage dark:text-spa-sage-bright font-bold underline">Sign in to your portal</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="py-20 bg-white dark:bg-[#0A1310] transition-colors duration-400">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="text-center md:text-start">
+                    <a href="index.html" class="flex items-center justify-center md:justify-start gap-3 mb-5 group shrink-0" dir="ltr">
+                        <div class="w-10 h-10 bg-gradient-to-br from-spa-sage-light to-spa-sage rounded-2xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:rotate-6 transition duration-300">
+                            <i class="fas fa-spa text-white dark:text-dark-bg text-lg"></i>
+                        </div>
+                        <div>
+                            <span class="text-lg md:text-2xl font-serif font-bold tracking-wide text-neutral-dark dark:text-white">
+                                Serenity <span class="spa-gradient-text">Spa</span>
+                            </span>
+                        </div>
+                    </a>
+                    <p class="text-sm opacity-80 mb-6 leading-relaxed font-sans">Luxury massage & wellness therapy center. Your sanctuary for deep rest, recovery, and renewal.</p>
+                    <div class="flex justify-center md:justify-start gap-4">
+                        <a href="#" class="social-icon text-sm" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon text-sm" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon text-sm" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="text-center md:text-start">
+                    <h3 class="text-neutral-dark dark:text-white text-lg font-serif font-bold mb-6">Quick Navigation</h3>
+                    <ul class="space-y-3.5 text-sm font-sans">
+                        <li><a href="index.html" class="hover:text-spa-sage dark:hover:text-spa-sage-bright transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-spa-sage dark:hover:text-spa-sage-bright transition">About</a></li>
+                        <li><a href="treatments.html" class="hover:text-spa-sage dark:hover:text-spa-sage-bright transition">Treatments</a></li>
+                        <li><a href="membership.html" class="hover:text-spa-sage dark:hover:text-spa-sage-bright transition">Membership</a></li>
+                        <li><a href="contact.html" class="hover:text-spa-sage dark:hover:text-spa-sage-bright transition">Contact & Booking</a></li>
+                    </ul>
+                </div>
+                <div class="text-center md:text-start">
+                    <h3 class="text-neutral-dark dark:text-white text-lg font-serif font-bold mb-6">Our Treatments</h3>
+                    <ul class="space-y-3.5 text-sm font-sans">
+                        <li><a href="treatments.html#relaxation" class="hover:text-spa-sage dark:hover:text-spa-sage-bright transition">Relaxation Massage</a></li>
+                        <li><a href="treatments.html#deep-tissue" class="hover:text-spa-sage dark:hover:text-spa-sage-bright transition">Deep Tissue Massage</a></li>
+                        <li><a href="treatments.html#aromatherapy" class="hover:text-spa-sage dark:hover:text-spa-sage-bright transition">Aromatherapy Massage</a></li>
+                        <li><a href="treatments.html#hot-stone" class="hover:text-spa-sage dark:hover:text-spa-sage-bright transition">Hot Stone Therapy</a></li>
+                        <li><a href="treatments.html#benefits" class="hover:text-spa-sage dark:hover:text-spa-sage-bright transition">Treatment Benefits</a></li>
+                    </ul>
+                </div>
+                <div class="text-center md:text-start">
+                    <h3 class="text-neutral-dark dark:text-white text-lg font-serif font-bold mb-6">Studio Location</h3>
+                    <ul class="space-y-3 text-sm mb-6 font-sans">
+                        <li class="flex items-center justify-center md:justify-start gap-3">
+                            <i class="fas fa-map-marker-alt text-spa-sage dark:text-spa-sage-bright w-4"></i>
+                            <span dir="ltr">12 Wellness Boulevard, Suite 300</span>
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start gap-3">
+                            <i class="fas fa-phone text-spa-sage dark:text-spa-sage-bright w-4"></i>
+                            <span dir="ltr">+1 (800) 555-0199</span>
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start gap-3">
+                            <i class="fas fa-envelope text-spa-sage dark:text-spa-sage-bright w-4"></i>
+                            <span dir="ltr">hello@serenityspa.com</span>
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start gap-3">
+                            <i class="fas fa-clock text-spa-sage dark:text-spa-sage-bright w-4"></i>
+                            <span dir="ltr">Mon-Sun: 8AM - 8PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-spa-sage/15 dark:border-spa-sage-bright/15 mt-14 pt-8 text-center">
+                <p class="text-sm opacity-90 font-sans" dir="ltr">© 2026 Serenity Spa & Massage Therapy Center. All rights reserved.</p>
+                <p class="text-xs opacity-75 mt-2 font-serif italic text-spa-sage dark:text-spa-sage-bright">Restore • Renew • Rebalance</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.documentElement.setAttribute('data-theme', 'serene-sage');
+
+            // ========== Theme Toggle ==========
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle?.querySelector('.fa-moon');
+            const themeIconSun = themeToggle?.querySelector('.fa-sun');
+            const mobileThemeToggle = document.getElementById('theme-toggle-mobile');
+            const mobileThemeIcon = mobileThemeToggle?.querySelector('.fa-moon');
+            const mobileThemeIconSun = mobileThemeToggle?.querySelector('.fa-sun');
+
+            function setTheme(isDark) {
+                if (isDark) {
+                    document.documentElement.classList.add('dark');
+                    if (themeIcon) themeIcon.classList.add('hidden');
+                    if (themeIconSun) themeIconSun.classList.remove('hidden');
+                    if (themeToggle) themeToggle.classList.add('active');
+                    if (mobileThemeIcon) mobileThemeIcon.classList.add('hidden');
+                    if (mobileThemeIconSun) mobileThemeIconSun.classList.remove('hidden');
+                    if (mobileThemeToggle) mobileThemeToggle.classList.add('active');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    if (themeIcon) themeIcon.classList.remove('hidden');
+                    if (themeIconSun) themeIconSun.classList.add('hidden');
+                    if (themeToggle) themeToggle.classList.remove('active');
+                    if (mobileThemeIcon) mobileThemeIcon.classList.remove('hidden');
+                    if (mobileThemeIconSun) mobileThemeIconSun.classList.add('hidden');
+                    if (mobileThemeToggle) mobileThemeToggle.classList.remove('active');
+                    localStorage.setItem('theme', 'light');
+                }
+            }
+
+            function toggleTheme() {
+                setTheme(!document.documentElement.classList.contains('dark'));
+            }
+
+            if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+            if (mobileThemeToggle) mobileThemeToggle.addEventListener('click', toggleTheme);
+            setTheme(localStorage.getItem('theme') === 'dark');
+
+            // ========== RTL Toggle ==========
+            const rtlToggle = document.getElementById('rtl-toggle');
+            const mobileRtlToggle = document.getElementById('rtl-toggle-mobile');
+
+            function toggleRTL() {
+                if (document.documentElement.dir === 'rtl') {
+                    document.documentElement.dir = 'ltr';
+                    document.documentElement.lang = 'en';
+                    if (rtlToggle) { rtlToggle.textContent = '⇄'; rtlToggle.classList.remove('active'); }
+                    if (mobileRtlToggle) { mobileRtlToggle.textContent = '⇄'; mobileRtlToggle.classList.remove('active'); }
+                    localStorage.setItem('dir', 'ltr');
+                } else {
+                    document.documentElement.dir = 'rtl';
+                    document.documentElement.lang = 'ar';
+                    if (rtlToggle) { rtlToggle.textContent = '⇄'; rtlToggle.classList.add('active'); }
+                    if (mobileRtlToggle) { mobileRtlToggle.textContent = '⇄'; mobileRtlToggle.classList.add('active'); }
+                    localStorage.setItem('dir', 'rtl');
+                }
+            }
+
+            if (rtlToggle) rtlToggle.addEventListener('click', toggleRTL);
+            if (mobileRtlToggle) mobileRtlToggle.addEventListener('click', toggleRTL);
+
+            if (localStorage.getItem('dir') === 'rtl') {
+                document.documentElement.dir = 'rtl';
+                document.documentElement.lang = 'ar';
+                if (rtlToggle) { rtlToggle.textContent = '⇄'; rtlToggle.classList.add('active'); }
+                if (mobileRtlToggle) { mobileRtlToggle.textContent = '⇄'; mobileRtlToggle.classList.add('active'); }
+            }
+
+            // ========== Mobile Menu ==========
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileToggleIcon = document.querySelector('#mobile-toggle i');
+
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', () => {
+                    const isOpening = !mobileMenu.classList.contains('open');
+                    if (isOpening) {
+                        mobileMenu.classList.add('open');
+                        mobileToggleIcon.classList.remove('fa-bars');
+                        mobileToggleIcon.classList.add('fa-times');
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        mobileMenu.classList.remove('open');
+                        mobileToggleIcon.classList.remove('fa-times');
+                        mobileToggleIcon.classList.add('fa-bars');
+                        document.body.style.overflow = '';
+                        document.querySelectorAll('.mobile-dropdown-content').forEach(c => c.classList.remove('show'));
+                    }
+                });
+            }
+
+            document.querySelectorAll('.mobile-dropdown-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const dropdown = e.target.closest('.mobile-dropdown');
+                    const content = dropdown.querySelector('.mobile-dropdown-content');
+                    const icon = dropdown.querySelector('.fa-chevron-down');
+                    const isOpening = !content.classList.contains('show');
+                    content.classList.toggle('show');
+                    icon.style.transform = content.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0deg)';
+                    if (isOpening) {
+                        document.querySelectorAll('.mobile-dropdown-content').forEach(other => {
+                            if (other !== content) {
+                                other.classList.remove('show');
+                                const otherIcon = other.parentElement.querySelector('.fa-chevron-down');
+                                if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+                            }
+                        });
+                    }
+                });
+            });
+
+            // ========== Billing Toggle (Monthly / Yearly price switch) ==========
+            const billingOptions = document.querySelectorAll('.billing-option');
+            const priceDisplays = document.querySelectorAll('.price-display[data-monthly]');
+
+            billingOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    const billing = option.getAttribute('data-billing');
+
+                    billingOptions.forEach(o => o.classList.remove('active'));
+                    option.classList.add('active');
+
+                    priceDisplays.forEach(price => {
+                        if (billing === 'yearly') {
+                            price.textContent = price.getAttribute('data-yearly');
+                        } else {
+                            price.textContent = price.getAttribute('data-monthly');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

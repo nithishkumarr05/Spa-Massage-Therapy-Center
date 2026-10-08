@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-theme="serene-sage">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portal | Serenity Spa — Massage Therapy & Wellness</title>
+<link rel="icon" type="image/svg+xml" href="Assets/massage.png">
+
+    <!-- Tailwind CSS -->
+    <script src="tailwind.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'spa-sage': 'rgba(var(--color-rgb-primary), <alpha-value>)',
+                        'spa-sage-light': 'rgba(var(--color-rgb-light), <alpha-value>)',
+                        'spa-sage-dark': 'rgba(var(--color-rgb-dark), <alpha-value>)',
+                        'spa-sage-bright': 'rgba(var(--color-rgb-bright), <alpha-value>)',
+                        'spa-accent': 'rgba(var(--color-rgb-accent), <alpha-value>)',
+                        'bg-warm': 'var(--color-bg-warm)',
+                        'neutral-dark': 'rgba(20, 32, 27, <alpha-value>)',
+                        'neutral-light': '#E8F0EC',
+                        'dark-bg': '#0A1310',
+                        'dark-card': '#101D18',
+                        'dark-surface': '#16261F',
+                    },
+                    fontFamily: {
+                        'sans': ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        'serif': ['Cormorant Garamond', 'serif'],
+                        'display': ['Cormorant Garamond', 'Outfit', 'serif'],
+                        'premium': ['Cormorant Garamond', 'Outfit', 'serif'],
+                        'alt': ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'fade-in': 'fadeIn 0.3s ease-out',
+                        'pulse-glow': 'pulseGlow 3s infinite',
+                        'float-slow': 'floatSlow 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        slideUp: { '0%': { transform: 'translateY(30px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        pulseGlow: { '0%, 100%': { opacity: '0.6' }, '50%': { opacity: '1' } },
+                        floatSlow: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-8px)' } },
+                    }
+                }
+            }
+        };
+    </script>
+    <script>
+        if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+        if (localStorage.getItem('dir') === 'rtl') { document.documentElement.dir = 'rtl'; document.documentElement.lang = 'ar'; }
+    </script>
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root, [data-theme="serene-sage"] {
+            --color-primary: #5B8C7B;
+            --color-primary-light: #8FB8A8;
+            --color-primary-dark: #3D6355;
+            --color-primary-bright: #C2DDD1;
+            --color-accent: #D4A857;
+            --color-bg-warm: #F7FAF8;
+            --color-text-dark: #14201B;
+            --color-rgb-primary: 91, 140, 123;
+            --color-rgb-light: 143, 184, 168;
+            --color-rgb-dark: 61, 99, 85;
+            --color-rgb-bright: 194, 221, 209;
+            --color-rgb-accent: 212, 168, 87;
+        }
+
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--color-bg-warm); color: var(--color-text-dark); transition: background-color 0.4s ease, color 0.4s ease; }
+        .dark body { background-color: #0A1310; color: #E6EFEA; }
+        h1,h2,h3,h4,h5,h6 { font-family: 'Cormorant Garamond', 'Outfit', serif; font-weight: 700; letter-spacing: -0.015em; }
+        .spa-gradient-text {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .dark .spa-gradient-text {
+            background: linear-gradient(135deg, var(--color-primary-bright) 0%, var(--color-primary-light) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .dark .text-spa-sage { color: var(--color-primary-bright) !important; }
+        .dark .border-spa-sage { border-color: var(--color-primary-bright) !important; }
+        .dark .bg-spa-sage { background-color: var(--color-primary-bright) !important; }
+        body::-webkit-scrollbar { display: none; }
+        body { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0; top: 0; height: 100vh;
+            width: 280px;
+            background: #FFFFFF;
+            border-right: 1px solid rgba(var(--color-rgb-primary), 0.12);
+            transition: transform 0.3s ease;
+            z-index: 100;
+            overflow-y: auto;
+        }
+        .dark .sidebar { background: #0A1310; border-right-color: rgba(var(--color-rgb-bright), 0.15); }
+        @media (max-width: 768px) { .sidebar { transform: translateX(-100%); } .sidebar.open { transform: translateX(0); } }
+        .sidebar-overlay { position: fixed; top:0;left:0;right:0;bottom:0; background: rgba(0,0,0,0.5); z-index:99; display:none; }
+        .sidebar-overlay.open { display:block; }
+
+        .sidebar-item {
+            display: flex; align-items: center; gap: 0.75rem;
+            padding: 0.85rem 1.5rem; margin: 0.25rem 0.75rem;
+            border-radius: 12px; color: var(--color-text-dark);
+            transition: all 0.2s; cursor: pointer;
+            font-weight: 500; font-size: 0.92rem;
+        }
+        .dark .sidebar-item { color: #E6EFEA; }
+        .sidebar-item:hover { background: rgba(var(--color-rgb-primary), 0.08); color: var(--color-primary); }
+        .dark .sidebar-item:hover { background: rgba(var(--color-rgb-bright), 0.12); color: var(--color-primary-bright); }
+        .sidebar-item.active { background: var(--color-primary); color: #FFFFFF; }
+        .dark .sidebar-item.active { background: var(--color-primary-bright); color: #0A1310; }
+        .sidebar-item i { width: 24px; font-size: 1.1rem; }
+
+        .main-content { margin-left: 280px; padding: 1.5rem; min-height: 100vh; }
+        @media (max-width: 768px) { .main-content { margin-left: 0; padding-top: 70px; } }
+
+        .mobile-header {
+            display: none; position: fixed; top:0;left:0;right:0;
+            background: #FFFFFF; padding: 0.75rem 1rem;
+            border-bottom: 1px solid rgba(var(--color-rgb-primary), 0.12);
+            z-index: 50; align-items: center; justify-content: space-between;
+        }
+        .dark .mobile-header { background: #0A1310; border-bottom-color: rgba(var(--color-rgb-bright), 0.15); }
+        @media (max-width: 768px) { .mobile-header { display: flex; } }
+
+        .toggle-btn {
+            width: 36px; height: 36px; border-radius: 10px;
+            background: rgba(var(--color-rgb-primary), 0.08);
+            color: var(--color-text-dark); display: inline-flex;
+            align-items: center; justify-content: center; cursor: pointer;
+            transition: all 0.2s; border: none;
+        }
+        .dark .toggle-btn { background: rgba(var(--color-rgb-bright), 0.12); color: #E6EFEA; }
+        .toggle-btn:hover { background: var(--color-primary); color: #FFFFFF; }
+        .dark .toggle-btn:hover { background: var(--color-primary-bright); color: #0A1310; }
+
+        .card-design {
+            background: #FFFFFF; border-radius: 28px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(var(--color-rgb-primary), 0.12);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+        }
+        .dark .card-design { background: #101D18; border-color: rgba(var(--color-rgb-bright), 0.15); }
+        .card-design:hover { border-color: var(--color-primary); }
+
+        .btn-primary-design {
+            background: var(--color-primary); color: #FFFFFF;
+            font-weight: 700; border-radius: 60px; transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(var(--color-rgb-primary), 0.3);
+            white-space: nowrap; border: none;
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; vertical-align: middle;
+        }
+        .btn-primary-design:hover { background: var(--color-primary-dark); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(var(--color-rgb-primary), 0.4); color: #FFFFFF; }
+        .dark .btn-primary-design { background: var(--color-primary-bright); color: #0A1310; }
+        .dark .btn-primary-design:hover { background: var(--color-primary); color: #FFFFFF; }
+
+        .btn-outline-design {
+            border: 1.5px solid var(--color-primary); color: var(--color-primary);
+            background: transparent; border-radius: 60px; font-weight: 600;
+            transition: all 0.3s; white-space: nowrap;
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; vertical-align: middle;
+        }
+        .btn-outline-design:hover { background: var(--color-primary); color: #FFFFFF; transform: translateY(-2px); }
+        .dark .btn-outline-design { border-color: var(--color-primary-bright); color: var(--color-primary-bright); }
+        .dark .btn-outline-design:hover { background: var(--color-primary-bright); color: #0A1310; }
+
+        .stat-card {
+            background: #FFFFFF; border-radius: 20px; padding: 1.2rem;
+            border: 1px solid rgba(var(--color-rgb-primary), 0.12);
+            transition: all 0.3s;
+        }
+        .dark .stat-card { background: #101D18; border-color: rgba(var(--color-rgb-bright), 0.15); }
+        .stat-card:hover { transform: translateY(-3px); border-color: var(--color-primary); }
+
+        .status-badge {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 0.25rem 0.75rem; border-radius: 40px; font-size: 0.7rem;
+            font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase;
+            white-space: nowrap; flex-shrink: 0; line-height: 1.2;
+        }
+        .status-requested { background: #FFF3E0; color: #E65100; }
+        .status-confirmed { background: #E8F5E9; color: #1B5E20; }
+        .status-completed { background: #E8F5E9; color: #1B5E20; }
+        .status-pending { background: #FFF3E0; color: #E65100; }
+        .status-paid { background: #E8F5E9; color: #1B5E20; }
+        .status-active { background: #E8F5E9; color: #1B5E20; }
+        .status-today { background: #E1F5FE; color: #01579B; }
+        .status-upcoming { background: #F3E5F5; color: #6A1B9A; }
+        .status-expiring { background: #FFEBEE; color: #C62828; }
+        .dark .status-requested { background: #E65100; color: #FFCC80; }
+        .dark .status-confirmed { background: #1B5E20; color: #A5D6A7; }
+        .dark .status-completed { background: #1B5E20; color: #A5D6A7; }
+        .dark .status-pending { background: #E65100; color: #FFCC80; }
+        .dark .status-paid { background: #1B5E20; color: #A5D6A7; }
+        .dark .status-active { background: #1B5E20; color: #A5D6A7; }
+        .dark .status-today { background: #01579B; color: #81D4FA; }
+        .dark .status-upcoming { background: #4A148C; color: #CE93D8; }
+        .dark .status-expiring { background: #B71C1C; color: #EF9A9A; }
+
+        .form-input {
+            width: 100%; padding: 0.75rem 1rem;
+            border-radius: 16px; border: 1.5px solid rgba(var(--color-rgb-primary), 0.2);
+            background: #FFFFFF; transition: all 0.3s;
+            color: var(--color-text-dark); font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .dark .form-input { background: #0A1310; border-color: rgba(var(--color-rgb-bright), 0.2); color: #E6EFEA; }
+        .form-input:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 4px rgba(var(--color-rgb-primary), 0.15); }
+        .form-label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.4rem; color: var(--color-text-dark); }
+        .dark .form-label { color: #E6EFEA; }
+
+        input[type="date"], input[type="time"] {
+            color-scheme: light;
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator,
+        input[type="time"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            opacity: 0.85;
+            transition: opacity 0.2s ease;
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator:hover,
+        input[type="time"]::-webkit-calendar-picker-indicator:hover {
+            opacity: 1;
+        }
+        .dark input[type="date"],
+        .dark input[type="time"] {
+            color-scheme: dark !important;
+        }
+        .dark input[type="date"]::-webkit-calendar-picker-indicator,
+        .dark input[type="time"]::-webkit-calendar-picker-indicator {
+            filter: none !important;
+            opacity: 1 !important;
+        }
+
+        .progress-bar { height: 8px; background: rgba(var(--color-rgb-primary), 0.12); border-radius: 10px; overflow: hidden; }
+        .dark .progress-bar { background: rgba(var(--color-rgb-bright), 0.15); }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light)); border-radius: 10px; transition: width 0.6s ease; }
+        .dark .progress-fill { background: linear-gradient(90deg, var(--color-primary-bright), var(--color-primary)); }
+
+        .page-content.hidden { display: none; }
+        .session-card { transition: all 0.3s; cursor: pointer; }
+        .session-card:hover { transform: translateY(-2px); border-color: var(--color-primary); }
+
+        /* Therapist selection card */
+        .therapist-card {
+            position: relative;
+            border-radius: 20px;
+            padding: 1rem;
+            border: 2px solid rgba(var(--color-rgb-primary), 0.12);
+            background: white;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .dark .therapist-card { background: #101D18; border-color: rgba(var(--color-rgb-bright), 0.15); }
+        .therapist-card:hover { border-color: var(--color-primary); transform: translateY(-3px); box-shadow: 0 10px 25px -8px rgba(var(--color-rgb-primary), 0.3); }
+        .therapist-card.selected { border-color: var(--color-primary); background: rgba(var(--color-rgb-primary), 0.08); box-shadow: 0 10px 25px -8px rgba(var(--color-rgb-primary), 0.3); }
+        .dark .therapist-card.selected { border-color: var(--color-primary-bright); background: rgba(var(--color-rgb-bright), 0.08); }
+        .therapist-avatar {
+            width: 64px; height: 64px; border-radius: 50%;
+            margin: 0 auto 0.6rem;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.5rem;
+            color: white;
+            border: 3px solid white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .dark .therapist-avatar { border-color: #101D18; }
+
+        /* Treatment slot chips */
+        .slot-chip {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 0.65rem 1rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            border: 1.5px solid rgba(var(--color-rgb-primary), 0.2);
+            background: rgba(255, 255, 255, 0.6);
+            color: var(--color-text-dark);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .dark .slot-chip { background: rgba(16, 29, 24, 0.6); border-color: rgba(var(--color-rgb-bright), 0.2); color: #E6EFEA; }
+        .slot-chip:hover { border-color: var(--color-primary); color: var(--color-primary); }
+        .dark .slot-chip:hover { border-color: var(--color-primary-bright); color: var(--color-primary-bright); }
+        .slot-chip input { display: none; }
+        .slot-chip:has(input:checked) {
+            background: var(--color-primary); border-color: var(--color-primary); color: white;
+            box-shadow: 0 8px 18px -6px rgba(var(--color-rgb-primary), 0.5);
+        }
+        .dark .slot-chip:has(input:checked) { background: var(--color-primary-bright); border-color: var(--color-primary-bright); color: #0A1310; }
+        .slot-chip.disabled { opacity: 0.4; cursor: not-allowed; }
+        .slot-chip.disabled:hover { border-color: rgba(var(--color-rgb-primary), 0.2); color: var(--color-text-dark); }
+
+        /* Membership usage ring */
+        .usage-ring {
+            position: relative; width: 120px; height: 120px; margin: 0 auto;
+        }
+        .usage-ring svg { transform: rotate(-90deg); }
+        .usage-ring .ring-bg { fill: none; stroke: rgba(var(--color-rgb-primary), 0.12); stroke-width: 10; }
+        .dark .usage-ring .ring-bg { stroke: rgba(var(--color-rgb-bright), 0.15); }
+        .usage-ring .ring-fill { fill: none; stroke: url(#usageGradient); stroke-width: 10; stroke-linecap: round; transition: stroke-dashoffset 0.8s ease; }
+        .usage-ring .ring-content {
+            position: absolute; inset: 0;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+
+        /* Session history timeline */
+        .history-item {
+            display: flex; gap: 1rem; padding: 1rem 0;
+            border-bottom: 1px dashed rgba(var(--color-rgb-primary), 0.15);
+        }
+        .dark .history-item { border-bottom-color: rgba(var(--color-rgb-bright), 0.15); }
+        .history-item:last-child { border-bottom: none; }
+        .history-dot {
+            width: 12px; height: 12px; border-radius: 50%;
+            background: var(--color-primary); flex-shrink: 0; margin-top: 6px;
+            box-shadow: 0 0 0 4px rgba(var(--color-rgb-primary), 0.15);
+        }
+        .dark .history-dot { background: var(--color-primary-bright); box-shadow: 0 0 0 4px rgba(var(--color-rgb-bright), 0.15); }
+
+        /* RTL support */
+        [dir="rtl"] .sidebar { left: auto; right: 0; border-right: none; border-left: 1px solid rgba(var(--color-rgb-primary), 0.12); }
+        [dir="rtl"] .main-content { margin-left: 0; margin-right: 280px; }
+        [dir="rtl"] .sidebar-item i { margin-right: 0; margin-left: 0.75rem; }
+        @media (max-width: 768px) {
+            [dir="rtl"] .sidebar { transform: translateX(100%); }
+            [dir="rtl"] .sidebar.open { transform: translateX(0); }
+            [dir="rtl"] .main-content { margin-right: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Mobile Header -->
+    <div class="mobile-header">
+        <div class="flex items-center gap-3">
+            <button id="menuToggle" class="toggle-btn"><i class="fas fa-bars"></i></button>
+            <a href="index.html" class="flex items-center gap-2 group shrink-0" dir="ltr">
+                <div class="w-8 h-8 bg-gradient-to-br from-spa-sage-light to-spa-sage rounded-xl flex items-center justify-center">
+                    <i class="fas fa-spa text-white dark:text-dark-bg text-sm"></i>
+                </div>
+                <span class="text-lg font-serif font-bold text-neutral-dark dark:text-white tracking-wide">Serenity <span class="spa-gradient-text">Spa</span></span>
+            </a>
+        </div>
+        <div class="flex gap-2">
+            <button id="theme-toggle-mobile" class="toggle-btn"><i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:inline"></i></button>
+            <button id="rtl-toggle-mobile" class="toggle-btn"><i class="fas fa-exchange-alt"></i></button>
+        </div>
+    </div>
+
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="p-5 border-b border-[rgba(var(--color-rgb-primary),0.12)] dark:border-[rgba(var(--color-rgb-bright),0.15)]">
+            <a href="index.html" class="flex items-center gap-3 group" dir="ltr">
+                <div class="w-10 h-10 bg-gradient-to-br from-spa-sage-light to-spa-sage rounded-xl flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-spa text-white dark:text-dark-bg text-lg"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-serif font-bold text-neutral-dark dark:text-white tracking-wide">Serenity <span class="spa-gradient-text">Spa</span></span>
+                    <p class="text-[10px] uppercase tracking-widest text-neutral-dark/60 dark:text-gray-400 font-sans mt-0.5">Member Portal</p>
+                </div>
+            </a>
+        </div>
+        <nav class="py-4">
+            <div class="sidebar-item active" data-page="dashboard"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></div>
+            <div class="sidebar-item" data-page="book"><i class="fas fa-calendar-plus"></i><span>Book a Session</span></div>
+            <div class="sidebar-item" data-page="sessions"><i class="fas fa-calendar-check"></i><span>My Sessions</span></div>
+            <div class="sidebar-item" data-page="therapists"><i class="fas fa-user-md"></i><span>My Therapists</span></div>
+            <div class="sidebar-item" data-page="history"><i class="fas fa-history"></i><span>Treatment History</span></div>
+            <div class="sidebar-item" data-page="membership"><i class="fas fa-crown"></i><span>My Membership</span></div>
+            <div class="sidebar-item" data-page="messages"><i class="fas fa-comments"></i><span>Messages</span></div>
+        </nav>
+        <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-[rgba(var(--color-rgb-primary),0.12)] dark:border-[rgba(var(--color-rgb-bright),0.15)]">
+            <a href="login.html" class="flex items-center justify-center gap-2 w-full p-2.5 rounded-xl bg-[rgba(var(--color-rgb-primary),0.08)] hover:bg-spa-sage transition font-semibold text-sm text-neutral-dark dark:text-gray-200 hover:text-white">
+                <i class="fas fa-sign-out-alt"></i><span>Sign Out</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="card-design p-4 md:p-6 flex justify-between items-center flex-wrap gap-3 mb-6">
+            <div>
+                <h1 class="text-2xl font-serif font-bold" id="page-title">Dashboard</h1>
+                <p class="text-sm text-neutral-dark/60 dark:text-gray-400" id="page-subtitle">Welcome back, Sophia</p>
+            </div>
+            <div class="hidden lg:flex items-center gap-4">
+                <button id="theme-toggle" class="toggle-btn"><i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:inline"></i></button>
+                <button id="rtl-toggle" class="toggle-btn"><i class="fas fa-exchange-alt"></i></button>
+                <div class="flex items-center gap-3 border-l border-[rgba(var(--color-rgb-primary),0.12)] dark:border-[rgba(var(--color-rgb-bright),0.15)] pl-4">
+                    <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-spa-sage shadow-sm shrink-0 bg-spa-sage flex items-center justify-center">
+                        <span class="text-white font-serif font-bold text-sm">SR</span>
+                    </div>
+                    <div class="text-left hidden lg:block">
+                        <p class="text-sm font-bold text-neutral-dark dark:text-white leading-tight">Sophia Reyes</p>
+                        <p class="text-[10px] text-neutral-dark/60 dark:text-gray-400 uppercase tracking-wider">Balance Member · Since 2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== DASHBOARD ========== -->
+        <div id="page-dashboard" class="page-content">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <div class="stat-card flex flex-col h-full">
+                    <div class="flex justify-between h-full gap-2">
+                        <div class="flex flex-col h-full">
+                            <p class="text-xs text-neutral-dark/60 dark:text-gray-400 mb-1">Upcoming Sessions</p>
+                            <div class="mt-auto">
+                                <p class="text-2xl font-bold text-neutral-dark dark:text-white font-serif">2</p>
+                            </div>
+                        </div>
+                        <div class="w-10 h-10 bg-[rgba(var(--color-rgb-primary),0.08)] dark:bg-[rgba(var(--color-rgb-bright),0.12)] rounded-full flex items-center justify-center shrink-0"><i class="fas fa-calendar-check text-spa-sage dark:text-spa-sage-bright text-base"></i></div>
+                    </div>
+                </div>
+                <div class="stat-card flex flex-col h-full">
+                    <div class="flex justify-between h-full gap-2">
+                        <div class="flex flex-col h-full">
+                            <p class="text-xs text-neutral-dark/60 dark:text-gray-400 mb-1">Sessions Left</p>
+                            <div class="mt-auto">
+                                <p class="text-2xl font-bold text-neutral-dark dark:text-white font-serif">3<span class="text-sm font-sans font-medium opacity-60">/4</span></p>
+                            </div>
+                        </div>
+                        <div class="w-10 h-10 bg-[rgba(var(--color-rgb-primary),0.08)] dark:bg-[rgba(var(--color-rgb-bright),0.12)] rounded-full flex items-center justify-center shrink-0"><i class="fas fa-spa text-spa-sage dark:text-spa-sage-bright text-base"></i></div>
+                    </div>
+                </div>
+                <div class="stat-card flex flex-col h-full">
+                    <div class="flex justify-between h-full gap-2">
+                        <div class="flex flex-col h-full">
+                            <p class="text-xs text-neutral-dark/60 dark:text-gray-400 mb-1">Lifetime Sessions</p>
+                            <div class="mt-auto">
+                                <p class="text-2xl font-bold text-neutral-dark dark:text-white font-serif">34</p>
+                            </div>
+                        </div>
+                        <div class="w-10 h-10 bg-[rgba(var(--color-rgb-primary),0.08)] dark:bg-[rgba(var(--color-rgb-bright),0.12)] rounded-full flex items-center justify-center shrink-0"><i class="fas fa-history text-spa-sage dark:text-spa-sage-bright text-base"></i></div>
+                    </div>
+                </div>
+                <div class="stat-card flex flex-col h-full">
+                    <div class="flex justify-between h-full gap-2">
+                        <div class="flex flex-col h-full">
+                            <p class="text-xs text-neutral-dark/60 dark:text-gray-400 mb-1">Member Savings</p>
+                            <div class="mt-auto">
+                                <p class="text-2xl font-bold text-neutral-dark dark:text-white font-serif">$680</p>
+                            </div>
+                        </div>
+                        <div class="w-10 h-10 bg-[rgba(var(--color-rgb-primary),0.08)] dark:bg-[rgba(var(--color-rgb-bright),0.12)] rounded-full flex items-center justify-center shrink-0"><i class="fas fa-piggy-bank text-spa-sage dark:text-spa-sage-bright text-base"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                <!-- Membership status card -->
+                <div class="card-design p-6 lg:col-span-2">
+                    <div class="flex flex-wrap justify-between items-start gap-3 mb-4">
+                        <div>
+                            <h3 class="font-serif font-bold text-xl">Balance Membership</h3>
+                            <p class="text-xs text-neutral-dark/60 dark:text-gray-400 mt-0.5">Renews Jun 15, 2026 · $109/month</p>
+                        </div>
+                        <span class="status-badge status-active">Active</span>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-6">
+                        <!-- Usage ring -->
+                        <div class="usage-ring">
+                            <svg width="120" height="120" viewBox="0 0 120 120">
+                                <defs>
+                                    <linearGradient id="usageGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#5B8C7B"/>
+                                        <stop offset="100%" stop-color="#8FB8A8"/>
+                                    </linearGradient>
+                                </defs>
+                                <circle class="ring-bg" cx="60" cy="60" r="50"/>
+                                <circle class="ring-fill" cx="60" cy="60" r="50" stroke-dasharray="314.15" stroke-dashoffset="78.5"/>
+                            </svg>
+                            <div class="ring-content">
+                                <div class="font-serif font-bold text-2xl text-neutral-dark dark:text-white leading-none">3<span class="text-base opacity-60">/4</span></div>
+                                <div class="text-[9px] font-bold uppercase tracking-widest opacity-60 mt-1">Used</div>
+                            </div>
+                        </div>
+                        <div class="flex-1 min-w-[200px]">
+                            <div class="space-y-2.5">
+                                <div class="flex items-center justify-between text-sm">
+                                    <span class="text-neutral-dark/70 dark:text-gray-400">Sessions used this month</span>
+                                    <span class="font-bold">1 of 2</span>
+                                </div>
+                                <div class="flex items-center justify-between text-sm">
+                                    <span class="text-neutral-dark/70 dark:text-gray-400">Rollover sessions</span>
+                                    <span class="font-bold">2</span>
+                                </div>
+                                <div class="flex items-center justify-between text-sm">
+                                    <span class="text-neutral-dark/70 dark:text-gray-400">Member discount</span>
+                                    <span class="font-bold text-spa-sage dark:text-spa-sage-bright">20% off</span>
+                                </div>
+                                <div class="flex items-center justify-between text-sm">
+                                    <span class="text-neutral-dark/70 dark:text-gray-400">Free add-ons left</span>
+                                    <span class="font-bold">1</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5 flex flex-wrap gap-2">
+                        <button data-nav="membership" class="btn-outline-design px-4 py-2 text-xs">Manage Membership</button>
+                        <button data-nav="book" class="btn-primary-design px-4 py-2 text-xs"><i class="fas fa-plus"></i> Book Next Session</button>
+                    </div>
+                </div>
+
+                <!-- Next appointment -->
+                <div class="card-design p-6">
+                    <h3 class="font-serif font-bold text-xl mb-4">Next Appointment</h3>
+                    <div class="text-center py-3">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-spa-sage to-spa-sage-dark text-white flex items-center justify-center mx-auto mb-3 shadow-lg">
+                            <i class="fas fa-hands text-2xl"></i>
+                        </div>
+                        <p class="font-serif font-bold text-lg text-neutral-dark dark:text-white leading-tight">Deep Tissue Massage</p>
+                        <p class="text-xs text-neutral-dark/60 dark:text-gray-400 mt-1">with Elena Vasquez</p>
+                        <div class="inline-flex items-center gap-2 mt-3 px-3 py-1.5 rounded-full bg-[rgba(var(--color-rgb-primary),0.1)] dark:bg-[rgba(var(--color-rgb-bright),0.12)] text-spa-sage dark:text-spa-sage-bright">
+                            <i class="fas fa-calendar text-xs"></i>
+                            <span class="text-xs font-bold">Fri, Oct 12 · 3:00 PM</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-[rgba(var(--color-rgb-primary),0.08)] dark:border-[rgba(var(--color-rgb-bright),0.1)] flex gap-2">
+                        <button class="btn-outline-design flex-1 px-3 py-2 text-xs">Reschedule</button>
+                        <button class="btn-primary-design flex-1 px-3 py-2 text-xs">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Recent history -->
+                <div class="card-design p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="font-serif font-bold text-xl">Recent Sessions</h3>
+                        <button data-nav="history" class="text-xs font-bold text-spa-sage dark:text-spa-sage-bright hover:underline">View All →</button>
+                    </div>
+                    <div>
+                        <div class="history-item">
+                            <div class="history-dot"></div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start gap-2">
+                                    <div class="min-w-0">
+                                        <p class="font-semibold text-sm">Relaxation Massage</p>
+                                        <p class="text-xs text-neutral-dark/60 dark:text-gray-400">with Marcus Chen · 60 min</p>
+                                    </div>
+                                    <span class="text-xs text-neutral-dark/60">Sep 28</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="history-item">
+                            <div class="history-dot"></div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start gap-2">
+                                    <div class="min-w-0">
+                                        <p class="font-semibold text-sm">Deep Tissue Massage</p>
+                                        <p class="text-xs text-neutral-dark/60 dark:text-gray-400">with Elena Vasquez · 90 min</p>
+                                    </div>
+                                    <span class="text-xs text-neutral-dark/60">Sep 14</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="history-item">
+                            <div class="history-dot"></div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start gap-2">
+                                    <div class="min-w-0">
+                                        <p class="font-semibold text-sm">Aromatherapy Massage</p>
+                                        <p class="text-xs text-neutral-dark/60 dark:text-gray-400">with Marcus Chen · 60 min</p>
+                                    </div>
+                                    <span class="text-xs text-neutral-dark/60">Aug 30</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick actions -->
+                <div class="card-design p-6">
+                    <h3 class="font-serif font-bold text-xl mb-4">Quick Actions</h3>
+                    <div class="space-y-3">
+                        <button data-nav="book" class="w-full text-left px-4 py-3 bg-[rgba(var(--color-rgb-primary),0.08)] dark:bg-[rgba(var(--color-rgb-bright),0.1)] text-neutral-dark dark:text-white rounded-xl hover:bg-[rgba(var(--color-rgb-primary),0.2)] transition flex items-center gap-3">
+                            <i class="fas fa-plus-circle text-spa-sage"></i><span>Book a New Session</span>
+                        </button>
+                        <button data-nav="therapists" class="w-full text-left px-4 py-3 bg-[rgba(var(--color-rgb-primary),0.08)] dark:bg-[rgba(var(--color-rgb-bright),0.1)] text-neutral-dark dark:text-white rounded-xl hover:bg-[rgba(var(--color-rgb-primary),0.2)] transition flex items-center gap-3">
+                            <i class="fas fa-user-md text-spa-sage"></i><span>View My Therapists</span>
+                        </button>
+                        <button data-nav="membership" class="w-full text-left px-4 py-3 bg-[rgba(var(--color-rgb-primary),0.08)] dark:bg-[rgba(var(--color-rgb-bright),0.1)] text-neutral-dark dark:text-white rounded-xl hover:bg-[rgba(var(--color-rgb-primary),0.2)] transition flex items-center gap-3">
+                            <i class="fas fa-crown text-spa-sage"></i><span>View Membership Details</span>
+                        </button>
+                        <button data-nav="history" class="w-full text-left px-4 py-3 bg-[rgba(var(--color-rgb-primary),0.08)] dark:bg-[rgba(var(--color-rgb-bright),0.1)] text-neutral-dark dark:text-white rounded-xl hover:bg-[rgba(var(--color-rgb-primary),0.2)] transition flex items-center gap-3">
+                            <i class="fas fa-history text-spa-sage"></i><span>Treatment History</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== BOOK A SESSION ========== -->
+        <div id="page-book" class="page-content hidden">
+            <div class="card-design p-6">
+                <h3 class="font-serif font-bold text-2xl mb-1">Book a New Session</h3>
+                <p class="text-sm text-neutral-dark/60 dark:text-gray-400 mb-6">Choose your treatment, therapist, and preferred time slot. We'll confirm within 2 hours.</p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Left: Form -->
+                    <div class="lg:col-span-2 space-y-5">
+                        <!-- Treatment type -->
+                        <div>
+                            <label class="form-label">Select Treatment</label>
+                            <select class="form-input">
+                                <option>Relaxation Massage · 60 min · $85</option>
+                                <option selected>Deep Tissue Massage · 90 min · $120</option>
+                                <option>Aromatherapy Massage · 60 min · $95</option>
+                                <option>Hot Stone Therapy · 90 min · $110</option>
+                                <option>Prenatal Massage · 60 min · $95</option>
+                                <option>Lymphatic Drainage · 75 min · $110</option>
+                            </select>
+                        </div>
+
+                        <!-- Therapist preference -->
+                        <div>
+                            <label class="form-label">Therapist Preference</label>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                                <div class="therapist-card selected" data-therapist="elena">
+                                    <div class="therapist-avatar" style="background: linear-gradient(135deg, #5B8C7B, #3D6355);">EV</div>
+                                    <p class="text-xs font-bold text-neutral-dark dark:text-white leading-tight">Elena Vasquez</p>
+                                    <p class="text-[10px] text-neutral-dark/60 dark:text-gray-400 mt-auto pt-1">Deep Tissue · Sports</p>
+                                </div>
+                                <div class="therapist-card" data-therapist="marcus">
+                                    <div class="therapist-avatar" style="background: linear-gradient(135deg, #D4A857, #B88A3A);">MC</div>
+                                    <p class="text-xs font-bold text-neutral-dark dark:text-white leading-tight">Marcus Chen</p>
+                                    <p class="text-[10px] text-neutral-dark/60 dark:text-gray-400 mt-auto pt-1">Relaxation · Prenatal</p>
+                                </div>
+                                <div class="therapist-card" data-therapist="maya">
+                                    <div class="therapist-avatar" style="background: linear-gradient(135deg, #8FB8A8, #5B8C7B);">MP</div>
+                                    <p class="text-xs font-bold text-neutral-dark dark:text-white leading-tight">Maya Patel</p>
+                                    <p class="text-[10px] text-neutral-dark/60 dark:text-gray-400 mt-auto pt-1">Aromatherapy · Hot Stone</p>
+                                </div>
+                                <div class="therapist-card" data-therapist="any">
+                                    <div class="therapist-avatar" style="background: linear-gradient(135deg, #C2DDD1, #8FB8A8); color: #3D6355;"><i class="fas fa-shuffle"></i></div>
+                                    <p class="text-xs font-bold text-neutral-dark dark:text-white leading-tight">Any Available</p>
+                                    <p class="text-[10px] text-neutral-dark/60 dark:text-gray-400 mt-auto pt-1">Fastest booking</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Date -->
+                        <div class="grid sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="form-label">Preferred Date</label>
+                                <input type="date" class="form-input" value="2026-10-15">
+                            </div>
+                            <div>
+                                <label class="form-label">Duration</label>
+                                <select class="form-input">
+                                    <option>60 minutes</option>
+                                    <option selected>90 minutes</option>
+                                    <option>75 minutes</option>
+                                    <option>120 minutes</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Time slot -->
+                        <div>
+                            <label class="form-label">Preferred Time Slot</label>
+                            <div class="grid grid-cols-3 sm:grid-cols-4 gap-2.5">
+                                <label class="slot-chip"><input type="radio" name="slot" value="morning"><span>8:00 AM</span></label>
+                                <label class="slot-chip"><input type="radio" name="slot" value="9am"><span>9:00 AM</span></label>
+                                <label class="slot-chip"><input type="radio" name="slot" value="10am"><span>10:00 AM</span></label>
+                                <label class="slot-chip"><input type="radio" name="slot" value="11am"><span>11:00 AM</span></label>
+                                <label class="slot-chip"><input type="radio" name="slot" value="12pm"><span>12:00 PM</span></label>
+                                <label class="slot-chip"><input type="radio" name="slot" value="1pm"><span>1:00 PM</span></label>
+                                <label class="slot-chip"><input type="radio" name="slot" value="2pm"><span>2:00 PM</span></label>
+                                <label class="slot-chip"><input type="radio" name="slot" value="3pm" checked><span>3:00 PM</span></label>
+                                <label class="slot-chip"><input type="radio" name="slot" value="4pm"><span>4:00 PM</span></label>
+                                <label class="slot-chip"><input type="radio" name="slot" value="5pm"><span>5:00 PM</span></label>
+                                <label class="slot-chip disabled"><input type="radio" name="slot" value="6pm" disabled><span>6:00 PM</span></label>
+                                <label class="slot-chip"><input type="radio" name="slot" value="7pm"><span>7:00 PM</span></label>
+                            </div>
+                            <p class="text-[11px] opacity-60 font-sans mt-2"><i class="fas fa-info-circle mr-1 text-spa-sage dark:text-spa-sage-bright"></i>Grayed-out slots are already booked. Choose another time.</p>
+                        </div>
+
+                        <!-- Notes -->
+                        <div>
+                            <label class="form-label">Notes for Your Therapist</label>
+                            <textarea class="form-input" rows="3" placeholder="Any injuries, pressure preferences, allergies, or focus areas…"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Right: Summary -->
+                    <div class="lg:col-span-1">
+                        <div class="sticky top-6">
+                            <div class="card-design p-5 bg-[rgba(var(--color-rgb-primary),0.04)] dark:bg-[rgba(var(--color-rgb-bright),0.05)]">
+                                <h4 class="font-serif font-bold text-lg mb-4">Booking Summary</h4>
+                                <div class="space-y-3 text-sm">
+                                    <div class="flex justify-between gap-3">
+                                        <span class="text-neutral-dark/60 dark:text-gray-400 shrink-0">Treatment</span>
+                                        <span class="font-semibold text-right">Deep Tissue Massage</span>
+                                    </div>
+                                    <div class="flex justify-between gap-3">
+                                        <span class="text-neutral-dark/60 dark:text-gray-400 shrink-0">Therapist</span>
+                                        <span class="font-semibold text-right">Elena Vasquez</span>
+                                    </div>
+                                    <div class="flex justify-between gap-3">
+                                        <span class="text-neutral-dark/60 dark:text-gray-400 shrink-0">Duration</span>
+                                        <span class="font-semibold text-right">90 minutes</span>
+                                    </div>
+                                    <div class="flex justify-between gap-3">
+                                        <span class="text-neutral-dark/60 dark:text-gray-400 shrink-0">Date & Time</span>
+                                        <span class="font-semibold text-right">Oct 15 · 3:00 PM</span>
+                                    </div>
+                                    <div class="border-t border-[rgba(var(--color-rgb-primary),0.15)] dark:border-[rgba(var(--color-rgb-bright),0.15)] pt-3 mt-3">
+                                        <div class="flex justify-between gap-3">
+                                            <span class="text-neutral-dark/60 dark:text-gray-400 shrink-0">Session price</span>
+                                            <span class="font-semibold text-right">$120.00</span>
+                                        </div>
+                                        <div class="flex justify-between gap-3 mt-1.5">
+                                            <span class="text-spa-sage dark:text-spa-sage-bright font-semibold shrink-0">Member discount (20%)</span>
+                                            <span class="text-spa-sage dark:text-spa-sage-bright font-bold text-right whitespace-nowrap">−$24.00</span>
+                                        </div>
+                                        <div class="flex justify-between gap-3 mt-3 pt-3 border-t border-[rgba(var(--color-rgb-primary),0.15)] dark:border-[rgba(var(--color-rgb-bright),0.15)]">
+                                            <span class="font-serif font-bold text-base shrink-0">Total</span>
+                                            <span class="font-serif font-bold text-xl text-spa-sage dark:text-spa-sage-bright text-right whitespace-nowrap">$96.00</span>
+                                        </div>
+                                        <p class="text-[11px] text-neutral-dark/60 dark:text-gray-400 mt-2">Will be deducted from your membership balance.</p>
+                                    </div>
+                                </div>
+                                <button class="btn-primary-design w-full mt-5 py-3 text-sm"><i class="fas fa-check"></i> Confirm Booking</button>
+                                <button class="btn-outline-design w-full mt-2 py-2.5 text-xs">Save as Draft</button>
+                            </div>
+
+                            <!-- Membership note -->
+                            <div class="mt-4 p-4 rounded-2xl bg-[rgba(212,168,87,0.1)] border border-[rgba(212,168,87,0.25)]">
+                                <div class="flex items-start gap-3">
+                                    <i class="fas fa-crown text-spa-accent mt-0.5"></i>
+                                    <div>
+                                        <p class="text-xs font-bold text-neutral-dark dark:text-white">You have 2 sessions left this month</p>
+                                        <p class="text-[11px] text-neutral-dark/70 dark:text-gray-400 mt-0.5">Plus 2 rollover sessions from last month. This booking uses 1 monthly credit.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== MY SESSIONS ========== -->
+        <div id="page-sessions" class="page-content hidden">
+            <div class="card-design p-6">
+                <div class="flex flex-wrap justify-between items-center gap-3 mb-6">
+                    <div>
+                        <h3 class="font-serif font-bold text-2xl">My Sessions</h3>
+                        <p class="text-sm text-neutral-dark/60 dark:text-gray-400 mt-1">Manage upcoming and completed sessions.</p>
+                    </div>
+                    <button data-nav="book" class="btn-primary-design px-4 py-2 text-sm"><i class="fas fa-plus"></i> Book New</button>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Upcoming session 1 -->
+                    <div class="session-card p-5 bg-[rgba(var(--color-rgb-primary),0.04)] dark:bg-[rgba(var(--color-rgb-bright),0.05)] rounded-2xl border border-[rgba(var(--color-rgb-primary),0.08)]">
+                        <div class="flex flex-wrap justify-between items-start gap-3">
+                            <div class="flex items-start gap-3">
+                                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-spa-sage to-spa-sage-dark text-white flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-hands"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-lg font-serif">Deep Tissue Massage</p>
+                                    <p class="text-sm text-neutral-dark/60 dark:text-gray-400">with Elena Vasquez · 90 min · Studio Suite 3</p>
+                                    <div class="flex items-center gap-3 mt-2 flex-wrap">
+                                        <span class="status-badge status-confirmed">Confirmed</span>
+                                        <span class="text-xs text-neutral-dark/60 dark:text-gray-400"><i class="fas fa-calendar mr-1"></i>Oct 12, 2026 · 3:00 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="btn-outline-design text-xs px-4 py-1.5"><i class="fas fa-edit mr-1"></i>Reschedule</button>
+                                <button class="btn-primary-design text-xs px-4 py-1.5"><i class="fas fa-eye mr-1"></i>Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming session 2 -->
+                    <div class="session-card p-5 bg-[rgba(var(--color-rgb-primary),0.04)] dark:bg-[rgba(var(--color-rgb-bright),0.05)] rounded-2xl border border-[rgba(var(--color-rgb-primary),0.08)]">
+                        <div class="flex flex-wrap justify-between items-start gap-3">
+                            <div class="flex items-start gap-3">
+                                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-spa-accent to-[#B88A3A] text-white flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-lg font-serif">Aromatherapy Massage</p>
+                                    <p class="text-sm text-neutral-dark/60 dark:text-gray-400">with Marcus Chen · 60 min · Studio Suite 1</p>
+                                    <div class="flex items-center gap-3 mt-2 flex-wrap">
+                                        <span class="status-badge status-today">Today</span>
+                                        <span class="text-xs text-neutral-dark/60 dark:text-gray-400"><i class="fas fa-clock mr-1"></i>Oct 8, 2026 · 5:00 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="btn-outline-design text-xs px-4 py-1.5"><i class="fas fa-edit mr-1"></i>Reschedule</button>
+                                <button class="btn-primary-design text-xs px-4 py-1.5"><i class="fas fa-eye mr-1"></i>Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Past session -->
+                    <div class="session-card p-5 bg-white dark:bg-[#0A1310] rounded-2xl border border-[rgba(var(--color-rgb-primary),0.08)] opacity-90">
+                        <div class="flex flex-wrap justify-between items-start gap-3">
+                            <div class="flex items-start gap-3">
+                                <div class="w-12 h-12 rounded-2xl bg-[rgba(var(--color-rgb-primary),0.15)] text-spa-sage dark:text-spa-sage-bright flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-lg font-serif">Relaxation Massage</p>
+                                    <p class="text-sm text-neutral-dark/60 dark:text-gray-400">with Marcus Chen · 60 min · Studio Suite 2</p>
+                                    <div class="flex items-center gap-3 mt-2 flex-wrap">
+                                        <span class="status-badge status-completed">Completed</span>
+                                        <span class="text-xs text-neutral-dark/60 dark:text-gray-400"><i class="fas fa-calendar mr-1"></i>Sep 28, 2026 · 4:00 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="btn-outline-design text-xs px-4 py-1.5"><i class="fas fa-redo mr-1"></i>Rebook</button>
+                                <button class="btn-primary-design text-xs px-4 py-1.5"><i class="fas fa-eye mr-1"></i>Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Past session -->
+                    <div class="session-card p-5 bg-white dark:bg-[#0A1310] rounded-2xl border border-[rgba(var(--color-rgb-primary),0.08)] opacity-90">
+                        <div class="flex flex-wrap justify-between items-start gap-3">
+                            <div class="flex items-start gap-3">
+                                <div class="w-12 h-12 rounded-2xl bg-[rgba(var(--color-rgb-primary),0.15)] text-spa-sage dark:text-spa-sage-bright flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-lg font-serif">Deep Tissue Massage</p>
+                                    <p class="text-sm text-neutral-dark/60 dark:text-gray-400">with Elena Vasquez · 90 min · Studio Suite 3</p>
+                                    <div class="flex items-center gap-3 mt-2 flex-wrap">
+                                        <span class="status-badge status-completed">Completed</span>
+                                        <span class="text-xs text-neutral-dark/60 dark:text-gray-400"><i class="fas fa-calendar mr-1"></i>Sep 14, 2026 · 3:00 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="btn-outline-design text-xs px-4 py-1.5"><i class="fas fa-redo mr-1"></i>Rebook</button>
+                                <button class="btn-primary-design text-xs px-4 py-1.5"><i class="fas fa-eye mr-1"></i>Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== MY THERAPISTS ========== -->
+        <div id="page-therapists" class="page-content hidden">
+            <div class="card-design p-6">
+                <h3 class="font-serif font-bold text-2xl mb-1">My Therapists</h3>
+                <p class="text-sm text-neutral-dark/60 dark:text-gray-400 mb-6">Your preferred therapists and past sessions with each.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <!-- Therapist card 1 -->
+                    <div class="card-design p-5 text-center flex flex-col h-full">
+                        <div class="therapist-avatar mx-auto" style="background: linear-gradient(135deg, #5B8C7B, #3D6355);">EV</div>
+                        <h4 class="font-serif font-bold text-xl text-neutral-dark dark:text-white mt-1">Elena Vasquez</h4>
+                        <p class="text-xs text-neutral-dark/60 dark:text-gray-400 mt-0.5">Lead Therapist · 12 years</p>
+                        <div class="flex flex-wrap justify-center gap-1.5 mt-3">
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-spa-sage/10 dark:bg-spa-sage-bright/10 text-spa-sage dark:text-spa-sage-bright border border-spa-sage/20">Deep Tissue</span>
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-spa-sage/10 dark:bg-spa-sage-bright/10 text-spa-sage dark:text-spa-sage-bright border border-spa-sage/20">Sports</span>
+                        </div>
+                        <div class="mt-auto pt-4 border-t border-[rgba(var(--color-rgb-primary),0.08)] dark:border-[rgba(var(--color-rgb-bright),0.1)]">
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-neutral-dark/60 dark:text-gray-400">Sessions with you</span>
+                                <span class="font-bold">14</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-neutral-dark/60 dark:text-gray-400">Last session</span>
+                                <span class="font-bold">Sep 14</span>
+                            </div>
+                        </div>
+                        <button data-nav="book" class="btn-primary-design w-full mt-4 py-2 text-xs"><i class="fas fa-calendar-plus"></i> Book With Elena</button>
+                    </div>
+
+                    <!-- Therapist card 2 -->
+                    <div class="card-design p-5 text-center flex flex-col h-full">
+                        <div class="therapist-avatar mx-auto" style="background: linear-gradient(135deg, #D4A857, #B88A3A);">MC</div>
+                        <h4 class="font-serif font-bold text-xl text-neutral-dark dark:text-white mt-1">Marcus Chen</h4>
+                        <p class="text-xs text-neutral-dark/60 dark:text-gray-400 mt-0.5">Senior Therapist · 9 years</p>
+                        <div class="flex flex-wrap justify-center gap-1.5 mt-3">
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-spa-sage/10 dark:bg-spa-sage-bright/10 text-spa-sage dark:text-spa-sage-bright border border-spa-sage/20">Relaxation</span>
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-spa-sage/10 dark:bg-spa-sage-bright/10 text-spa-sage dark:text-spa-sage-bright border border-spa-sage/20">Prenatal</span>
+                        </div>
+                        <div class="mt-auto pt-4 border-t border-[rgba(var(--color-rgb-primary),0.08)] dark:border-[rgba(var(--color-rgb-bright),0.1)]">
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-neutral-dark/60 dark:text-gray-400">Sessions with you</span>
+                                <span class="font-bold">12</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-neutral-dark/60 dark:text-gray-400">Last session</span>
+                                <span class="font-bold">Sep 28</span>
+                            </div>
+                        </div>
+                        <button data-nav="book" class="btn-primary-design w-full mt-4 py-2 text-xs"><i class="fas fa-calendar-plus"></i> Book With Marcus</button>
+                    </div>
+
+                    <!-- Therapist card 3 -->
+                    <div class="card-design p-5 text-center flex flex-col h-full">
+                        <div class="therapist-avatar mx-auto" style="background: linear-gradient(135deg, #8FB8A8, #5B8C7B);">MP</div>
+                        <h4 class="font-serif font-bold text-xl text-neutral-dark dark:text-white mt-1">Maya Patel</h4>
+                        <p class="text-xs text-neutral-dark/60 dark:text-gray-400 mt-0.5">Therapist · 6 years</p>
+                        <div class="flex flex-wrap justify-center gap-1.5 mt-3">
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-spa-sage/10 dark:bg-spa-sage-bright/10 text-spa-sage dark:text-spa-sage-bright border border-spa-sage/20">Aromatherapy</span>
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-spa-sage/10 dark:bg-spa-sage-bright/10 text-spa-sage dark:text-spa-sage-bright border border-spa-sage/20">Hot Stone</span>
+                        </div>
+                        <div class="mt-auto pt-4 border-t border-[rgba(var(--color-rgb-primary),0.08)] dark:border-[rgba(var(--color-rgb-bright),0.1)]">
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-neutral-dark/60 dark:text-gray-400">Sessions with you</span>
+                                <span class="font-bold">8</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-neutral-dark/60 dark:text-gray-400">Last session</span>
+                                <span class="font-bold">Aug 30</span>
+                            </div>
+                        </div>
+                        <button data-nav="book" class="btn-primary-design w-full mt-4 py-2 text-xs"><i class="fas fa-calendar-plus"></i> Book With Maya</button>
+                    </div>
+                </div>
+
+                <!-- Note -->
+                <div class="mt-6 p-4 rounded-2xl bg-[rgba(var(--color-rgb-primary),0.06)] dark:bg-[rgba(var(--color-rgb-bright),0.08)] border border-[rgba(var(--color-rgb-primary),0.1)]">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-info-circle text-spa-sage dark:text-spa-sage-bright mt-0.5"></i>
+                        <div>
+                            <p class="text-sm font-semibold text-neutral-dark dark:text-white">Want to try a different therapist?</p>
+                            <p class="text-xs text-neutral-dark/70 dark:text-gray-400 mt-0.5">You can book with any of our 8 licensed therapists. We match you based on the treatment type and your preferences.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== TREATMENT HISTORY ========== -->
+        <div id="page-history" class="page-content hidden">
+            <div class="card-design p-6">
+                <div class="flex flex-wrap justify-between items-center gap-3 mb-6">
+                    <div>
+                        <h3 class="font-serif font-bold text-2xl">Treatment History</h3>
+                        <p class="text-sm text-neutral-dark/60 dark:text-gray-400 mt-1">Your complete session log — 34 sessions since joining in 2024.</p>
+                    </div>
+                    <button class="btn-outline-design px-4 py-2 text-sm"><i class="fas fa-download"></i> Export PDF</button>
+                </div>
+
+                <!-- Summary row -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+                    <div class="p-4 rounded-2xl bg-[rgba(var(--color-rgb-primary),0.06)] dark:bg-[rgba(var(--color-rgb-bright),0.08)] text-center">
+                        <div class="font-serif font-bold text-2xl text-spa-sage dark:text-spa-sage-bright">34</div>
+                        <div class="text-[10px] font-bold uppercase tracking-widest opacity-60 mt-1">Total Sessions</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-[rgba(var(--color-rgb-primary),0.06)] dark:bg-[rgba(var(--color-rgb-bright),0.08)] text-center">
+                        <div class="font-serif font-bold text-2xl text-spa-sage dark:text-spa-sage-bright">51h</div>
+                        <div class="text-[10px] font-bold uppercase tracking-widest opacity-60 mt-1">Time Treated</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-[rgba(var(--color-rgb-primary),0.06)] dark:bg-[rgba(var(--color-rgb-bright),0.08)] text-center">
+                        <div class="font-serif font-bold text-2xl text-spa-sage dark:text-spa-sage-bright">3</div>
+                        <div class="text-[10px] font-bold uppercase tracking-widest opacity-60 mt-1">Therapists</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-[rgba(var(--color-rgb-primary),0.06)] dark:bg-[rgba(var(--color-rgb-bright),0.08)] text-center">
+                        <div class="font-serif font-bold text-2xl text-spa-sage dark:text-spa-sage-bright">6</div>
+                        <div class="text-[10px] font-bold uppercase tracking-widest opacity-60 mt-1">Treatments Tried</div>
+                    </div>
+                </div>
+
+                <!-- Timeline -->
+                <div>
+                    <div class="flex justify-between items-center mb-4">
+                        <h4 class="font-serif font-bold text-lg">Session Log</h4>
+                        <select class="form-input text-xs py-1.5 px-3 w-auto">
+                            <option>All treatments</option>
+                            <option>Deep Tissue</option>
+                            <option>Relaxation</option>
+                            <option>Aromatherapy</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Month group: September 2026 -->
+                        <div>
+                            <p class="text-[11px] font-bold uppercase tracking-widest text-spa-sage dark:text-spa-sage-bright mb-2 pl-4">September 2026</p>
+                            <div class="space-y-2">
+                                <div class="history-item !py-3">
+                                    <div class="history-dot"></div>
+                                    <div class="flex-1 flex justify-between items-start gap-2">
+                                        <div class="min-w-0">
+                                            <p class="font-semibold text-sm">Relaxation Massage · 60 min</p>
+                                            <p class="text-xs text-neutral-dark/60 dark:text-gray-400">Marcus Chen · Studio Suite 2</p>
+                                        </div>
+                                        <div class="text-right">
+                                            <p class="text-xs text-neutral-dark/60">Sep 28, 2026</p>
+                                            <p class="text-sm font-bold text-spa-sage dark:text-spa-sage-bright">$68.00</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="history-item !py-3">
+                                    <div class="history-dot"></div>
+                                    <div class="flex-1 flex justify-between items-start gap-2">
+                                        <div class="min-w-0">
+                                            <p class="font-semibold text-sm">Deep Tissue Massage · 90 min</p>
+                                            <p class="text-xs text-neutral-dark/60 dark:text-gray-400">Elena Vasquez · Studio Suite 3</p>
+                                        </div>
+                                        <div class="text-right">
+                                            <p class="text-xs text-neutral-dark/60">Sep 14, 2026</p>
+                                            <p class="text-sm font-bold text-spa-sage dark:text-spa-sage-bright">$96.00</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Month group: August 2026 -->
+                        <div>
+                            <p class="text-[11px] font-bold uppercase tracking-widest text-spa-sage dark:text-spa-sage-bright mb-2 pl-4">August 2026</p>
+                            <div class="space-y-2">
+                                <div class="history-item !py-3">
+                                    <div class="history-dot"></div>
+                                    <div class="flex-1 flex justify-between items-start gap-2">
+                                        <div class="min-w-0">
+                                            <p class="font-semibold text-sm">Aromatherapy Massage · 60 min</p>
+                                            <p class="text-xs text-neutral-dark/60 dark:text-gray-400">Marcus Chen · Studio Suite 1</p>
+                                        </div>
+                                        <div class="text-right">
+                                            <p class="text-xs text-neutral-dark/60">Aug 30, 2026</p>
+                                            <p class="text-sm font-bold text-spa-sage dark:text-spa-sage-bright">$76.00</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="history-item !py-3">
+                                    <div class="history-dot"></div>
+                                    <div class="flex-1 flex justify-between items-start gap-2">
+                                        <div class="min-w-0">
+                                            <p class="font-semibold text-sm">Hot Stone Therapy · 90 min</p>
+                                            <p class="text-xs text-neutral-dark/60 dark:text-gray-400">Maya Patel · Studio Suite 4</p>
+                                        </div>
+                                        <div class="text-right">
+                                            <p class="text-xs text-neutral-dark/60">Aug 15, 2026</p>
+                                            <p class="text-sm font-bold text-spa-sage dark:text-spa-sage-bright">$88.00</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="history-item !py-3">
+                                    <div class="history-dot"></div>
+                                    <div class="flex-1 flex justify-between items-start gap-2">
+                                        <div class="min-w-0">
+                                            <p class="font-semibold text-sm">Relaxation Massage · 60 min</p>
+                                            <p class="text-xs text-neutral-dark/60 dark:text-gray-400">Marcus Chen · Studio Suite 2</p>
+                                        </div>
+                                        <div class="text-right">
+                                            <p class="text-xs text-neutral-dark/60">Aug 2, 2026</p>
+                                            <p class="text-sm font-bold text-spa-sage dark:text-spa-sage-bright">$68.00</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Load more -->
+                        <div class="pt-4 text-center">
+                            <button class="btn-outline-design px-5 py-2 text-sm">Load Older Sessions</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== MEMBERSHIP ========== -->
+        <div id="page-membership" class="page-content hidden">
+            <div class="card-design p-6">
+                <div class="flex flex-wrap justify-between items-center gap-3 mb-6">
+                    <div>
+                        <h3 class="font-serif font-bold text-2xl">My Membership</h3>
+                        <p class="text-sm text-neutral-dark/60 dark:text-gray-400 mt-1">Manage your plan, usage, and billing.</p>
+                    </div>
+                    <span class="status-badge status-active !text-xs !px-3 !py-1.5">Active</span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                    <!-- Plan card -->
+                    <div class="card-design p-6 lg:col-span-2 bg-gradient-to-br from-spa-sage to-spa-sage-dark !border-spa-sage text-white">
+                        <div class="flex items-start justify-between mb-5">
+                            <div>
+                                <div class="flex items-center gap-2 mb-1">
+                                    <i class="fas fa-crown text-[#D4A857]"></i>
+                                    <span class="text-[10px] font-bold uppercase tracking-widest text-white/70">Current Plan</span>
+                                </div>
+                                <h4 class="font-serif font-bold text-3xl text-white">Balance</h4>
+                                <p class="text-xs text-white/70 mt-1">Our best-selling wellness membership</p>
+                            </div>
+                            <div class="text-right">
+                                <div class="font-serif font-bold text-3xl text-white">$109</div>
+                                <div class="text-[10px] uppercase tracking-widest text-white/70">per month</div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-5 border-t border-white/20">
+                            <div class="flex flex-col justify-between h-full">
+                                <div class="text-[10px] uppercase tracking-widest text-white/60 mb-1">Member Since</div>
+                                <div class="font-bold text-white text-sm">Jun 2024</div>
+                            </div>
+                            <div class="flex flex-col justify-between h-full">
+                                <div class="text-[10px] uppercase tracking-widest text-white/60 mb-1">Renews On</div>
+                                <div class="font-bold text-white text-sm">Jun 15, 2026</div>
+                            </div>
+                            <div class="flex flex-col justify-between h-full">
+                                <div class="text-[10px] uppercase tracking-widest text-white/60 mb-1">Sessions / Mo</div>
+                                <div class="font-bold text-white text-sm">2 sessions</div>
+                            </div>
+                            <div class="flex flex-col justify-between h-full">
+                                <div class="text-[10px] uppercase tracking-widest text-white/60 mb-1">Discount</div>
+                                <div class="font-bold text-white text-sm">20% off</div>
+                            </div>
+                        </div>
+                        <div class="mt-5 flex flex-wrap gap-2">
+                            <button class="bg-white text-neutral-dark px-4 py-2 rounded-full font-bold text-xs uppercase tracking-widest hover:shadow-xl transition">Upgrade Plan</button>
+                            <button class="border border-white/50 text-white px-4 py-2 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-white/10 transition">Pause Membership</button>
+                        </div>
+                    </div>
+
+                    <!-- Usage summary -->
+                    <div class="card-design p-6">
+                        <h4 class="font-serif font-bold text-lg mb-4">This Month's Usage</h4>
+                        <div class="usage-ring mx-auto mb-4">
+                            <svg width="120" height="120" viewBox="0 0 120 120">
+                                <defs>
+                                    <linearGradient id="usageGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#5B8C7B"/>
+                                        <stop offset="100%" stop-color="#8FB8A8"/>
+                                    </linearGradient>
+                                </defs>
+                                <circle class="ring-bg" cx="60" cy="60" r="50"/>
+                                <circle class="ring-fill" cx="60" cy="60" r="50" style="stroke: url(#usageGradient2);" stroke-dasharray="314.15" stroke-dashoffset="157"/>
+                            </svg>
+                            <div class="ring-content">
+                                <div class="font-serif font-bold text-2xl text-neutral-dark dark:text-white leading-none">1<span class="text-base opacity-60">/2</span></div>
+                                <div class="text-[9px] font-bold uppercase tracking-widest opacity-60 mt-1">Used</div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-sm font-semibold text-neutral-dark dark:text-white">1 session remaining</p>
+                            <p class="text-xs text-neutral-dark/60 dark:text-gray-400 mt-0.5">Plus 2 rollover sessions available</p>
+                        </div>
+                        <button data-nav="book" class="btn-primary-design w-full mt-4 py-2.5 text-xs"><i class="fas fa-plus"></i> Book Session</button>
+                    </div>
+                </div>
+
+                <!-- Billing history -->
+                <div class="card-design p-6 mt-6">
+                    <div class="flex flex-wrap justify-between items-center gap-3 mb-4">
+                        <h4 class="font-serif font-bold text-lg">Billing History</h4>
+                        <button class="text-xs font-bold text-spa-sage dark:text-spa-sage-bright hover:underline">Download All Invoices</button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-[rgba(var(--color-rgb-primary),0.08)] dark:border-[rgba(var(--color-rgb-bright),0.15)]">
+                                    <th class="text-left py-2 px-3 font-semibold">Date</th>
+                                    <th class="text-left py-2 px-3 font-semibold">Description</th>
+                                    <th class="text-left py-2 px-3 font-semibold">Amount</th>
+                                    <th class="text-left py-2 px-3 font-semibold">Status</th>
+                                    <th class="text-left py-2 px-3 font-semibold">Invoice</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-[rgba(var(--color-rgb-primary),0.08)] dark:border-[rgba(var(--color-rgb-bright),0.15)]">
+                                    <td class="py-2 px-3 font-medium">Oct 1, 2026</td>
+                                    <td class="py-2 px-3">Balance Membership — Monthly</td>
+                                    <td class="py-2 px-3 font-bold">$109.00</td>
+                                    <td class="py-2 px-3"><span class="status-badge status-paid">Paid</span></td>
+                                    <td class="py-2 px-3"><button class="text-spa-sage hover:text-spa-sage-dark"><i class="fas fa-download"></i></button></td>
+                                </tr>
+                                <tr class="border-b border-[rgba(var(--color-rgb-primary),0.08)] dark:border-[rgba(var(--color-rgb-bright),0.15)]">
+                                    <td class="py-2 px-3 font-medium">Sep 1, 2026</td>
+                                    <td class="py-2 px-3">Balance Membership — Monthly</td>
+                                    <td class="py-2 px-3 font-bold">$109.00</td>
+                                    <td class="py-2 px-3"><span class="status-badge status-paid">Paid</span></td>
+                                    <td class="py-2 px-3"><button class="text-spa-sage hover:text-spa-sage-dark"><i class="fas fa-download"></i></button></td>
+                                </tr>
+                                <tr class="border-b border-[rgba(var(--color-rgb-primary),0.08)] dark:border-[rgba(var(--color-rgb-bright),0.15)]">
+                                    <td class="py-2 px-3 font-medium">Aug 1, 2026</td>
+                                    <td class="py-2 px-3">Balance Membership — Monthly</td>
+                                    <td class="py-2 px-3 font-bold">$109.00</td>
+                                    <td class="py-2 px-3"><span class="status-badge status-paid">Paid</span></td>
+                                    <td class="py-2 px-3"><button class="text-spa-sage hover:text-spa-sage-dark"><i class="fas fa-download"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 font-medium">Jul 1, 2026</td>
+                                    <td class="py-2 px-3">Balance Membership — Monthly</td>
+                                    <td class="py-2 px-3 font-bold">$109.00</td>
+                                    <td class="py-2 px-3"><span class="status-badge status-paid">Paid</span></td>
+                                    <td class="py-2 px-3"><button class="text-spa-sage hover:text-spa-sage-dark"><i class="fas fa-download"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== MESSAGES ========== -->
+        <div id="page-messages" class="page-content hidden">
+            <div class="card-design p-6">
+                <h3 class="font-serif font-bold text-2xl mb-1">Messages</h3>
+                <p class="text-sm text-neutral-dark/60 dark:text-gray-400 mb-6">Communicate with your therapists about upcoming sessions.</p>
+
+                <div class="space-y-4">
+                    <div class="p-4 bg-[rgba(var(--color-rgb-primary),0.05)] dark:bg-[rgba(var(--color-rgb-bright),0.08)] rounded-xl">
+                        <div class="flex justify-between items-start gap-3">
+                            <div class="flex items-start gap-3 flex-1">
+                                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-spa-sage to-spa-sage-dark text-white flex items-center justify-center font-serif font-bold text-sm flex-shrink-0">
+                                    <i class="fas fa-hands text-xs"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-sm">Elena Vasquez <span class="text-xs font-normal text-neutral-dark/60 dark:text-gray-400">· Your therapist</span></p>
+                                    <p class="text-sm mt-1">Hi Sophia, looking forward to seeing you Friday at 3pm. Please arrive 10 min early so we can do a quick check-in about your lower back tightness.</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-neutral-dark/60 whitespace-nowrap">Today, 10:00 AM</span>
+                        </div>
+                        <div class="mt-3 flex gap-2">
+                            <button class="btn-primary-design px-4 py-1.5 text-xs">Reply</button>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-white dark:bg-[#0A1310] rounded-xl border border-[rgba(var(--color-rgb-primary),0.12)] dark:border-[rgba(var(--color-rgb-bright),0.15)]">
+                        <div class="flex justify-between items-start gap-3">
+                            <div class="flex items-start gap-3 flex-1">
+                                <div class="w-10 h-10 rounded-full bg-spa-sage/15 text-spa-sage dark:text-spa-sage-bright flex items-center justify-center font-serif font-bold text-sm flex-shrink-0">
+                                    SR
+                                </div>
+                                <div>
+                                    <p class="font-bold text-sm">You <span class="text-xs font-normal text-neutral-dark/60 dark:text-gray-400">· to Elena</span></p>
+                                    <p class="text-sm mt-1">Perfect, thank you! I'll be there at 2:50pm. Can you also add 15 min of neck work? I've been at my desk a lot this week.</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-neutral-dark/60 whitespace-nowrap">Yesterday, 4:30 PM</span>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-[rgba(var(--color-rgb-primary),0.05)] dark:bg-[rgba(var(--color-rgb-bright),0.08)] rounded-xl">
+                        <div class="flex justify-between items-start gap-3">
+                            <div class="flex items-start gap-3 flex-1">
+                                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-spa-accent to-[#B88A3A] text-white flex items-center justify-center font-serif font-bold text-sm flex-shrink-0">
+                                    MC
+                                </div>
+                                <div>
+                                    <p class="font-bold text-sm">Marcus Chen <span class="text-xs font-normal text-neutral-dark/60 dark:text-gray-400">· Your therapist</span></p>
+                                    <p class="text-sm mt-1">Thanks for yesterday's session, Sophia. I've noted your feedback about the lavender oil — we'll try eucalyptus next time. See you in two weeks!</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-neutral-dark/60 whitespace-nowrap">2 days ago</span>
+                        </div>
+                        <div class="mt-3 flex gap-2">
+                            <button class="btn-primary-design px-4 py-1.5 text-xs">Reply</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <label class="form-label">Send a Message</label>
+                    <div class="flex gap-3">
+                        <input type="text" class="form-input flex-1" placeholder="Type your message to your therapist..." />
+                        <button class="btn-primary-design px-6 py-2"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // RTL Toggle
+            const rtlToggle = document.getElementById('rtl-toggle');
+            const rtlToggleMobile = document.getElementById('rtl-toggle-mobile');
+            function setRTL(isRTL) {
+                document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+                localStorage.setItem('dir', isRTL ? 'rtl' : 'ltr');
+            }
+            const savedDir = localStorage.getItem('dir');
+            setRTL(savedDir === 'rtl');
+            if (rtlToggle) rtlToggle.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+            if (rtlToggleMobile) rtlToggleMobile.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+
+            // Theme Toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+            function setTheme(isDark) {
+                if (isDark) document.documentElement.classList.add('dark');
+                else document.documentElement.classList.remove('dark');
+                [themeToggle, themeToggleMobile].forEach(btn => {
+                    if (btn) {
+                        let moon = btn.querySelector('.fa-moon'), sun = btn.querySelector('.fa-sun');
+                        if (isDark) { moon?.classList.add('hidden'); sun?.classList.remove('hidden'); }
+                        else { moon?.classList.remove('hidden'); sun?.classList.add('hidden'); }
+                    }
+                });
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            }
+            const savedTheme = localStorage.getItem('theme');
+            setTheme(savedTheme === 'dark');
+            if (themeToggle) themeToggle.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
+            if (themeToggleMobile) themeToggleMobile.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
+
+            // Mobile Sidebar
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('open'); }
+            function openSidebar() { sidebar.classList.add('open'); overlay.classList.add('open'); }
+            if (menuToggle) menuToggle.addEventListener('click', (e) => { e.stopPropagation(); sidebar.classList.contains('open') ? closeSidebar() : openSidebar(); });
+            if (overlay) overlay.addEventListener('click', closeSidebar);
+            window.addEventListener('resize', () => { if (window.innerWidth > 768 && sidebar.classList.contains('open')) closeSidebar(); });
+
+            // Navigation
+            const sidebarItems = document.querySelectorAll('.sidebar-item');
+            const pages = document.querySelectorAll('.page-content');
+            const pageTitle = document.getElementById('page-title');
+            const pageSubtitle = document.getElementById('page-subtitle');
+            const titles = {
+                dashboard: { title: 'Dashboard', subtitle: 'Welcome back, Sophia' },
+                book: { title: 'Book a Session', subtitle: 'Reserve your next massage' },
+                sessions: { title: 'My Sessions', subtitle: 'Upcoming and past appointments' },
+                therapists: { title: 'My Therapists', subtitle: 'Your preferred wellness practitioners' },
+                history: { title: 'Treatment History', subtitle: 'Your complete session log' },
+                membership: { title: 'My Membership', subtitle: 'Plan details, usage, and billing' },
+                messages: { title: 'Messages', subtitle: 'Chat with your therapists' }
+            };
+            function navigateTo(page) {
+                sidebarItems.forEach(i => i.classList.remove('active'));
+                document.querySelector(`.sidebar-item[data-page="${page}"]`)?.classList.add('active');
+                pages.forEach(p => p.classList.add('hidden'));
+                document.getElementById(`page-${page}`)?.classList.remove('hidden');
+                if (titles[page]) { pageTitle.textContent = titles[page].title; pageSubtitle.textContent = titles[page].subtitle; }
+                closeSidebar();
+            }
+            sidebarItems.forEach(item => { item.addEventListener('click', () => { navigateTo(item.getAttribute('data-page')); }); });
+            document.querySelectorAll('[data-nav]').forEach(btn => { btn.addEventListener('click', () => { navigateTo(btn.getAttribute('data-nav')); }); });
+
+            // Therapist selection (Booking page)
+            document.querySelectorAll('.therapist-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    document.querySelectorAll('.therapist-card').forEach(c => c.classList.remove('selected'));
+                    card.classList.add('selected');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

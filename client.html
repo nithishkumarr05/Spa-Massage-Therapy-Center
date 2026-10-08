@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-theme="serene-sage">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Wellness Portal | Serenity Spa — Massage Therapy & Recovery</title>
+<link rel="icon" type="image/svg+xml" href="Assets/massage.png">
+
+    <!-- Tailwind CSS -->
+    <script src="tailwind.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'spa-sage': 'rgba(var(--color-rgb-primary), <alpha-value>)',
+                        'spa-sage-light': 'rgba(var(--color-rgb-light), <alpha-value>)',
+                        'spa-sage-dark': 'rgba(var(--color-rgb-dark), <alpha-value>)',
+                        'spa-sage-bright': 'rgba(var(--color-rgb-bright), <alpha-value>)',
+                        'spa-accent': 'rgba(var(--color-rgb-accent), <alpha-value>)',
+                        'bg-warm': 'var(--color-bg-warm)',
+                        'neutral-dark': 'rgba(20, 32, 27, <alpha-value>)',
+                        'neutral-light': '#E8F0EC',
+                        'dark-bg': '#0A1310',
+                        'dark-card': '#101D18',
+                        'dark-surface': '#16261F',
+                    },
+                    fontFamily: {
+                        'sans': ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        'serif': ['Cormorant Garamond', 'serif'],
+                        'display': ['Cormorant Garamond', 'Outfit', 'serif'],
+                        'premium': ['Cormorant Garamond', 'Outfit', 'serif'],
+                        'alt': ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'fade-in': 'fadeIn 0.3s ease-out',
+                        'pulse-glow': 'pulseGlow 3s infinite',
+                        'float-slow': 'floatSlow 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        slideUp: { '0%': { transform: 'translateY(30px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        pulseGlow: { '0%, 100%': { opacity: '0.6' }, '50%': { opacity: '1' } },
+                        floatSlow: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-8px)' } },
+                    }
+                }
+            }
+        };
+    </script>
+    <script>
+        if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+        if (localStorage.getItem('dir') === 'rtl') { document.documentElement.dir = 'rtl'; document.documentElement.lang = 'ar'; }
+    </script>
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root, [data-theme="serene-sage"] {
+            --color-primary: #5B8C7B;
+            --color-primary-light: #8FB8A8;
+            --color-primary-dark: #3D6355;
+            --color-primary-bright: #C2DDD1;
+            --color-accent: #D4A857;
+            --color-bg-warm: #F7FAF8;
+            --color-text-dark: #14201B;
+            --color-rgb-primary: 91, 140, 123;
+            --color-rgb-light: 143, 184, 168;
+            --color-rgb-dark: 61, 99, 85;
+            --color-rgb-bright: 194, 221, 209;
+            --color-rgb-accent: 212, 168, 87;
+        }
+
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--color-bg-warm); color: var(--color-text-dark); transition: background-color 0.4s ease, color 0.4s ease; }
+        .dark body { background-color: #0A1310; color: #E6EFEA; }
+        h1,h2,h3,h4,h5,h6 { font-family: 'Cormorant Garamond', 'Outfit', serif; font-weight: 700; letter-spacing: -0.015em; }
+        .spa-gradient-text {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .dark .spa-gradient-text {
+            background: linear-gradient(135deg, var(--color-primary-bright) 0%, var(--color-primary-light) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .dark .text-spa-sage { color: var(--color-primary-bright) !important; }
+        .dark .border-spa-sage { border-color: var(--color-primary-bright) !important; }
+        .dark .bg-spa-sage { background-color: var(--color-primary-bright) !important; }
+        body::-webkit-scrollbar { display: none; }
+        body { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0; top: 0; height: 100vh;
+            width: 280px;
+            background: #FFFFFF;
+            border-right: 1px solid rgba(var(--color-rgb-primary), 0.12);
+            transition: transform 0.3s ease;
+            z-index: 100;
+            overflow-y: auto;
+        }
+        .dark .sidebar { background: #0A1310; border-right-color: rgba(var(--color-rgb-bright), 0.15); }
+        @media (max-width: 768px) { .sidebar { transform: translateX(-100%); } .sidebar.open { transform: translateX(0); } }
+        .sidebar-overlay { position: fixed; top:0;left:0;right:0;bottom:0; background: rgba(0,0,0,0.5); z-index:99; display:none; }
+        .sidebar-overlay.open { display:block; }
+
+        .sidebar-item {
+            display: flex; align-items: center; gap: 0.75rem;
+            padding: 0.85rem 1.5rem; margin: 0.25rem 0.75rem;
+            border-radius: 12px; color: var(--color-text-dark);
+            transition: all 0.2s; cursor: pointer;
+            font-weight: 500; font-size: 0.92rem;
+        }
+        .dark .sidebar-item { color: #E6EFEA; }
+        .sidebar-item:hover { background: rgba(var(--color-rgb-primary), 0.08); color: var(--color-primary); }
+        .dark .sidebar-item:hover { background: rgba(var(--color-rgb-bright), 0.12); color: var(--color-primary-bright); }
+        .sidebar-item.active { background: var(--color-primary); color: #FFFFFF; }
+        .dark .sidebar-item.active { background: var(--color-primary-bright); color: #0A1310; }
+        .sidebar-item i { width: 24px; font-size: 1.1rem; }
+
+        .main-content { margin-left: 280px; padding: 1.5rem; min-height: 100vh; }
+        @media (max-width: 768px) { .main-content { margin-left: 0; padding-top: 70px; } }
+
+        .mobile-header {
+            display: none; position: fixed; top:0;left:0;right:0;
+            background: #FFFFFF; padding: 0.75rem 1rem;
+            border-bottom: 1px solid rgba(var(--color-rgb-primary), 0.12);
+            z-index: 50; align-items: center; justify-content: space-between;
+        }
+        .dark .mobile-header { background: #0A1310; border-bottom-color: rgba(var(--color-rgb-bright), 0.15); }
+        @media (max-width: 768px) { .mobile-header { display: flex; } }
+
+        .toggle-btn {
+            width: 36px; height: 36px; border-radius: 10px;
+            background: rgba(var(--color-rgb-primary), 0.08);
+            color: var(--color-text-dark); display: inline-flex;
+            align-items: center; justify-content: center; cursor: pointer;
+            transition: all 0.2s; border: none;
+        }
+        .dark .toggle-btn { background: rgba(var(--color-rgb-bright), 0.12); color: #E6EFEA; }
+        .toggle-btn:hover { background: var(--color-primary); color: #FFFFFF; }
+        .dark .toggle-btn:hover { background: var(--color-primary-bright); color: #0A1310; }
+
+        .card-design {
+            background: #FFFFFF; border-radius: 28px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(var(--color-rgb-primary), 0.12);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+        }
+        .dark .card-design { background: #101D18; border-color: rgba(var(--color-rgb-bright), 0.15); }
+        .card-design:hover { border-color: var(--color-primary); }
+
+        .btn-primary-design {
+            background: var(--color-primary); color: #FFFFFF;
+            font-weight: 700; border-radius: 60px; transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(var(--color-rgb-primary), 0.3);
+            white-space: nowrap; border: none;
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; vertical-align: middle;
+        }
+        .btn-primary-design:hover { background: var(--color-primary-dark); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(var(--color-rgb-primary), 0.4); color: #FFFFFF; }
+        .dark .btn-primary-design { background: var(--color-primary-bright); color: #0A1310; }
+        .dark .btn-primary-design:hover { background: var(--color-primary); color: #FFFFFF; }
+
+        .btn-outline-design {
+            border: 1.5px solid var(--color-primary); color: var(--color-primary);
+            background: transparent; border-radius: 60px; font-weight: 600;
+            transition: all 0.3s; white-space: nowrap;
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; vertical-align: middle;
+        }
+        .btn-outline-design:hover { background: var(--color-primary); color: #FFFFFF; transform: translateY(-2px); }
+        .dark .btn-outline-design { border-color: var(--color-primary-bright); color: var(--color-primary-bright); }
+        .dark .btn-outline-design:hover { background: var(--color-primary-bright); color: #0A1310; }
+
+        .stat-card {
+            background: #FFFFFF; border-radius: 20px; padding: 1.2rem;
+            border: 1px solid rgba(var(--color-rgb-primary), 0.12);
+            transition: all 0.3s;
+        }
+        .dark .stat-card { background: #101D18; border-color: rgba(var(--color-rgb-bright), 0.15); }
+        .stat-card:hover { transform: translateY(-3px); border-color: var(--color-primary); }
+
+        .status-badge {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 0.25rem 0.75rem; border-radius: 40px; font-size: 0.7rem;
+            font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase;
+            white-space: nowrap; flex-shrink: 0; line-height: 1.2;
+        }
+        .status-confirmed { background: #E8F5E9; color: #1B5E20; }
+        .status-completed { background: #E8F5E9; color: #1B5E20; }
+        .status-pending { background: #FFF3E0; color: #E65100; }
+        .status-paid { background: #E8F5E9; color: #1B5E20; }
+        .status-active { background: #E8F5E9; color: #1B5E20; }
+        .status-today { background: #E1F5FE; color: #01579B; }
+        .status-upcoming { background: #F3E5F5; color: #6A1B9A; }
+        .status-expiring { background: #FFEBEE; color: #C62828; }
+        .status-low { background: #FFF3E0; color: #E65100; }
+        .dark .status-confirmed { background: #1B5E20; color: #A5D6A7; }
+        .dark .status-completed { background: #1B5E20; color: #A5D6A7; }
+        .dark .status-pending { background: #E65100; color: #FFCC80; }
+        .dark .status-paid { background: #1B5E20; color: #A5D6A7; }
+        .dark .status-active { background: #1B5E20; color: #A5D6A7; }
+        .dark .status-today { background: #01579B; color: #81D4FA; }
+        .dark .status-upcoming { background: #4A148C; color: #CE93D8; }
+        .dark .status-expiring { background: #B71C1C; color: #EF9A9A; }
+        .dark .status-low { background: #E65100; color: #FFCC80; }
+
+        .form-input {
+            width: 100%; padding: 0.75rem 1rem;
+            border-radius: 16px; border: 1.5px solid rgba(var(--color-rgb-primary), 0.2);
+            background: #FFFFFF; transition: all 0.3s;
+            color: var(--color-text-dark); font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .dark .form-input { background: #0A1310; border-color: rgba(var(--color-rgb-bright), 0.2); color: #E6EFEA; }
+        .form-input:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 4px rgba(var(--color-rgb-primary), 0.15); }
+        .form-label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.4rem; color: var(--color-text-dark); }
+        .dark .form-label { color: #E6EFEA; }
+
+        input[type="date"], input[type="time"] { color-scheme: light; }
+        input[type="date"]::-webkit-calendar-picker-indicator,
+        input[type="time"]::-webkit-calendar-picker-indicator { cursor: pointer; opacity: 0.85; }
+        .dark input[type="date"], .dark input[type="time"] { color-scheme: dark !important; }
+        .dark input[type="date"]::-webkit-calendar-picker-indicator,
+        .dark input[type="time"]::-webkit-calendar-picker-indicator { filter: none !important; opacity: 1 !important; }
+
+        .progress-bar { height: 8px; background: rgba(var(--color-rgb-primary), 0.12); border-radius: 10px; overflow: hidden; }
+        .dark .progress-bar { background: rgba(var(--color-rgb-bright), 0.15); }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light)); border-radius: 10px; transition: width 0.6s ease; }
+        .dark .progress-fill { background: linear-gradient(90deg, var(--color-primary-bright), var(--color-primary)); }
+
+        .page-content.hidden { display: none; }
+        .session-card { transition: all 0.3s; cursor: pointer; }
+        .session-card:hover { transform: translateY(-2px); border-color: var(--color-primary); }
+
+        /* Therapist selection card */
+        .therapist-card {
+            position: relative; border-radius: 20px; padding: 1rem;
+            border: 2px solid rgba(var(--color-rgb-primary), 0.12);
+            background: white; transition: all 0.3s ease;
+            cursor: pointer; text-align: center;
+            display: flex; flex-direction: column; height: 100%;
+        }
+        .dark .therapist-card { background: #101D18; border-color: rgba(var(--color-rgb-bright), 0.15); }
+        .therapist-card:hover { border-color: var(--color-primary); transform: translateY(-3px); box-shadow: 0 10px 25px -8px rgba(var(--color-rgb-primary), 0.3); }
+        .therapist-card.selected { border-color: var(--color-primary); background: rgba(var(--color-rgb-primary), 0.08); box-shadow: 0 10px 25px -8px rgba(var(--color-rgb-primary), 0.3); }
+        .dark .therapist-card.selected { border-color: var(--color-primary-bright); background: rgba(var(--color-rgb-bright), 0.08); }
+        .therapist-avatar {
+            width: 64px; height: 64px; border-radius: 50%;
+            margin: 0 auto 0.6rem;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.5rem;
+            color: white; border: 3px solid white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .dark .therapist-avatar { border-color: #101D18; }
+
+        /* Time slot chips */
+        .slot-chip {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 0.65rem 1rem; border-radius: 12px;
+            font-size: 0.75rem; font-weight: 600;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            border: 1.5px solid rgba(var(--color-rgb-primary), 0.2);
+            background: rgba(255, 255, 255, 0.6);
+            color: var(--color-text-dark);
+            cursor: pointer; transition: all 0.25s ease;
+        }
+        .dark .slot-chip { background: rgba(16, 29, 24, 0.6); border-color: rgba(var(--color-rgb-bright), 0.2); color: #E6EFEA; }
+        .slot-chip:hover { border-color: var(--color-primary); color: var(--color-primary); }
+        .dark .slot-chip:hover { border-color: var(--color-primary-bright); color: var(--color-primary-bright); }
+        .slot-chip input { display: none; }
+        .slot-chip:has(input:checked) { background: var(--color-primary); border-color: var(--color-primary); color: white; box-shadow: 0 8px 18px -6px rgba(var(--color-rgb-primary), 0.5); }
+        .dark .slot-chip:has(input:checked) { background: var(--color-primary-bright); border-color: var(--color-primary-bright); color: #0A1310; }
+        .slot-chip.disabled { opacity: 0.4; cursor: not-allowed; }
+
+        /* Membership usage ring */
+        .usage-ring { position: relative; width: 130px; height: 130px; margin: 0 auto; }
+        .usage-ring svg { transform: rotate(-90deg); }
+        .usage-ring .ring-bg { fill: none; stroke: rgba(var(--color-rgb-primary), 0.12); stroke-width: 10; }
+        .dark .usage-ring .ring-bg { stroke: rgba(var(--color-rgb-bright), 0.15); }
+        .usage-ring .ring-fill { fill: none; stroke-width: 10; stroke-linecap: round; transition: stroke-dashoffset 0.8s ease; }
+        .usage-ring .ring-content { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+        /* Session history timeline */
+        .history-item { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px dashed rgba(var(--color-rgb-primary), 0.15); }
+        .dark .history-item { border-bottom-color: rgba(var(--color-rgb-bright), 0.15); }
+        .history-item:last-child { border-bottom: none; }
+        .history-dot {
+            width: 12px; height: 12px; border-radius: 50%;
+            background: var(--color-primary); flex-shrink: 0; margin-top: 6px;
+            box-shadow: 0 0 0 4px rgba(var(--color-rgb-primary), 0.15);
+        }
+        .dark .history-dot { background: var(--color-primary-bright); box-shadow: 0 0 0 4px rgba(var(--color-rgb-bright), 0.15); }
+
+        /* Recommendation card */
+        .recommend-card {
+            position: relative; border-radius: 20px; padding: 1.25rem;
+            background: linear-gradient(135deg, rgba(var(--color-rgb-primary), 0.08), rgba(var(--color-rgb-accent), 0.05));
+            border: 1px solid rgba(var(--color-rgb-primary), 0.15);
+        }
+        .dark .recommend-card {
+            background: linear-gradient(135deg, rgba(var(--color-rgb-bright), 0.08), rgba(var(--color-rgb-accent), 0.05));
+            border-color: rgba(var(--color-rgb-bright), 0.15);
+        }
+
+        /* RTL support */
+        [dir="rtl"] .sidebar { left: auto; right: 0; border-right: none; border-left: 1px solid rgba(var(--color-rgb-primary), 0.12); }
+        [dir="rtl"] .main-content { margin-left: 0; margin-right: 280px; }
+        [dir="rtl"] .sidebar-item i { margin-right: 0; margin-left: 0.75rem; }
+        @media (max-width: 768px) {
+            [dir="rtl"] .sidebar { transform: translateX(100%); }
+            [dir="rtl"] .sidebar.open { transform: translateX(0); }
+            [dir="rtl"] .main-content { margin-right: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Mobile Header -->
+    <div class="mobile-header">
+        <div class="flex items-center gap-3">
+            <button id="menuToggle" class="toggle-btn"><i class="fas fa-bars"></i></button>
+            <a href="index.html" class="flex items-center gap-2 group shrink-0" dir="ltr">
+                <div class="w-8 h-8 bg-gradient-to-br from-spa-sage-light to-spa-sage rounded-xl flex items-center justify-center">
+                    <i class="fas fa-spa text-white dark:text-dark-bg text-sm"></i>
+                </div>
+                <span class="text-lg font-serif font-bold text-neutral-dark dark:text-white tracking-wide">Serenity <span class="spa-gradient-text">Spa</span></span>
+            </a>
+        </div>
+        <div class="flex gap-2">
+            <button id="theme-toggle-mobile" class="toggle-btn"><i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:inline"></i></button>
+            <button id="rtl-toggle-mobile" class="toggle-btn"><i class="fas fa-exchange-alt"></i></button>
+        </div>
+    </div>
+
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="p-5 border-b border-[rgba(var(--color-rgb-primary),0.12)] dark:border-[rgba(var(--color-rgb-bright),0.15)]">
+            <a href="index.html" class="flex items-center gap-3 group" dir="ltr">
+                <div class="w-10 h-10 bg-gradient-to-br from-spa-sage-light to-spa-sage rounded-xl flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-spa text-white dark:text-dark-bg text-lg"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-serif font-bold text-neutral-dark dark:text-white tracking-wide">Serenity <span class="spa-gradient-text">Spa</span></span>
+                    <p class="text-[10px] uppercase tracking-widest text-neutral-dark/60 dark:text-gray-400 font-sans mt-0.5">My Wellness Portal</p>
+                </div>
+            </a>
+        </div>
+        <nav class="py-4">
+            <div class="sidebar-item active" data-page="dashboard"><i class="fas fa-home"></i><span>My Overview</span></div>
+            <div class="sidebar-item" data-page="book"><i class="fas fa-calendar-plus"></i><span>Book Appointment</span></div>
+            <div class="sidebar-item" data-page="appointments"><i class="fas fa-calendar-alt"></i><span>Appointments</span></div>
+            <div class="sidebar-item" data-page="recovery"><i class="fas fa-heartbeat"></i><span>Recovery Plan</span></div>
+            <div class="sidebar-item" data-page="packages"><i class="fas fa-box"></i><span>My Packages</span></div>
+            <div class="sidebar-item" data-page="billing"><i class="fas fa-credit-card"></i><span>Billing & Invoices</span></div>
+            <div class="sidebar-item" data-page="feedback"><i class="fas fa-star"></i><span>Feedback & Reviews</span></div>
+            <div class="sidebar-item" data-page="support"><i class="fas fa-headset"></i><span>Support</span></div>
+        </nav>
+        <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-[rgba(var(--color-rgb-primary),0.12)] dark:border-[rgba(var(--color-rgb-bright),0.15)]">
+            <a href="login.html" class="flex items-center justify-center gap-2 w-full p-2.5 rounded-xl bg-[rgba(var(--color-rgb-primary),0.08)] hover:bg-spa-sage transition font-semibold text-sm text-neutral-dark dark:text-gray-200 hover:text-white">
+                <i class="fas fa-sign-out-alt"></i><span>Sign Out</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="card-design p-4 md:p-6 flex justify-between items-center flex-wrap gap-3 mb-6">
+            <div>
+                <h1 class="text-2xl font-serif font-bold" id="page-title">My Overview</h1>
+                <p class="text-sm text-neutral-dark/60 dark:text-gray-400" id="page-subtitle">Hello David, here's your wellness snapshot</p>
+            </div>
+            <div class="hidden lg:flex items-center gap-4">
+                <button id="theme-toggle" class="toggle-btn"><i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:inline"></i></button>
+                <button id="rtl-toggle" class="toggle-btn"><i class="fas fa-exchange-alt"></i></button>
+                <div class="flex items-center gap-3 border-l border-[rgba(var(--color-rgb-primary),0.12)] dark:border-[rgba(var(--color-rgb-bright),0.15)] pl-4">
+                    <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-spa-sage shadow-sm shrink-0 bg-gradient-to-br from-spa-sage to-spa-sage-dark flex items-center justify-center">
+                        <span class="text-white font-serif font-bold text-sm">DK</span>
+                    </div>
+                    <div class="text-left hidden lg:block">
+                        <p class="text-sm font-bold text-neutral-dark dark:text-white leading-tight">David Kim</p>
+                        <p class="text-[10px] text-neutral-dark/60 dark:text-gray-400 uppercase tracking-wider">Sanctuary Member · Marathon Runner</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== MY OVERVIEW ========== -->
+        <div id="page-dashboard" class="page-content">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <div class="stat-card flex flex-col h-full">
+                    <div class="flex justify-between h-full gap-2">
+                        <div class="flex flex-col h-full">
+                            <p class="text-xs text-neutral-dark/60 dark:text-gray-400 mb-1">Next Appointment</p>
+                            <div class="mt-auto">
+                                <p class="text-2xl font-bold text-neutral-dark dark:text-white font-serif">In 3 days</p>
+                                <p class="text-[10px] text-neutral-dark/60 dark:text-gray-400 mt-1">Oct 11 · 6:30 PM</p>
+                            </div>
+                        </div>
+                        <div class="w-10 h-10 bg-[rgba(var(--color-rgb-primary),0.08)] dark:bg-[rgba(var(--color-rgb-bright),0.12)] rounded-full flex items-center justify-center shrink-0"><i class="fas fa-calendar-alt text-spa-sage dark:text-spa-sage-bright text-base"></i></div>
+                    </div>
+                </div>
+                <div class="stat-card flex flex-col h-full">
+                    <div class="flex justify-between h-full gap-2">
+                        <div class="flex flex-col h-full">
+                            <p class="text-xs text-neutral-dark/60 dark:text-gray-400 mb-1">Package Balance</p>
+                            <div class="mt-auto">
+                                <p class="text-2xl font-bold text-neutral-dark dark:text-white font-serif">7<span class="text-sm font-sans font-medium opacity-60">/12</span></p>
+                                <p class="text-[10px] text-neutral-dark/60 dark:text-gray-400 mt-1">Sessions remaining</p>
+                            </div>
+                        </div>
+                        <div class="w-10 h-10 bg-[rgba(var(--color-rgb-primary),0.08)] dark:bg-[rgba(var(--color-rgb-bright),0.12)] rounded-full flex items-center justify-center shrink-0"><i class="fas fa-box text-spa-sage dark:text-spa-sage-bright text-base"></i></div>
+                    </div>
+                </div>
+                <div class="stat-card flex flex-col h-full">
+                    <div class="flex justify-between h-full gap-2">
+                        <div class="flex flex-col h-full">
+                            <p class="text-xs text-neutral-dark/60 dark:text-gray-400 mb-1">Recovery Streak</p>
+                            <div class="mt-auto">
+                                <p class="text-2xl font-bold text-neutral-dark dark:text-white font-serif">14 weeks</p>
+                                <p class="text-[10px] text-neutral-dark/60 dark:text-gray-400 mt-1">Consistent sessions</p>
+                            </div>
+                        </div>
+                        <div class="w-10 h-10 bg-[rgba(var(--color-rgb-primary),0.08)] dark:bg-[rgba(var(--color-rgb-bright),0.12)] rounded-full flex items-center justify-center shrink-0"><i class="fas fa-fire text-spa-sage dark:text-spa-sage-bright text-base"></i></div>
+                    </div>
+                </div>
+                <div class="stat-card flex flex-col h-full">
+                    <div class="flex justify-between h-full gap-2">
+                        <div class="flex flex-col h-full">
+                            <p class="text-xs text-neutral-dark/60 dark:text-gray-400 mb-1">Pain Level Trend</p>
+                            <div class="mt-auto">
+                                <p class="text-2xl font-bold text-neutral-dark dark:text-white font-serif">↓ 42%</p>
+                                <p class="text-[10px] text-neutral-dark/60 dark:text-gray-400 mt-1">Since starting plan</p>
+                            </div>
+                        </div>
+                        <div class="w-10 h-10 bg-[rgba(var(--color-rgb-primary),0.08)] dark:bg-[rgba(var(--color-rgb-bright),0.12)] rounded-full flex items-center justify-center shrink-0"><i class="fas fa-chart-line text-spa-sage dark:text-spa-sage-bright text-base"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                <!-- Recovery plan card -->
+                <div class="card-design p-6 lg:col-span-2">
+                    <div class="flex flex-wrap justify-between items-start gap-3 mb-4">
+                        <div>
+                            <h3 class="font-serif font-bold text-xl">Lower Back Recovery Plan</h3>
+                            <p class="text-xs text-neutral-dark/60 dark:text-gray-400 mt-0.5">Custom plan by Marcus Chen · Week 14 of 20</p>
+                        </div>
+                        <span class="status-badge status-active">On Track</span>
+                    </div>
+
+                    <!-- Progress steps -->
+                    <div class="mb-5">
+                        <div class="grid grid-cols-4 text-[10px] sm:text-xs text-neutral-dark/60 dark:text-gray-400 mb-1.5 font-medium">
+                            <span class="text-left truncate">Assessment</span>
+                            <span class="text-center truncate">Mobility Work</span>
+                            <span class="text-center truncate">Strength Phase</span>
+                            <span class="text-right truncate">Maintenance</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-3 gap-3 mb-4">
+                        <div class="p-3 rounded-xl bg-[rgba(var(--color-rgb-primary),0.06)] dark:bg-[rgba(var(--color-rgb-bright),0.08)]">
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-60 mb-1">Target Area</div>
+                            <div class="font-semibold text-sm">Lumbar & Hip Flexors</div>
+                        </div>
+                        <div class="p-3 rounded-xl bg-[rgba(var(--color-rgb-primary),0.06)] dark:bg-[rgba(var(--color-rgb-bright),0.08)]">
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-60 mb-1">Current Focus</div>
+                            <div class="font-semibold text-sm">Deep tissue + stretching</div>
+                        </div>
+                        <div class="p-3 rounded-xl bg-[rgba(var(--color-rgb-primary),0.06)] dark:bg-[rgba(var(--color-rgb-bright),0.08)]">
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-60 mb-1">Sessions/Week</div>
+                            <div class="font-semibold text-sm">1 session</div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2">
+                        <button data-nav="recovery" class="btn-outline-design px-4 py-2 text-xs">View Full Plan</button>
+                        <button data-nav="book" class="btn-primary-design px-4 py-2 text-xs"><i class="fas fa-plus"></i> Book Next Session</button>
+                    </div>
+                </div>
+
+                <!-- Package snapshot -->
+                <div class="card-design p-6">
+                    <h3 class="font-serif font-bold text-xl mb-4">12-Session Package</h3>
+                    <div class="usage-ring mb-4">
+                        <svg width="130" height="130" viewBox="0 0 130 130">
+                            <defs>
+                                <linearGradient id="usageGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#5B8C7B"/>
+                                    <stop offset="100%" stop-color="#8FB8A8"/>
+                                </linearGradient>
+                            </defs>
+                            <circle class="ring-bg" cx="65" cy="65" r="55"/>
+                            <circle class="ring-fill" cx="65" cy="65" r="55" style="stroke: url(#usageGrad1);" stroke-dasharray="345.57" stroke-dashoffset="201.6"/>
+                        </svg>
+                        <div class="ring-content">
+                            <div class="font-serif font-bold text-2xl text-neutral-dark dark:text-white leading-none">7<span class="text-base opacity-60">/12</span></div>
+                            <div class="text-[9px] font-bold uppercase tracking-widest opacity-60 mt-1">Remaining</div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-sm font-semibold text-neutral-dark dark:text-white">5 sessions used</p>
+                        <p class="text-xs text-neutral-dark/60 dark:text-gray-400 mt-0.5">Package expires Mar 15, 2027</p>
+                    </div>
+                    <button data-nav="packages" class="btn-primary-design w-full mt-4 py-2.5 text-xs"><i class="fas fa-box"></i> Manage Package</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Recent activity -->
+                <div class="card-design p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="font-serif font-bold text-xl">Recent Activity</h3>
+                        <button data-nav="appointments" class="text-xs font-bold text-spa-sage dark:text-spa-sage-bright hover:underline">View All →</button>
+                    </div>
+                    <div>
+                        <div class="history-item">
+                            <div class="history-dot"></div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start gap-2 flex-wrap">
+                                    <div>
+                                        <p class="font-semibold text-sm">Sports Recovery Massage</p>
+                                        <p class="text-xs text-neutral-dark/60 dark:text-gray-400">with Elena Vasquez · 90 min</p>
+                                    </div>
+                                    <span class="text-xs text-neutral-dark/60">Oct 4</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="history-item">
+                            <div class="history-dot"></div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start gap-2 flex-wrap">
+                                    <div>
+                                        <p class="font-semibold text-sm">Deep Tissue Massage</p>
+                                        <p class="text-xs text-neutral-dark/60 dark:text-gray-400">with Marcus Chen · 60 min</p>
+                                    </div>
+                                    <span class="text-xs text-neutral-dark/60">Sep 27</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="history-item">
+                            <div class="history-dot"></div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start gap-2 flex-wrap">
+                                    <div>
+                                        <p class="font-semibold text-sm">Mobility Assessment</p>
+                                        <p class="text-xs text-neutral-dark/60 dark:text-gray-400">with Marcus Chen · 30 min</p>
+                                    </div>
+                                    <span class="text-xs text-neutral-dark/60">Sep 20</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommendation -->
+                <div class="card-design p-6">
+                    <h3 class="font-serif font-bold text-xl mb-4">Recommended For You</h3>
+                    <div class="recommend-card mb-3">
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-spa-sage/15 dark:bg-spa-sage-bright/15 text-spa-sage dark:text-spa-sage-bright flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-sm text-neutral-dark dark:text-white mb-1">Trigger Point Therapy</p>
+                                <p class="text-xs text-neutral-dark/70 dark:text-gray-400 leading-relaxed">Based on your hip flexor tightness, our therapists recommend adding trigger point work to your next session.</p>
+                                <button data-nav="book" class="btn-primary-design mt-3 px-3 py-1.5 text-[11px]"><i class="fas fa-plus"></i> Add to Next Booking</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recommend-card">
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-spa-accent/15 text-spa-accent flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-spa"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-sm text-neutral-dark dark:text-white mb-1">Try Hot Stone Therapy</p>
+                                <p class="text-xs text-neutral-dark/70 dark:text-gray-400 leading-relaxed">Members with your recovery profile see 30% better mobility results when combining deep tissue with hot stone.</p>
+                                <button data-nav="book" class="btn-outline-design mt-3 px-3 py-1.5 text-[11px]">Explore Treatment</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== BOOK APPOINTMENT ========== -->
+        <div id="page-book" class="page-content hidden">
+            <div class="card-design p-6">
+                <h3 class="font-serif font-bold text-2xl mb-1">Book an Appointment</h3>
+                <p class="text-sm text-neutral-dark/60 dark:text-gray-400 mb-6">Choose your treatment, therapist, and preferred time. We'll confirm within 2 hours.</p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Left: Form -->
+                    <div class="lg:col-span-2 space-y-5">
+                        <!-- Treatment type -->
+                        <div>
+                            <label class="form-label">Select Treatment</label>
+                            <select class="form-input">
+                                <option>Sports Recovery Massage · 90 min · $105</option>
+                                <option selected>Deep Tissue Massage · 60 min · $95</option>
+                                <option>Trigger Point Therapy · 60 min · $100</option>
+                                <option>Hot Stone Therapy · 75 min · $110</option>
+                                <option>Relaxation Massage · 60 min · $85</option>
+                                <option>Lymphatic Drainage · 75 min · $110</option>
+                            </select>
+                        </div>
+
+                        <!-- Therapist preference -->
+                        <div>
+                            <label class="form-label">Therapist Preference</label>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                                <div class="therapist-card selected" data-therapist="marcus">
+                                    <div class="therapist-avatar" style="background: linear-gradient(135deg, #D4A857, #B88A3A);">MC</div>
+                                    <p class="text-xs font-bold text-neutral-dark dark:text-white leading-tight">Marcus Chen</p>
+                                    <p class="text-[10px] text-neutral-dark/60 dark:text-gray-400 mt-auto pt-1">Your Recovery Lead</p>
+                                </div>
+                                <div class="therapist-card" data-therapist="elena">
+                                    <div class="therapist-avatar" style="background: linear-gradient(135deg, #5B8C7B, #3D6355);">EV</div>
+                                    <p class="text-xs font-bold text-neutral-dark dark:text-white leading-tight">Elena Vasquez</p>
+                                    <p class="text-[10px] text-neutral-dark/60 dark:text-gray-400 mt-auto pt-1">Sports Specialist</p>
+                                </div>
+                                <div class="therapist-card" data-therapist="james">
+                                    <div class="therapist-avatar" style="background: linear-gradient(135deg, #8FB8A8, #5B8C7B);">JO</div>
+                                    <p class="text-xs font-bold text-neutral-dark dark:text-white leading-tight">James Okonkwo</p>
+                                    <p class="text-[10px] text-neutral-dark/60 dark:text-gray-400 mt-auto pt-1">Trigger Point Expert</p>
+                                </div>
+                                <div class="therapist-card" data-therapist="any">
+                                    <div class="therapist-avatar" style="background: linear-gradient(135deg, #C2DDD1, #8FB8A8); color: #3D6355;"><i class="fas fa-shuffle"></i></div>
+                                    <p class="text-xs font-bold text-neutral-dark dark:text-white leading-tight">Any Available</p>
+                                    <p class="text-[10px] text-neutral-dark/60 dark:text-gray-400 mt-auto pt-1">Fastest booking</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Date -->
+                        <div class="grid sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="form-label">Preferred Date</label>
+                                <input type="date" class="form-input" value="2026-10-11">
+                            </div>
+                            <div>
+                                <label class="form-label">Duration</label>
+                                <select class="form-input">
+                                    <option>60 minutes</option>
+                                    <option selected>90 minutes</option>
+                                    <option>75 minutes</option>
+                                    <option>120 minutes</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Time slot -->
+                        <div>
+                            <label class="form-label">Preferred Time Slot</label>
+                            <div class="grid grid-cols-3 sm:grid-cols-4 gap-2.5">
+                                <label class="slot-chip"><input type="radio" name="slot" value="8am"><span>8:00 AM</span></label>
+                                <label class="slot-chip"><input type="radio" name="slot" value="9am"><span>9:00 AM</span></label>
+                                <label class="slot-chip"><input type="radio" name="slot" value="10am"><span>10:00 AM</span></label>
+                                <label class="slot-chip"><input type="radio" name="slot" value="11am"><span>11:00 AM</span></label>
+                                <label class="slot-chip"><input type="radio" name="slot" value="12pm"><span>12:00 PM</span></label>
+                                <label class="slot-chip"><input type="radio" name="slot" value="1pm"><span>1:00 PM</span></label>
+                                <label class="slot-chip"><input type="radio" name="slot" value="2pm"><span>2:00 PM</span></label>
+                                <label class="slot-chip"><input type="radio" name="slot" value="3pm"><span>3:00 PM</span></label>
+                                <label class="slot-chip"><input type="radio" name="slot" value="4pm"><span>4:00 PM</span></label>
+                                <label class="slot-chip"><input type="radio" name="slot" value="5pm"><span>5:00 PM</span></label>
+                                <label class="slot-chip"><input type="radio" name="slot" value="6pm" checked><span>6:00 PM</span></label>
+                                <label class="slot-chip disabled"><input type="radio" name="slot" value="7pm" disabled><span>7:00 PM</span></label>
+                            </div>
+                            <p class="text-[11px] opacity-60 font-sans mt-2"><i class="fas fa-info-circle mr-1 text-spa-sage dark:text-spa-sage-bright"></i>Grayed-out slots are already booked. Choose another time.</p>
+                        </div>
+
+                        <!-- Notes -->
+                        <div>
+                            <label class="form-label">Notes for Your Therapist</label>
+                            <textarea class="form-input" rows="3" placeholder="Any new injuries, pain points, pressure preferences, or focus areas…"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Right: Summary -->
+                    <div class="lg:col-span-1">
+                        <div class="sticky top-6">
+                            <div class="card-design p-5 bg-[rgba(var(--color-rgb-primary),0.04)] dark:bg-[rgba(var(--color-rgb-bright),0.05)]">
+                                <h4 class="font-serif font-bold text-lg mb-4">Booking Summary</h4>
+                                <div class="space-y-3 text-sm">
+                                    <div class="flex justify-between gap-3">
+                                        <span class="text-neutral-dark/60 dark:text-gray-400 shrink-0">Treatment</span>
+                                        <span class="font-semibold text-right">Deep Tissue Massage</span>
+                                    </div>
+                                    <div class="flex justify-between gap-3">
+                                        <span class="text-neutral-dark/60 dark:text-gray-400 shrink-0">Therapist</span>
+                                        <span class="font-semibold text-right">Marcus Chen</span>
+                                    </div>
+                                    <div class="flex justify-between gap-3">
+                                        <span class="text-neutral-dark/60 dark:text-gray-400 shrink-0">Duration</span>
+                                        <span class="font-semibold text-right">60 minutes</span>
+                                    </div>
+                                    <div class="flex justify-between gap-3">
+                                        <span class="text-neutral-dark/60 dark:text-gray-400 shrink-0">Date & Time</span>
+                                        <span class="font-semibold text-right">Oct 11 · 6:00 PM</span>
+                                    </div>
+                                    <div class="border-t border-[rgba(var(--color-rgb-primary),0.15)] dark:border-[rgba(var(--color-rgb-bright),0.15)] pt-3 mt-3">
+                                        <div class="flex justify-between gap-3">
+                                            <span class="text-neutral-dark/60 dark:text-gray-400 shrink-0">Session price</span>
+                                            <span class="font-semibold text-right">$95.00</span>
+                                        </div>
+                                        <div class="flex justify-between gap-3 mt-1.5">
+                                            <span class="text-spa-sage dark:text-spa-sage-bright font-semibold shrink-0">Package credit</span>
+                                            <span class="text-spa-sage dark:text-spa-sage-bright font-bold text-right whitespace-nowrap">−$95.00</span>
+                                        </div>
+                                        <div class="flex justify-between gap-3 mt-3 pt-3 border-t border-[rgba(var(--color-rgb-primary),0.15)] dark:border-[rgba(var(--color-rgb-bright),0.15)]">
+                                            <span class="font-serif font-bold text-base shrink-0">Total Due</span>
+                                            <span class="font-serif font-bold text-xl text-spa-sage dark:text-spa-sage-bright text-right whitespace-nowrap">$0.00</span>
+                                        </div>
+                                        <p class="text-[11px] text-neutral-dark/60 dark:text-gray-400 mt-2">Covered by your 12-session package.</p>
+                                    </div>
+                                </div>
+                                <button class="btn-primary-design w-full mt-5 py-3 text-sm"><i class="fas fa-check"></i> Confirm Booking</button>
+                                <button class="btn-outline-design w-full mt-2 py-2.5 text-xs">Save as Draft</button>
+                            </div>
+
+                            <!-- Package note -->
+                            <div class="mt-4 p-4 rounded-2xl bg-[rgba(212,168,87,0.1)] border border-[rgba(212,168,87,0.25)]">
+                                <div class="flex items-start gap-3">
+                                    <i class="fas fa-box text-spa-accent mt-0.5"></i>
+                                    <div>
+                                        <p class="text-xs font-bold text-neutral-dark dark:text-white">7 of 12 sessions remaining</p>
+                                        <p class="text-[11px] text-neutral-dark/70 dark:text-gray-400 mt-0.5">This booking will use 1 package credit. Package valid until Mar 2027.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== APPOINTMENTS ========== -->
+        <div id="page-appointments" class="page-content hidden">
+            <div class="card-design p-6">
+                <div class="flex flex-wrap justify-between items-center gap-3 mb-6">
+                    <div>
+                        <h3 class="font-serif font-bold text-2xl">My Appointments</h3>
+                        <p class="text-sm text-neutral-dark/60 dark:text-gray-400 mt-1">Manage upcoming sessions and view past visits.</p>
+                    </div>
+                    <button data-nav="book" class="btn-primary-design px-4 py-2 text-sm"><i class="fas fa-plus"></i> New Appointment</button>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Upcoming session 1 -->
+                    <div class="session-card p-5 bg-[rgba(var(--color-rgb-primary),0.04)] dark:bg-[rgba(var(--color-rgb-bright),0.05)] rounded-2xl border border-[rgba(var(--color-rgb-primary),0.08)]">
+                        <div class="flex flex-wrap justify-between items-start gap-3">
+                            <div class="flex items-start gap-3">
+                                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-spa-sage to-spa-sage-dark text-white flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-hands"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-lg font-serif">Deep Tissue Massage · Lower Back Focus</p>
+                                    <p class="text-sm text-neutral-dark/60 dark:text-gray-400">with Marcus Chen · 60 min · Recovery Suite A</p>
+                                    <div class="flex items-center gap-3 mt-2 flex-wrap">
+                                        <span class="status-badge status-confirmed">Confirmed</span>
+                                        <span class="text-xs text-neutral-dark/60 dark:text-gray-400"><i class="fas fa-calendar mr-1"></i>Oct 11, 2026 · 6:00 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="btn-outline-design text-xs px-4 py-1.5"><i class="fas fa-edit mr-1"></i>Reschedule</button>
+                                <button class="btn-primary-design text-xs px-4 py-1.5"><i class="fas fa-eye mr-1"></i>Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming session 2 (today) -->
+                    <div class="session-card p-5 bg-[rgba(var(--color-rgb-primary),0.04)] dark:bg-[rgba(var(--color-rgb-bright),0.05)] rounded-2xl border border-[rgba(var(--color-rgb-primary),0.08)]">
+                        <div class="flex flex-wrap justify-between items-start gap-3">
+                            <div class="flex items-start gap-3">
+                                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-spa-accent to-[#B88A3A] text-white flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-lg font-serif">Hot Stone Therapy · Full Body</p>
+                                    <p class="text-sm text-neutral-dark/60 dark:text-gray-400">with James Okonkwo · 75 min · Recovery Suite B</p>
+                                    <div class="flex items-center gap-3 mt-2 flex-wrap">
+                                        <span class="status-badge status-today">Today</span>
+                                        <span class="text-xs text-neutral-dark/60 dark:text-gray-400"><i class="fas fa-clock mr-1"></i>Oct 8, 2026 · 7:00 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="btn-outline-design text-xs px-4 py-1.5"><i class="fas fa-edit mr-1"></i>Reschedule</button>
+                                <button class="btn-primary-design text-xs px-4 py-1.5"><i class="fas fa-eye mr-1"></i>Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Past session -->
+                    <div class="session-card p-5 bg-white dark:bg-[#0A1310] rounded-2xl border border-[rgba(var(--color-rgb-primary),0.08)] opacity-90">
+                        <div class="flex flex-wrap justify-between items-start gap-3">
+                            <div class="flex items-start gap-3">
+                                <div class="w-12 h-12 rounded-2xl bg-[rgba(var(--color-rgb-primary),0.15)] text-spa-sage dark:text-spa-sage-bright flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-lg font-serif">Sports Recovery Massage</p>
+                                    <p class="text-sm text-neutral-dark/60 dark:text-gray-400">with Elena Vasquez · 90 min · Recovery Suite A</p>
+                                    <div class="flex items-center gap-3 mt-2 flex-wrap">
+                                        <span class="status-badge status-completed">Completed</span>
+                                        <span class="text-xs text-neutral-dark/60 dark:text-gray-400"><i class="fas fa-calendar mr-1"></i>Oct 4, 2026 · 5:00 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="btn-outline-design text-xs px-4 py-1.5"><i class="fas fa-redo mr-1"></i>Rebook</button>
+                                <button class="btn-primary-design text-xs px-4 py-1.5"><i class="fas fa-eye mr-1"></i>Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Past session -->
+                    <div class="session-card p-5 bg-white dark:bg-[#0A1310] rounded-2xl border border-[rgba(var(--color-rgb-primary),0.08)] opacity-90">
+                        <div class="flex flex-wrap justify-between items-start gap-3">
+                            <div class="flex items-start gap-3">
+                                <div class="w-12 h-12 rounded-2xl bg-[rgba(var(--color-rgb-primary),0.15)] text-spa-sage dark:text-spa-sage-bright flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-lg font-serif">Deep Tissue Massage</p>
+                                    <p class="text-sm text-neutral-dark/60 dark:text-gray-400">with Marcus Chen · 60 min · Recovery Suite A</p>
+                                    <div class="flex items-center gap-3 mt-2 flex-wrap">
+                                        <span class="status-badge status-completed">Completed</span>
+                                        <span class="text-xs text-neutral-dark/60 dark:text-gray-400"><i class="fas fa-calendar mr-1"></i>Sep 27, 2026 · 6:00 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="btn-outline-design text-xs px-4 py-1.5"><i class="fas fa-redo mr-1"></i>Rebook</button>
+                                <button class="btn-primary-design text-xs px-4 py-1.5"><i class="fas fa-eye mr-1"></i>Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== RECOVERY PLAN ========== -->
+        <div id="page-recovery" class="page-content hidden">
+            <div class="card-design p-6 mb-6">
+                <div class="flex flex-wrap justify-between items-start gap-3 mb-5">
+                    <div>
+                        <h3 class="font-serif font-bold text-2xl">Lower Back Recovery Plan</h3>
+                        <p class="text-sm text-neutral-dark/60 dark:text-gray-400 mt-1">Custom 20-week plan by Marcus Chen · Started July 2026</p>
+                    </div>
+                    <span class="status-badge status-active !text-xs !px-3 !py-1.5">Week 14 of 20</span>
+                </div>
+
+                <!-- Plan progress -->
+                <div class="mb-6">
+                    <div class="flex justify-between text-xs text-neutral-dark/60 dark:text-gray-400 mb-2 font-medium">
+                        <span>Week 1</span>
+                        <span>Week 20</span>
+                    </div>
+                    <div class="progress-bar !h-3"><div class="progress-fill" style="width:70%"></div></div>
+                    <div class="grid grid-cols-4 text-[10px] sm:text-xs text-neutral-dark/60 dark:text-gray-400 mt-2 font-medium">
+                        <span class="text-left">Assessment</span>
+                        <span class="text-center">Mobility</span>
+                        <span class="text-center">Strength</span>
+                        <span class="text-right">Maintenance</span>
+                    </div>
+                </div>
+
+                <!-- Progress metrics -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+                    <div class="p-4 rounded-2xl bg-[rgba(var(--color-rgb-primary),0.06)] dark:bg-[rgba(var(--color-rgb-bright),0.08)] flex flex-col h-full">
+                        <div class="text-[10px] font-bold uppercase tracking-widest opacity-60 mb-1">Pain Level</div>
+                        <div class="mt-auto">
+                            <div class="font-serif font-bold text-2xl text-spa-sage dark:text-spa-sage-bright">3<span class="text-sm opacity-60">/10</span></div>
+                            <div class="text-[11px] text-neutral-dark/60 dark:text-gray-400 mt-0.5">Was 7/10 at start</div>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-[rgba(var(--color-rgb-primary),0.06)] dark:bg-[rgba(var(--color-rgb-bright),0.08)] flex flex-col h-full">
+                        <div class="text-[10px] font-bold uppercase tracking-widest opacity-60 mb-1">Flexibility</div>
+                        <div class="mt-auto">
+                            <div class="font-serif font-bold text-2xl text-spa-sage dark:text-spa-sage-bright">+38%</div>
+                            <div class="text-[11px] text-neutral-dark/60 dark:text-gray-400 mt-0.5">Hip flexor mobility</div>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-[rgba(var(--color-rgb-primary),0.06)] dark:bg-[rgba(var(--color-rgb-bright),0.08)] flex flex-col h-full">
+                        <div class="text-[10px] font-bold uppercase tracking-widest opacity-60 mb-1">Sessions Done</div>
+                        <div class="mt-auto">
+                            <div class="font-serif font-bold text-2xl text-spa-sage dark:text-spa-sage-bright">14</div>
+                            <div class="text-[11px] text-neutral-dark/60 dark:text-gray-400 mt-0.5">Weekly consistency</div>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-[rgba(var(--color-rgb-primary),0.06)] dark:bg-[rgba(var(--color-rgb-bright),0.08)] flex flex-col h-full">
+                        <div class="text-[10px] font-bold uppercase tracking-widest opacity-60 mb-1">Compliance</div>
+                        <div class="mt-auto">
+                            <div class="font-serif font-bold text-2xl text-spa-sage dark:text-spa-sage-bright">94%</div>
+                            <div class="text-[11px] text-neutral-dark/60 dark:text-gray-400 mt-0.5">Home stretches done</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notes from therapist -->
+                <div class="p-5 rounded-2xl bg-[rgba(var(--color-rgb-primary),0.04)] dark:bg-[rgba(var(--color-rgb-bright),0.05)] border border-[rgba(var(--color-rgb-primary),0.1)]">
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-spa-sage to-spa-sage-dark text-white flex items-center justify-center font-serif font-bold text-sm flex-shrink-0">
+                            MC
+                        </div>
+                        <div>
+                            <p class="font-semibold text-sm text-neutral-dark dark:text-white">Marcus Chen · Your Recovery Therapist</p>
+                            <p class="text-xs text-neutral-dark/70 dark:text-gray-400 mt-2 leading-relaxed">"David, excellent progress this week. Your hip flexor mobility has improved significantly and the pain has dropped from a 7 to a 3. We're moving into the strength phase now. Keep up the daily stretching — that consistency is exactly why we're ahead of schedule."</p>
+                            <p class="text-[11px] text-neutral-dark/50 dark:text-gray-500 mt-2">Note added Oct 4, 2026</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upcoming plan milestones -->
+            <div class="card-design p-6">
+                <h3 class="font-serif font-bold text-xl mb-4">Upcoming Milestones</h3>
+                <div class="space-y-3">
+                    <div class="flex items-start gap-3 p-4 rounded-xl bg-[rgba(var(--color-rgb-primary),0.04)] dark:bg-[rgba(var(--color-rgb-bright),0.05)]">
+                        <div class="w-10 h-10 rounded-xl bg-spa-sage/15 dark:bg-spa-sage-bright/15 text-spa-sage dark:text-spa-sage-bright flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-flag-checkered"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start gap-2 flex-wrap">
+                                <p class="font-semibold text-sm text-neutral-dark dark:text-white">Week 16 Reassessment</p>
+                                <span class="text-xs text-neutral-dark/60 dark:text-gray-400">Oct 25, 2026</span>
+                            </div>
+                            <p class="text-xs text-neutral-dark/60 dark:text-gray-400 mt-1">Full mobility re-test and plan adjustment. Bring your running shoes for a gait check.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-4 rounded-xl bg-[rgba(var(--color-rgb-primary),0.04)] dark:bg-[rgba(var(--color-rgb-bright),0.05)]">
+                        <div class="w-10 h-10 rounded-xl bg-spa-accent/15 text-spa-accent flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start gap-2 flex-wrap">
+                                <p class="font-semibold text-sm text-neutral-dark dark:text-white">Return to Full Training</p>
+                                <span class="text-xs text-neutral-dark/60 dark:text-gray-400">Nov 20, 2026</span>
+                            </div>
+                            <p class="text-xs text-neutral-dark/60 dark:text-gray-400 mt-1">Target date to resume marathon training at full volume. Maintenance phase begins.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== MY PACKAGES ========== -->
+        <div id="page-packages" class="page-content hidden">
+            <div class="card-design p-6 mb-6">
+                <div class="flex flex-wrap justify-between items-center gap-3 mb-6">
+                    <div>
+                        <h3 class="font-serif font-bold text-2xl">My Packages</h3>
+                        <p class="text-sm text-neutral-dark/60 dark:text-gray-400 mt-1">Active and past session packages on your account.</p>
+                    </div>
+                    <button class="btn-outline-design px-4 py-2 text-sm"><i class="fas fa-plus"></i> Buy New Package</button>
+                </div>
+
+                <!-- Active package -->
+                <div class="p-6 rounded-2xl bg-gradient-to-br from-spa-sage to-spa-sage-dark text-white mb-5">
+                    <div class="flex flex-wrap justify-between items-start gap-4 mb-5">
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <i class="fas fa-box text-[#D4A857]"></i>
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-white/70">Active Package</span>
+                            </div>
+                            <h4 class="font-serif font-bold text-3xl text-white">12-Session Pack</h4>
+                            <p class="text-xs text-white/70 mt-1">Purchased Sep 15, 2026 · Expires Mar 15, 2027</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-serif font-bold text-3xl text-white">7<span class="text-lg opacity-70">/12</span></div>
+                            <div class="text-[10px] uppercase tracking-widest text-white/70">Sessions Left</div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-5 border-t border-white/20">
+                        <div>
+                            <div class="text-[10px] uppercase tracking-widest text-white/60 mb-1">Sessions Used</div>
+                            <div class="font-bold text-white text-sm">5</div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] uppercase tracking-widest text-white/60 mb-1">Price Paid</div>
+                            <div class="font-bold text-white text-sm">$849</div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] uppercase tracking-widest text-white/60 mb-1">Per Session</div>
+                            <div class="font-bold text-white text-sm">$70.75</div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] uppercase tracking-widest text-white/60 mb-1">Savings</div>
+                            <div class="font-bold text-[#D4A857] text-sm">$291</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package usage log -->
+                <div>
+                    <h4 class="font-serif font-bold text-lg mb-3">Package Usage Log</h4>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between p-3 rounded-xl bg-[rgba(var(--color-rgb-primary),0.05)] dark:bg-[rgba(var(--color-rgb-bright),0.06)]">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-spa-sage dark:text-spa-sage-bright"></i>
+                                <div>
+                                    <p class="text-sm font-semibold">Sports Recovery Massage</p>
+                                    <p class="text-[11px] text-neutral-dark/60 dark:text-gray-400">Elena Vasquez · Oct 4, 2026</p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-bold text-neutral-dark/60">−1</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 rounded-xl bg-[rgba(var(--color-rgb-primary),0.05)] dark:bg-[rgba(var(--color-rgb-bright),0.06)]">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-spa-sage dark:text-spa-sage-bright"></i>
+                                <div>
+                                    <p class="text-sm font-semibold">Deep Tissue Massage</p>
+                                    <p class="text-[11px] text-neutral-dark/60 dark:text-gray-400">Marcus Chen · Sep 27, 2026</p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-bold text-neutral-dark/60">−1</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 rounded-xl bg-[rgba(var(--color-rgb-primary),0.05)] dark:bg-[rgba(var(--color-rgb-bright),0.06)]">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-spa-sage dark:text-spa-sage-bright"></i>
+                                <div>
+                                    <p class="text-sm font-semibold">Deep Tissue Massage</p>
+                                    <p class="text-[11px] text-neutral-dark/60 dark:text-gray-400">Marcus Chen · Sep 20, 2026</p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-bold text-neutral-dark/60">−1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Past packages -->
+            <div class="card-design p-6">
+                <h4 class="font-serif font-bold text-lg mb-4">Past Packages</h4>
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between p-4 rounded-xl bg-white dark:bg-[#0A1310] border border-[rgba(var(--color-rgb-primary),0.1)] dark:border-[rgba(var(--color-rgb-bright),0.12)]">
+                        <div>
+                            <p class="font-semibold text-sm">6-Session Pack</p>
+                            <p class="text-[11px] text-neutral-dark/60 dark:text-gray-400 mt-0.5">Fully used · Feb 2026 – Aug 2026</p>
+                        </div>
+                        <span class="status-badge status-completed">Used</span>
+                    </div>
+                    <div class="flex items-center justify-between p-4 rounded-xl bg-white dark:bg-[#0A1310] border border-[rgba(var(--color-rgb-primary),0.1)] dark:border-[rgba(var(--color-rgb-bright),0.12)]">
+                        <div>
+                            <p class="font-semibold text-sm">3-Session Starter Pack</p>
+                            <p class="text-[11px] text-neutral-dark/60 dark:text-gray-400 mt-0.5">Fully used · Nov 2025 – Jan 2026</p>
+                        </div>
+                        <span class="status-badge status-completed">Used</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== BILLING & INVOICES ========== -->
+        <div id="page-billing" class="page-content hidden">
+            <div class="card-design p-6">
+                <div class="flex flex-wrap justify-between items-center gap-3 mb-6">
+                    <div>
+                        <h3 class="font-serif font-bold text-2xl">Billing & Invoices</h3>
+                        <p class="text-sm text-neutral-dark/60 dark:text-gray-400 mt-1">All your payments, invoices, and receipts in one place.</p>
+                    </div>
+                    <button class="btn-outline-design px-4 py-2 text-sm"><i class="fas fa-download"></i> Export All</button>
+                </div>
+
+                <!-- Billing summary -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+                    <div class="p-4 rounded-2xl bg-[rgba(var(--color-rgb-primary),0.06)] dark:bg-[rgba(var(--color-rgb-bright),0.08)] flex flex-col h-full">
+                        <div class="text-[10px] font-bold uppercase tracking-widest opacity-60 mb-1">Total Spent</div>
+                        <div class="font-serif font-bold text-xl text-neutral-dark dark:text-white mt-auto">$2,847</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-[rgba(var(--color-rgb-primary),0.06)] dark:bg-[rgba(var(--color-rgb-bright),0.08)] flex flex-col h-full">
+                        <div class="text-[10px] font-bold uppercase tracking-widest opacity-60 mb-1">This Month</div>
+                        <div class="font-serif font-bold text-xl text-neutral-dark dark:text-white mt-auto">$189</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-[rgba(var(--color-rgb-primary),0.06)] dark:bg-[rgba(var(--color-rgb-bright),0.08)] flex flex-col h-full">
+                        <div class="text-[10px] font-bold uppercase tracking-widest opacity-60 mb-1">Outstanding</div>
+                        <div class="font-serif font-bold text-xl text-spa-accent mt-auto">$0</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-[rgba(var(--color-rgb-primary),0.06)] dark:bg-[rgba(var(--color-rgb-bright),0.08)] flex flex-col h-full">
+                        <div class="text-[10px] font-bold uppercase tracking-widest opacity-60 mb-1">Next Charge</div>
+                        <div class="font-serif font-bold text-xl text-neutral-dark dark:text-white mt-auto">Nov 1</div>
+                    </div>
+                </div>
+
+                <!-- Invoices table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-[rgba(var(--color-rgb-primary),0.08)] dark:border-[rgba(var(--color-rgb-bright),0.15)]">
+                                <th class="text-left py-2 px-3 font-semibold">Invoice #</th>
+                                <th class="text-left py-2 px-3 font-semibold">Date</th>
+                                <th class="text-left py-2 px-3 font-semibold">Description</th>
+                                <th class="text-left py-2 px-3 font-semibold">Amount</th>
+                                <th class="text-left py-2 px-3 font-semibold">Status</th>
+                                <th class="text-left py-2 px-3 font-semibold">Download</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-[rgba(var(--color-rgb-primary),0.08)] dark:border-[rgba(var(--color-rgb-bright),0.15)]">
+                                <td class="py-2 px-3 font-mono text-xs">INV-2026-0094</td>
+                                <td class="py-2 px-3 font-medium">Oct 1, 2026</td>
+                                <td class="py-2 px-3">Sanctuary Membership — Monthly</td>
+                                <td class="py-2 px-3 font-bold">$189.00</td>
+                                <td class="py-2 px-3"><span class="status-badge status-paid">Paid</span></td>
+                                <td class="py-2 px-3"><button class="text-spa-sage hover:text-spa-sage-dark"><i class="fas fa-download"></i></button></td>
+                            </tr>
+                            <tr class="border-b border-[rgba(var(--color-rgb-primary),0.08)] dark:border-[rgba(var(--color-rgb-bright),0.15)]">
+                                <td class="py-2 px-3 font-mono text-xs">INV-2026-0088</td>
+                                <td class="py-2 px-3 font-medium">Sep 15, 2026</td>
+                                <td class="py-2 px-3">12-Session Package Purchase</td>
+                                <td class="py-2 px-3 font-bold">$849.00</td>
+                                <td class="py-2 px-3"><span class="status-badge status-paid">Paid</span></td>
+                                <td class="py-2 px-3"><button class="text-spa-sage hover:text-spa-sage-dark"><i class="fas fa-download"></i></button></td>
+                            </tr>
+                            <tr class="border-b border-[rgba(var(--color-rgb-primary),0.08)] dark:border-[rgba(var(--color-rgb-bright),0.15)]">
+                                <td class="py-2 px-3 font-mono text-xs">INV-2026-0081</td>
+                                <td class="py-2 px-3 font-medium">Sep 1, 2026</td>
+                                <td class="py-2 px-3">Sanctuary Membership — Monthly</td>
+                                <td class="py-2 px-3 font-bold">$189.00</td>
+                                <td class="py-2 px-3"><span class="status-badge status-paid">Paid</span></td>
+                                <td class="py-2 px-3"><button class="text-spa-sage hover:text-spa-sage-dark"><i class="fas fa-download"></i></button></td>
+                            </tr>
+                            <tr class="border-b border-[rgba(var(--color-rgb-primary),0.08)] dark:border-[rgba(var(--color-rgb-bright),0.15)]">
+                                <td class="py-2 px-3 font-mono text-xs">INV-2026-0074</td>
+                                <td class="py-2 px-3 font-medium">Aug 1, 2026</td>
+                                <td class="py-2 px-3">Sanctuary Membership — Monthly</td>
+                                <td class="py-2 px-3 font-bold">$189.00</td>
+                                <td class="py-2 px-3"><span class="status-badge status-paid">Paid</span></td>
+                                <td class="py-2 px-3"><button class="text-spa-sage hover:text-spa-sage-dark"><i class="fas fa-download"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 font-mono text-xs">INV-2026-0067</td>
+                                <td class="py-2 px-3 font-medium">Jul 1, 2026</td>
+                                <td class="py-2 px-3">Sanctuary Membership — Monthly</td>
+                                <td class="py-2 px-3 font-bold">$189.00</td>
+                                <td class="py-2 px-3"><span class="status-badge status-paid">Paid</span></td>
+                                <td class="py-2 px-3"><button class="text-spa-sage hover:text-spa-sage-dark"><i class="fas fa-download"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== FEEDBACK & REVIEWS ========== -->
+        <div id="page-feedback" class="page-content hidden">
+            <div class="card-design p-6 mb-6">
+                <h3 class="font-serif font-bold text-2xl mb-1">Feedback & Reviews</h3>
+                <p class="text-sm text-neutral-dark/60 dark:text-gray-400 mb-6">Rate your sessions to help us keep improving.</p>
+
+                <!-- Pending reviews -->
+                <div class="mb-6">
+                    <h4 class="font-serif font-bold text-lg mb-3">Sessions Awaiting Your Review</h4>
+                    <div class="space-y-3">
+                        <div class="p-4 rounded-2xl bg-[rgba(var(--color-rgb-primary),0.04)] dark:bg-[rgba(var(--color-rgb-bright),0.05)] border border-[rgba(var(--color-rgb-primary),0.08)]">
+                            <div class="flex flex-wrap justify-between items-center gap-3">
+                                <div>
+                                    <p class="font-semibold text-sm">Sports Recovery Massage</p>
+                                    <p class="text-xs text-neutral-dark/60 dark:text-gray-400">Elena Vasquez · Oct 4, 2026</p>
+                                </div>
+                                <button class="btn-primary-design px-4 py-1.5 text-xs"><i class="fas fa-star"></i> Rate Session</button>
+                            </div>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-[rgba(var(--color-rgb-primary),0.04)] dark:bg-[rgba(var(--color-rgb-bright),0.05)] border border-[rgba(var(--color-rgb-primary),0.08)]">
+                            <div class="flex flex-wrap justify-between items-center gap-3">
+                                <div>
+                                    <p class="font-semibold text-sm">Deep Tissue Massage</p>
+                                    <p class="text-xs text-neutral-dark/60 dark:text-gray-400">Marcus Chen · Sep 27, 2026</p>
+                                </div>
+                                <button class="btn-primary-design px-4 py-1.5 text-xs"><i class="fas fa-star"></i> Rate Session</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Past reviews -->
+                <div>
+                    <h4 class="font-serif font-bold text-lg mb-3">Your Past Reviews</h4>
+                    <div class="space-y-3">
+                        <div class="p-4 rounded-2xl bg-white dark:bg-[#0A1310] border border-[rgba(var(--color-rgb-primary),0.1)] dark:border-[rgba(var(--color-rgb-bright),0.12)]">
+                            <div class="flex items-start justify-between gap-3 mb-2">
+                                <div>
+                                    <p class="font-semibold text-sm">Deep Tissue Massage</p>
+                                    <p class="text-xs text-neutral-dark/60 dark:text-gray-400">Marcus Chen · Sep 20, 2026</p>
+                                </div>
+                                <div class="flex gap-0.5 text-spa-accent">
+                                    <i class="fas fa-star text-xs"></i>
+                                    <i class="fas fa-star text-xs"></i>
+                                    <i class="fas fa-star text-xs"></i>
+                                    <i class="fas fa-star text-xs"></i>
+                                    <i class="fas fa-star text-xs"></i>
+                                </div>
+                            </div>
+                            <p class="text-xs text-neutral-dark/70 dark:text-gray-400 leading-relaxed">"Marcus is incredible. He found knots I didn't even know I had and explained everything as he worked. Best deep tissue I've had in years."</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-white dark:bg-[#0A1310] border border-[rgba(var(--color-rgb-primary),0.1)] dark:border-[rgba(var(--color-rgb-bright),0.12)]">
+                            <div class="flex items-start justify-between gap-3 mb-2">
+                                <div>
+                                    <p class="font-semibold text-sm">Lymphatic Drainage</p>
+                                    <p class="text-xs text-neutral-dark/60 dark:text-gray-400">James Okonkwo · Sep 6, 2026</p>
+                                </div>
+                                <div class="flex gap-0.5 text-spa-accent">
+                                    <i class="fas fa-star text-xs"></i>
+                                    <i class="fas fa-star text-xs"></i>
+                                    <i class="fas fa-star text-xs"></i>
+                                    <i class="fas fa-star text-xs"></i>
+                                    <i class="far fa-star text-xs"></i>
+                                </div>
+                            </div>
+                            <p class="text-xs text-neutral-dark/70 dark:text-gray-400 leading-relaxed">"Effective session, felt lighter afterward. Only wish the room had been a bit warmer. Still recommend it."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== SUPPORT ========== -->
+        <div id="page-support" class="page-content hidden">
+            <div class="card-design p-6 mb-6">
+                <h3 class="font-serif font-bold text-2xl mb-1">Support Center</h3>
+                <p class="text-sm text-neutral-dark/60 dark:text-gray-400 mb-6">Reach our team for anything you need — bookings, billing, or a friendly ear.</p>
+
+                <!-- Contact channels -->
+                <div class="grid sm:grid-cols-3 gap-4 mb-6">
+                    <a href="tel:+18005550199" class="p-5 rounded-2xl bg-[rgba(var(--color-rgb-primary),0.06)] dark:bg-[rgba(var(--color-rgb-bright),0.08)] border border-[rgba(var(--color-rgb-primary),0.1)] hover:border-spa-sage transition text-center flex flex-col h-full">
+                        <div class="w-12 h-12 rounded-xl bg-spa-sage/15 dark:bg-spa-sage-bright/15 text-spa-sage dark:text-spa-sage-bright flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <p class="font-semibold text-sm text-neutral-dark dark:text-white">Call Front Desk</p>
+                        <div class="mt-auto pt-2">
+                            <p class="text-xs text-neutral-dark/60 dark:text-gray-400">+1 (800) 555-0199</p>
+                            <p class="text-[10px] text-neutral-dark/50 dark:text-gray-500 mt-1">Daily 8AM–8PM</p>
+                        </div>
+                    </a>
+                    <a href="mailto:hello@serenityspa.com" class="p-5 rounded-2xl bg-[rgba(var(--color-rgb-primary),0.06)] dark:bg-[rgba(var(--color-rgb-bright),0.08)] border border-[rgba(var(--color-rgb-primary),0.1)] hover:border-spa-sage transition text-center flex flex-col h-full">
+                        <div class="w-12 h-12 rounded-xl bg-spa-sage/15 dark:bg-spa-sage-bright/15 text-spa-sage dark:text-spa-sage-bright flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <p class="font-semibold text-sm text-neutral-dark dark:text-white">Email Support</p>
+                        <div class="mt-auto pt-2">
+                            <p class="text-xs text-neutral-dark/60 dark:text-gray-400 break-all">hello@serenityspa.com</p>
+                            <p class="text-[10px] text-neutral-dark/50 dark:text-gray-500 mt-1">Reply within 2 hrs</p>
+                        </div>
+                    </a>
+                    <a href="https://wa.me/18005550199" target="_blank" class="p-5 rounded-2xl bg-[rgba(var(--color-rgb-primary),0.06)] dark:bg-[rgba(var(--color-rgb-bright),0.08)] border border-[rgba(var(--color-rgb-primary),0.1)] hover:border-spa-sage transition text-center flex flex-col h-full">
+                        <div class="w-12 h-12 rounded-xl bg-spa-sage/15 dark:bg-spa-sage-bright/15 text-spa-sage dark:text-spa-sage-bright flex items-center justify-center mx-auto mb-3">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <p class="font-semibold text-sm text-neutral-dark dark:text-white">WhatsApp Chat</p>
+                        <div class="mt-auto pt-2">
+                            <p class="text-xs text-neutral-dark/60 dark:text-gray-400">Instant message</p>
+                            <p class="text-[10px] text-neutral-dark/50 dark:text-gray-500 mt-1">9AM–6PM</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- FAQ -->
+                <div>
+                    <h4 class="font-serif font-bold text-lg mb-3">Frequently Asked Questions</h4>
+                    <div class="space-y-2">
+                        <details class="group p-4 rounded-xl bg-[rgba(var(--color-rgb-primary),0.04)] dark:bg-[rgba(var(--color-rgb-bright),0.05)] cursor-pointer">
+                            <summary class="flex justify-between items-center font-semibold text-sm text-neutral-dark dark:text-white list-none">
+                                <span>How do I reschedule my appointment?</span>
+                                <i class="fas fa-chevron-down text-xs group-open:rotate-180 transition-transform"></i>
+                            </summary>
+                            <p class="text-xs text-neutral-dark/70 dark:text-gray-400 mt-3 leading-relaxed">Go to My Appointments, find your session, and click "Reschedule". You can move it up to 24 hours before your scheduled time at no cost.</p>
+                        </details>
+                        <details class="group p-4 rounded-xl bg-[rgba(var(--color-rgb-primary),0.04)] dark:bg-[rgba(var(--color-rgb-bright),0.05)] cursor-pointer">
+                            <summary class="flex justify-between items-center font-semibold text-sm text-neutral-dark dark:text-white list-none">
+                                <span>Can I share my package with a family member?</span>
+                                <i class="fas fa-chevron-down text-xs group-open:rotate-180 transition-transform"></i>
+                            </summary>
+                            <p class="text-xs text-neutral-dark/70 dark:text-gray-400 mt-3 leading-relaxed">Yes! All packages and memberships are shareable with one designated family member. Contact support to add them to your account.</p>
+                        </details>
+                        <details class="group p-4 rounded-xl bg-[rgba(var(--color-rgb-primary),0.04)] dark:bg-[rgba(var(--color-rgb-bright),0.05)] cursor-pointer">
+                            <summary class="flex justify-between items-center font-semibold text-sm text-neutral-dark dark:text-white list-none">
+                                <span>What's your cancellation policy?</span>
+                                <i class="fas fa-chevron-down text-xs group-open:rotate-180 transition-transform"></i>
+                            </summary>
+                            <p class="text-xs text-neutral-dark/70 dark:text-gray-400 mt-3 leading-relaxed">Free cancellation up to 24 hours before your session. Late cancellations use one package credit. No-shows are charged in full.</p>
+                        </details>
+                        <details class="group p-4 rounded-xl bg-[rgba(var(--color-rgb-primary),0.04)] dark:bg-[rgba(var(--color-rgb-bright),0.05)] cursor-pointer">
+                            <summary class="flex justify-between items-center font-semibold text-sm text-neutral-dark dark:text-white list-none">
+                                <span>How do I leave a review?</span>
+                                <i class="fas fa-chevron-down text-xs group-open:rotate-180 transition-transform"></i>
+                            </summary>
+                            <p class="text-xs text-neutral-dark/70 dark:text-gray-400 mt-3 leading-relaxed">After each completed session, you'll see a "Rate Session" prompt in your Feedback page. Reviews help us match you with the right therapist.</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // RTL Toggle
+            const rtlToggle = document.getElementById('rtl-toggle');
+            const rtlToggleMobile = document.getElementById('rtl-toggle-mobile');
+            function setRTL(isRTL) {
+                document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+                localStorage.setItem('dir', isRTL ? 'rtl' : 'ltr');
+            }
+            const savedDir = localStorage.getItem('dir');
+            setRTL(savedDir === 'rtl');
+            if (rtlToggle) rtlToggle.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+            if (rtlToggleMobile) rtlToggleMobile.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+
+            // Theme Toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+            function setTheme(isDark) {
+                if (isDark) document.documentElement.classList.add('dark');
+                else document.documentElement.classList.remove('dark');
+                [themeToggle, themeToggleMobile].forEach(btn => {
+                    if (btn) {
+                        let moon = btn.querySelector('.fa-moon'), sun = btn.querySelector('.fa-sun');
+                        if (isDark) { moon?.classList.add('hidden'); sun?.classList.remove('hidden'); }
+                        else { moon?.classList.remove('hidden'); sun?.classList.add('hidden'); }
+                    }
+                });
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            }
+            const savedTheme = localStorage.getItem('theme');
+            setTheme(savedTheme === 'dark');
+            if (themeToggle) themeToggle.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
+            if (themeToggleMobile) themeToggleMobile.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
+
+            // Mobile Sidebar
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('open'); }
+            function openSidebar() { sidebar.classList.add('open'); overlay.classList.add('open'); }
+            if (menuToggle) menuToggle.addEventListener('click', (e) => { e.stopPropagation(); sidebar.classList.contains('open') ? closeSidebar() : openSidebar(); });
+            if (overlay) overlay.addEventListener('click', closeSidebar);
+            window.addEventListener('resize', () => { if (window.innerWidth > 768 && sidebar.classList.contains('open')) closeSidebar(); });
+
+            // Navigation
+            const sidebarItems = document.querySelectorAll('.sidebar-item');
+            const pages = document.querySelectorAll('.page-content');
+            const pageTitle = document.getElementById('page-title');
+            const pageSubtitle = document.getElementById('page-subtitle');
+            const titles = {
+                dashboard: { title: 'My Overview', subtitle: 'Hello David, here\'s your wellness snapshot' },
+                book: { title: 'Book Appointment', subtitle: 'Reserve your next massage session' },
+                appointments: { title: 'Appointments', subtitle: 'Your upcoming and past sessions' },
+                recovery: { title: 'Recovery Plan', subtitle: 'Your custom 20-week progress plan' },
+                packages: { title: 'My Packages', subtitle: 'Session packs and usage history' },
+                billing: { title: 'Billing & Invoices', subtitle: 'Payments, receipts, and downloads' },
+                feedback: { title: 'Feedback & Reviews', subtitle: 'Rate your sessions and share feedback' },
+                support: { title: 'Support', subtitle: 'Contact our team and read FAQs' }
+            };
+            function navigateTo(page) {
+                sidebarItems.forEach(i => i.classList.remove('active'));
+                document.querySelector(`.sidebar-item[data-page="${page}"]`)?.classList.add('active');
+                pages.forEach(p => p.classList.add('hidden'));
+                document.getElementById(`page-${page}`)?.classList.remove('hidden');
+                if (titles[page]) { pageTitle.textContent = titles[page].title; pageSubtitle.textContent = titles[page].subtitle; }
+                closeSidebar();
+            }
+            sidebarItems.forEach(item => { item.addEventListener('click', () => { navigateTo(item.getAttribute('data-page')); }); });
+            document.querySelectorAll('[data-nav]').forEach(btn => { btn.addEventListener('click', () => { navigateTo(btn.getAttribute('data-nav')); }); });
+
+            // Therapist selection
+            document.querySelectorAll('.therapist-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    document.querySelectorAll('.therapist-card').forEach(c => c.classList.remove('selected'));
+                    card.classList.add('selected');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

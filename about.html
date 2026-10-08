@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-theme="serene-sage">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Serenity Spa | Our Story, Therapists & Philosophy</title>
+    <link rel="icon" type="image/svg+xml" href="Assets/massage.png">
+    <meta name="description"
+        content="Discover the story behind Serenity Spa. Meet our licensed therapists, explore our holistic approach, and experience our sanctuary of wellness.">
+    <!-- Tailwind CSS with Local & CDN Fallback -->
+    <script src="tailwind.js"></script>
+    <script>
+        if (typeof tailwind === 'undefined') {
+            document.write('<script src="https://cdn.tailwindcss.com"><\/script>');
+        }
+    </script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'spa-sage': 'rgba(var(--color-rgb-primary), <alpha-value>)',
+                        'spa-sage-light': 'rgba(var(--color-rgb-light), <alpha-value>)',
+                        'spa-sage-dark': 'rgba(var(--color-rgb-dark), <alpha-value>)',
+                        'spa-sage-bright': 'rgba(var(--color-rgb-bright), <alpha-value>)',
+                        'spa-accent': 'rgba(var(--color-rgb-accent), <alpha-value>)',
+                        'bg-warm': 'var(--color-bg-warm)',
+                        'neutral-dark': 'var(--color-text-dark)',
+                        'neutral-light': '#E8F0EC',
+                        'dark-bg': '#0A1310',
+                        'dark-card': '#101D18',
+                        'dark-surface': '#16261F',
+                    },
+                    fontFamily: {
+                        'sans': ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        'serif': ['Cormorant Garamond', 'serif'],
+                        'display': ['Cormorant Garamond', 'Outfit', 'serif'],
+                        'premium': ['Cormorant Garamond', 'Outfit', 'serif'],
+                        'alt': ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'fade-in': 'fadeIn 0.3s ease-out',
+                        'pulse-glow': 'pulseGlow 3s infinite',
+                        'float-slow': 'floatSlow 6s ease-in-out infinite',
+                        'breathe': 'breathe 5s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.6' },
+                            '50%': { opacity: '1' },
+                        },
+                        floatSlow: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        },
+                        breathe: {
+                            '0%, 100%': { transform: 'scale(1)', opacity: '0.4' },
+                            '50%': { transform: 'scale(1.15)', opacity: '0.15' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        // Prevent theme flash on reload
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+        if (localStorage.getItem('dir') === 'rtl') {
+            document.documentElement.dir = 'rtl';
+            document.documentElement.lang = 'ar';
+        }
+    </script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Spa Stylesheet (Self-Contained in HTML) -->
+    <style>
+        :root,
+        [data-theme="serene-sage"] {
+            --color-primary: #5B8C7B;
+            --color-primary-light: #8FB8A8;
+            --color-primary-dark: #3D6355;
+            --color-primary-bright: #C2DDD1;
+            --color-accent: #D4A857;
+            --color-bg-warm: #F7FAF8;
+            --color-text-dark: #14201B;
+            --color-rgb-primary: 91, 140, 123;
+            --color-rgb-light: 143, 184, 168;
+            --color-rgb-dark: 61, 99, 85;
+            --color-rgb-bright: 194, 221, 209;
+            --color-rgb-accent: 212, 168, 87;
+        }
+
+        [data-theme="rose-noir"] {
+            --color-primary: #C2707E;
+            --color-primary-light: #DE9DA9;
+            --color-primary-dark: #8F3B4A;
+            --color-primary-bright: #F5C6CE;
+            --color-accent: #E2A676;
+            --color-bg-warm: #FCF8F8;
+            --color-text-dark: #1E1014;
+            --color-rgb-primary: 194, 112, 126;
+            --color-rgb-light: 222, 157, 169;
+            --color-rgb-dark: 143, 59, 74;
+            --color-rgb-bright: 245, 198, 206;
+            --color-rgb-accent: 226, 166, 118;
+        }
+
+        [data-theme="royal-sapphire"] {
+            --color-primary: #2563EB;
+            --color-primary-light: #60A5FA;
+            --color-primary-dark: #1E40AF;
+            --color-primary-bright: #93C5FD;
+            --color-accent: #F59E0B;
+            --color-bg-warm: #F8FAFC;
+            --color-text-dark: #0F172A;
+            --color-rgb-primary: 37, 99, 235;
+            --color-rgb-light: 96, 165, 250;
+            --color-rgb-dark: 30, 64, 175;
+            --color-rgb-bright: 147, 197, 253;
+            --color-rgb-accent: 245, 158, 11;
+        }
+
+        /* Base styles */
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--color-bg-warm);
+            color: var(--color-text-dark);
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        .dark body {
+            background-color: #0A1310;
+            color: #E6EFEA;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        .spa-gradient-text,
+        .sage-gradient-text {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Luxury Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: var(--color-bg-warm); }
+        .dark ::-webkit-scrollbar-track { background: #0A1310; }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(var(--color-rgb-primary), 0.35);
+            border-radius: 9999px;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+        ::-webkit-scrollbar-thumb:hover { background: var(--color-primary); }
+        .dark ::-webkit-scrollbar-thumb { background: rgba(var(--color-rgb-bright), 0.35); }
+        .dark ::-webkit-scrollbar-thumb:hover { background: var(--color-primary-bright); }
+        * { scrollbar-width: thin; scrollbar-color: rgba(var(--color-rgb-primary), 0.4) transparent; }
+
+        /* Dark mode overrides */
+        .dark .text-spa-sage { color: var(--color-primary-bright) !important; }
+        .dark .bg-spa-sage { background-color: var(--color-primary-bright) !important; }
+        .dark .border-spa-sage { border-color: var(--color-primary-bright) !important; }
+        .dark .from-spa-sage { --tw-gradient-from: var(--color-primary-bright) !important; }
+        
+        .dark .spa-gradient-text,
+        .dark .sage-gradient-text {
+            background: linear-gradient(135deg, var(--color-primary-bright) 0%, var(--color-primary-light) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cta-luxury-banner {
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, var(--color-primary-dark) 100%) !important;
+        }
+        .dark .cta-luxury-banner {
+            background: linear-gradient(135deg, #0A1310 0%, #101D18 50%, #0A1310 100%) !important;
+        }
+
+        .dark .service-icon {
+            background: rgba(var(--color-rgb-bright), 0.12) !important;
+            color: var(--color-primary-bright) !important;
+            border: 1px solid rgba(var(--color-rgb-bright), 0.25);
+        }
+
+        .dark .badge {
+            background: rgba(10, 19, 16, 0.85) !important;
+            color: #FFFFFF !important;
+            border: 1px solid rgba(255, 255, 255, 0.35) !important;
+        }
+
+        .dark .dropdown-item:hover { color: var(--color-primary-bright) !important; }
+        .dark .nav-item:hover { color: var(--color-primary-bright) !important; }
+        .dark .nav-item::after { background: var(--color-primary-bright) !important; }
+        .dark .dropdown-item i { color: var(--color-primary-bright) !important; }
+        .dark .premium-line { background: linear-gradient(90deg, var(--color-primary-bright), rgba(var(--color-rgb-bright), 0.1)); }
+
+        /* Premium Navigation */
+        .nav-item {
+            position: relative;
+            padding: 0.5rem 0;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.02em;
+            color: var(--color-text-dark);
+            transition: color 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .dark .nav-item { color: #E6EFEA; }
+        .nav-item:hover { color: var(--color-primary); }
+        .dark .nav-item:hover { color: var(--color-primary-bright); }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+            transition: width 0.3s ease;
+        }
+        .dark .nav-item::after {
+            background: linear-gradient(90deg, var(--color-primary-bright), var(--color-primary-light));
+        }
+        [dir="rtl"] .nav-item::after { left: auto; right: 0; }
+        .nav-item:hover::after,
+        .nav-item.active::after { width: 100%; }
+        .nav-item.active { color: var(--color-primary) !important; font-weight: 700; }
+        .dark .nav-item.active { color: var(--color-primary-bright) !important; }
+
+        .mobile-menu-item.active { color: var(--color-primary) !important; font-weight: 700; }
+        .dark .mobile-menu-item.active { color: var(--color-primary-bright) !important; }
+
+        .dropdown { position: relative; }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 230px;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 16px;
+            padding: 0.85rem 0;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.18);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1000;
+            border: 1px solid rgba(var(--color-rgb-primary), 0.2);
+            backdrop-filter: blur(12px);
+        }
+        .dark .dropdown-menu {
+            background: rgba(22, 38, 31, 0.98);
+            border-color: rgba(var(--color-rgb-bright), 0.25);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+        }
+        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 0;
+            right: 0;
+            height: 12px;
+        }
+        [dir="rtl"] .dropdown-menu { left: auto; right: 0; }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1.6rem;
+            color: var(--color-text-dark);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .dark .dropdown-item { color: #E6EFEA; }
+        .dropdown-item:hover {
+            background: rgba(var(--color-rgb-primary), 0.1);
+            color: var(--color-primary);
+            padding-left: 1.85rem;
+        }
+        .dark .dropdown-item:hover { background: rgba(var(--color-rgb-bright), 0.15); color: var(--color-primary-bright); }
+        [dir="rtl"] .dropdown-item:hover { padding-left: 1.6rem; padding-right: 1.85rem; }
+        .dropdown-item i { margin-right: 0.85rem; width: 20px; text-align: center; color: var(--color-primary); }
+        [dir="rtl"] .dropdown-item i { margin-right: 0; margin-left: 0.85rem; }
+        .dark .dropdown-item i { color: var(--color-primary-bright); }
+
+        [dir="rtl"] .desktop-toggle-group { margin-left: 0; margin-right: 1.25rem; }
+
+        .toggle-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(var(--color-rgb-primary), 0.12);
+            color: var(--color-primary);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(var(--color-rgb-primary), 0.2);
+            cursor: pointer;
+        }
+        .dark .toggle-btn {
+            background: rgba(var(--color-rgb-bright), 0.12);
+            color: var(--color-primary-bright);
+            border-color: rgba(var(--color-rgb-bright), 0.25);
+        }
+        .toggle-btn:hover { background: var(--color-primary); color: white; transform: scale(1.08); }
+        .dark .toggle-btn:hover { background: var(--color-primary-bright); color: #0A1310; transform: scale(1.08); }
+        .toggle-btn.active { background: var(--color-primary); color: white; }
+        .dark .toggle-btn.active { background: var(--color-primary-bright); color: #0A1310; }
+
+        @media (max-width: 1279px) {
+            .desktop-toggle-group { display: none !important; }
+        }
+
+        .mobile-menu {
+            background: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        .mobile-menu:not(.open) {
+            border: none !important;
+            border-width: 0 !important;
+            margin-top: 0 !important;
+            padding: 0 !important;
+            box-shadow: none !important;
+            pointer-events: none !important;
+        }
+        .dark .mobile-menu { background: #0A1310; border-color: rgba(var(--color-rgb-bright), 0.2); }
+        .mobile-menu.open { max-height: 85vh; overflow-y: auto; }
+
+        .mobile-menu-item {
+            display: block;
+            padding: 1.1rem 1.75rem;
+            font-weight: 600;
+            color: var(--color-text-dark);
+            border-bottom: 1px solid rgba(var(--color-rgb-primary), 0.1);
+            transition: all 0.2s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            font-size: 0.9rem;
+        }
+        .dark .mobile-menu-item { color: #E6EFEA; border-bottom-color: rgba(var(--color-rgb-bright), 0.15); }
+        .mobile-menu-item:hover { background-color: rgba(var(--color-rgb-primary), 0.06); color: var(--color-primary); }
+        .dark .mobile-menu-item:hover { background-color: rgba(var(--color-rgb-bright), 0.12); color: var(--color-primary-bright); }
+
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: rgba(var(--color-rgb-primary), 0.04);
+        }
+        .dark .mobile-dropdown-content { background: rgba(22, 38, 31, 0.8); }
+        .mobile-dropdown-content.show { max-height: 300px; }
+
+        .mobile-dropdown-item {
+            display: block;
+            padding: 0.85rem 2.75rem;
+            font-size: 0.92rem;
+            color: var(--color-text-dark);
+            transition: all 0.2s ease;
+            border-bottom: 1px solid rgba(var(--color-rgb-primary), 0.08);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .dark .mobile-dropdown-item { color: #C6D4CD; border-bottom-color: rgba(var(--color-rgb-bright), 0.1); }
+        .mobile-dropdown-item:hover { color: var(--color-primary); background-color: rgba(var(--color-rgb-primary), 0.1); }
+        .dark .mobile-dropdown-item:hover { background-color: rgba(var(--color-rgb-bright), 0.15); color: var(--color-primary-bright); }
+
+        .desktop-nav-container { display: flex; align-items: center; gap: 2rem; }
+
+        /* Ultra Luxury Hero & Cards */
+        .hero-image {
+            border-radius: 28px;
+            box-shadow: 0 30px 60px -15px rgba(var(--color-rgb-primary), 0.3);
+            border: 1px solid rgba(var(--color-rgb-primary), 0.2);
+        }
+        .dark .hero-image {
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8);
+            border-color: rgba(var(--color-rgb-bright), 0.25);
+        }
+
+        .service-icon {
+            width: 84px;
+            height: 84px;
+            background: rgba(var(--color-rgb-primary), 0.12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            font-size: 2.2rem;
+            color: var(--color-primary);
+            border: 1px solid rgba(var(--color-rgb-primary), 0.25);
+            box-shadow: 0 10px 20px -5px rgba(var(--color-rgb-primary), 0.15);
+        }
+        .dark .service-icon {
+            background: rgba(var(--color-rgb-bright), 0.12);
+            color: var(--color-primary-bright);
+            border-color: rgba(var(--color-rgb-bright), 0.3);
+        }
+
+        .badge {
+            background: rgba(10, 19, 16, 0.75) !important;
+            color: #FFFFFF !important;
+            padding: 0.35rem 1.1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.82rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        .dark .badge {
+            background: rgba(10, 19, 16, 0.85) !important;
+            color: #FFFFFF !important;
+            border: 1px solid rgba(255, 255, 255, 0.35) !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        footer {
+            background: white;
+            color: var(--color-text-dark);
+            border-top: 1px solid rgba(var(--color-rgb-primary), 0.18);
+        }
+        .dark footer {
+            background: #0A1310;
+            color: #E6EFEA;
+            border-color: rgba(var(--color-rgb-bright), 0.2);
+        }
+        footer a:hover { color: var(--color-primary); }
+        .dark footer a:hover { color: var(--color-primary-bright); }
+
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(var(--color-rgb-primary), 0.1);
+            color: var(--color-primary);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(var(--color-rgb-primary), 0.2);
+        }
+        .dark .social-icon {
+            background: rgba(var(--color-rgb-bright), 0.12);
+            color: var(--color-primary-bright);
+            border-color: rgba(var(--color-rgb-bright), 0.25);
+        }
+        .social-icon:hover { background: var(--color-primary); color: white; transform: translateY(-3px) scale(1.05); }
+        .dark .social-icon:hover { background: var(--color-primary-bright); color: #0A1310; }
+
+        .premium-line {
+            width: 90px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light), transparent);
+            margin: 24px 0;
+            border-radius: 2px;
+        }
+        .dark .premium-line {
+            background: linear-gradient(90deg, var(--color-primary-bright), var(--color-primary-light), transparent);
+        }
+
+        /* High-End Agency Design Components */
+        .double-bezel-outer {
+            position: relative;
+            border-radius: 2rem;
+            padding: 0.375rem;
+            background: linear-gradient(180deg, rgba(var(--color-rgb-primary), 0.25) 0%, rgba(var(--color-rgb-primary), 0.05) 100%);
+            border: 1px solid rgba(var(--color-rgb-primary), 0.2);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .dark .double-bezel-outer {
+            background: linear-gradient(180deg, rgba(var(--color-rgb-bright), 0.2) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border-color: rgba(var(--color-rgb-bright), 0.2);
+            box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.7);
+        }
+        .double-bezel-outer:hover {
+            transform: translateY(-6px);
+            border-color: rgba(var(--color-rgb-primary), 0.45);
+            box-shadow: 0 30px 60px -15px rgba(var(--color-rgb-primary), 0.25);
+        }
+        .dark .double-bezel-outer:hover {
+            border-color: rgba(var(--color-rgb-bright), 0.45);
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.9);
+        }
+
+        .double-bezel-inner {
+            border-radius: calc(2rem - 0.375rem);
+            background: #FFFFFF;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8);
+        }
+        .dark .double-bezel-inner {
+            background: #101D18;
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08);
+        }
+
+        /* Button-in-Button Architecture */
+        .btn-nested {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.85rem;
+            padding: 0.65rem 0.75rem 0.65rem 1.75rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+            color: #FFFFFF !important;
+            box-shadow: 0 10px 25px -5px rgba(var(--color-rgb-primary), 0.35);
+        }
+        .dark .btn-nested {
+            background: linear-gradient(135deg, var(--color-primary-bright) 0%, var(--color-primary) 100%);
+            color: #0A1310 !important;
+            box-shadow: 0 10px 25px -5px rgba(var(--color-rgb-bright), 0.3);
+        }
+        .btn-nested .icon-circle {
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .dark .btn-nested .icon-circle { background: rgba(10, 19, 16, 0.25); }
+        .btn-nested:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 35px -8px rgba(var(--color-rgb-primary), 0.5);
+        }
+        .dark .btn-nested:hover { box-shadow: 0 18px 35px -8px rgba(var(--color-rgb-bright), 0.45); }
+        .btn-nested:hover .icon-circle { transform: translateX(3px) rotate(45deg); }
+        .btn-nested:active { transform: scale(0.98); }
+
+        /* Frosted Pill Button */
+        .btn-frosted {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            padding: 0.85rem 1.75rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            border: 1px solid rgba(var(--color-rgb-primary), 0.3);
+            color: var(--color-text-dark);
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .dark .btn-frosted {
+            border-color: rgba(var(--color-rgb-bright), 0.3);
+            color: #E6EFEA;
+            background: rgba(16, 29, 24, 0.6);
+        }
+        .btn-frosted:hover {
+            background: rgba(var(--color-rgb-primary), 0.12);
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+        .dark .btn-frosted:hover {
+            background: rgba(var(--color-rgb-bright), 0.15);
+            border-color: var(--color-primary-bright);
+        }
+
+        @keyframes shimmerPulse {
+            0%, 100% { opacity: 0.85; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.02); }
+        }
+        .eyebrow-pill { animation: shimmerPulse 4s ease-in-out infinite; }
+
+        /* Breathing Ring Animation (spa-specific) */
+        @keyframes breatheRing {
+            0%, 100% { transform: scale(1); opacity: 0.4; }
+            50% { transform: scale(1.15); opacity: 0.15; }
+        }
+        .breathe-ring {
+            animation: breatheRing 5s ease-in-out infinite;
+        }
+
+        /* About page specific: Story timeline connector */
+        .timeline-connector {
+            position: absolute;
+            left: 2rem;
+            top: 2rem;
+            bottom: 2rem;
+            width: 2px;
+            background: linear-gradient(180deg, var(--color-primary), var(--color-primary-light), transparent);
+        }
+        [dir="rtl"] .timeline-connector {
+            left: auto;
+            right: 2rem;
+        }
+        @media (max-width: 640px) {
+            .timeline-connector { display: none; }
+        }
+
+        /* Therapist card image frame */
+        .therapist-frame {
+            position: relative;
+            border-radius: 1.75rem;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(var(--color-rgb-primary), 0.15), rgba(var(--color-rgb-primary), 0.03));
+            padding: 0.375rem;
+        }
+        .therapist-frame img {
+            border-radius: 1.5rem;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .therapist-frame:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Experience feature list item */
+        .experience-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1.15rem;
+            border-radius: 1.25rem;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(var(--color-rgb-primary), 0.15);
+            transition: all 0.3s ease;
+        }
+        .dark .experience-item {
+            background: rgba(16, 29, 24, 0.6);
+            border-color: rgba(var(--color-rgb-bright), 0.15);
+        }
+        .experience-item:hover {
+            background: rgba(var(--color-rgb-primary), 0.08);
+            border-color: rgba(var(--color-rgb-primary), 0.35);
+            transform: translateX(4px);
+        }
+        [dir="rtl"] .experience-item:hover {
+            transform: translateX(-4px);
+        }
+
+        /* Stat block */
+        .stat-block {
+            text-align: center;
+            padding: 1.25rem 0.5rem;
+        }
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1;
+            color: var(--color-primary);
+        }
+        .dark .stat-number { color: var(--color-primary-bright); }
+        .stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            opacity: 0.7;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body class="bg-bg-warm dark:bg-dark-bg text-neutral-dark dark:text-gray-200 transition-colors duration-400">
+
+    <!-- ========== FLOATING ISLAND HEADER ========== -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 pt-3 sm:pt-4 transition-all duration-300 pointer-events-none">
+        <nav
+            class="max-w-7xl mx-auto pointer-events-auto bg-white/85 dark:bg-[#101D18]/90 backdrop-blur-xl rounded-full px-5 sm:px-7 py-2.5 sm:py-3 border border-spa-sage/25 dark:border-spa-sage-bright/25 shadow-[0_20px_45px_-15px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_45px_-15px_rgba(0,0,0,0.7)] flex items-center justify-between transition-colors duration-400">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-3 group shrink-0" dir="ltr">
+                <div class="w-10 h-10 bg-gradient-to-br from-spa-sage-light to-spa-sage rounded-2xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:rotate-6 transition duration-300">
+                    <i class="fas fa-spa text-white dark:text-dark-bg text-lg"></i>
+                </div>
+                <div>
+                    <span class="text-lg md:text-2xl font-serif font-bold tracking-wide text-neutral-dark dark:text-white">
+                        Serenity <span class="spa-gradient-text">Spa</span>
+                    </span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden xl:flex items-center">
+                <div class="desktop-nav-container">
+                    <div class="flex items-center gap-4 xl:gap-6">
+                        <div class="dropdown">
+                            <button class="nav-item flex items-center gap-1.5">
+                                Home <i class="fas fa-chevron-down text-[9px] opacity-70"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="index.html" class="dropdown-item">Home 1</a>
+                                <a href="home2.html" class="dropdown-item">Home 2</a>
+                            </div>
+                        </div>
+                        <a href="about.html" class="nav-item active" style="color: var(--color-primary) !important;">About</a>
+                        <a href="treatments.html" class="nav-item">Treatments</a>
+                        <a href="membership.html" class="nav-item">Membership</a>
+                        <a href="contact.html" class="nav-item">Contact</a>
+                        <div class="dropdown">
+                            <button class="nav-item flex items-center gap-1.5">
+                                Dashboard <i class="fas fa-chevron-down text-[9px] opacity-70"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="admin.html" class="dropdown-item">Admin Panel</a>
+                                <a href="client.html" class="dropdown-item">Customer Portal</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 ml-4 desktop-toggle-group">
+                        <button id="theme-toggle" class="toggle-btn !w-9 !h-9" title="Toggle Dark/Light Mode">
+                            <i class="fas fa-moon text-sm"></i>
+                            <i class="fas fa-sun text-sm hidden"></i>
+                        </button>
+                        <button id="rtl-toggle" class="toggle-btn !w-9 !h-9 font-serif font-bold text-xs" title="Toggle RTL/LTR">⇄</button>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 ml-2">
+                    <a href="login.html" class="btn-nested !py-2 !px-4 !text-xs group">
+                        <span>Sign In</span>
+                        <span class="icon-circle !w-6 !h-6">
+                            <i class="fas fa-arrow-right text-[10px]"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-toggle"
+                class="xl:hidden text-neutral-dark dark:text-gray-300 p-2 focus:outline-none hover:text-spa-sage transition-colors"
+                aria-label="Toggle Navigation Menu">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu Floating Card -->
+        <div id="mobile-menu" class="mobile-menu xl:hidden max-w-7xl mx-auto mt-2 rounded-3xl border border-spa-sage/20 dark:border-spa-sage-bright/25 shadow-2xl overflow-hidden pointer-events-auto">
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-btn flex items-center justify-between w-full mobile-menu-item">
+                    <span>Home</span> <i class="fas fa-chevron-down text-xs"></i>
+                </button>
+                <div class="mobile-dropdown-content">
+                    <a href="index.html" class="mobile-dropdown-item">Home 1</a>
+                    <a href="home2.html" class="mobile-dropdown-item">Home 2</a>
+                </div>
+            </div>
+            <a href="about.html" class="mobile-menu-item active" style="color: var(--color-primary) !important;">About</a>
+            <a href="treatments.html" class="mobile-menu-item">Treatments</a>
+            <a href="membership.html" class="mobile-menu-item">Membership</a>
+            <a href="contact.html" class="mobile-menu-item">Contact</a>
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-btn flex items-center justify-between w-full mobile-menu-item">
+                    <span>Dashboard</span> <i class="fas fa-chevron-down text-xs"></i>
+                </button>
+                <div class="mobile-dropdown-content">
+                    <a href="admin.html" class="mobile-dropdown-item">Admin Panel</a>
+                    <a href="client.html" class="mobile-dropdown-item">Customer Portal</a>
+                </div>
+            </div>
+            <div class="p-5 flex flex-col gap-3">
+                <a href="login.html" class="btn-nested justify-center !py-3 w-full text-center">
+                    <span>Sign In</span>
+                    <span class="icon-circle !w-7 !h-7"><i class="fas fa-arrow-right text-xs"></i></span>
+                </a>
+                <a href="signup.html" class="btn-frosted justify-center w-full">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Create Account</span>
+                </a>
+            </div>
+            <div class="flex justify-center gap-3 p-4 border-t border-gray-100 dark:border-gray-800">
+                <button id="theme-toggle-mobile" class="toggle-btn"><i class="fas fa-moon"></i><i class="fas fa-sun hidden"></i></button>
+                <button id="rtl-toggle-mobile" class="toggle-btn">⇄</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== SECTION 1: HERO – ABOUT SPA ========== -->
+    <section
+        class="min-h-[auto] lg:min-h-[80vh] flex items-center pt-28 pb-12 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20 bg-bg-warm dark:bg-dark-bg overflow-hidden transition-colors duration-400 relative">
+        <!-- Ambient Radial Glows -->
+        <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-br from-spa-sage/12 via-spa-sage-bright/8 to-transparent rounded-full blur-3xl pointer-events-none -z-0"></div>
+        <div class="absolute -bottom-32 -left-24 w-96 h-96 bg-spa-sage/10 dark:bg-spa-sage-bright/8 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 relative z-10 w-full">
+            <div class="max-w-4xl mx-auto text-center animate-slide-up">
+                <div
+                    class="eyebrow-pill inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-spa-sage/10 dark:bg-spa-sage-bright/10 border border-spa-sage/25 dark:border-spa-sage-bright/25 mb-6 backdrop-blur-md">
+                    <i class="fas fa-leaf text-spa-sage dark:text-spa-sage-bright text-xs"></i>
+                    <span
+                        class="text-[11px] font-bold font-sans dark:text-spa-sage-bright tracking-[0.22em] uppercase">ABOUT SERENITY SPA • OUR STORY</span>
+                </div>
+
+                <h1
+                    class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-neutral-dark dark:text-white leading-[1.08] tracking-tight mb-6">
+                    A Sanctuary Built on <br class="hidden sm:inline">
+                    <span class="spa-gradient-text italic font-serif">Care, Craft & Calm.</span>
+                </h1>
+
+                <div class="premium-line mx-auto !my-6"></div>
+
+                <p
+                    class="text-base sm:text-lg lg:text-xl text-neutral-dark/85 dark:text-gray-300 max-w-2xl mx-auto mb-0 font-sans font-light leading-relaxed">
+                    Since 2012, Serenity Spa has been a refuge for those seeking relief, restoration, and a deeper connection to their own wellbeing. This is where clinical expertise meets genuine warmth.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 2: ABOUT OUR SPA – EDITORIAL SPLIT ========== -->
+    <section class="py-16 sm:py-20 lg:py-24 bg-white dark:bg-dark-card transition-colors duration-400 border-y border-neutral-light/50 dark:border-gray-800/60 relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center max-w-7xl mx-auto">
+                <!-- Left: Big Number + Story Timeline (5 cols) -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative pl-20 sm:pl-24 rtl:pr-20 rtl:pl-0">
+                        <!-- Decorative vertical timeline -->
+                        <div class="timeline-connector hidden sm:block"></div>
+
+                        <!-- Timeline items -->
+                        <div class="space-y-6 sm:space-y-8">
+                            <!-- 2012 -->
+                            <div class="relative">
+                                <div class="absolute -left-20 sm:-left-24 top-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-spa-sage to-spa-sage-dark text-white flex items-center justify-center shadow-lg border-2 border-white dark:border-dark-card">
+                                    <span class="font-serif font-bold text-sm">'12</span>
+                                </div>
+                                <div class="double-bezel-outer">
+                                    <div class="double-bezel-inner p-5">
+                                        <h4 class="font-serif font-bold text-lg text-neutral-dark dark:text-white mb-1">The First Room</h4>
+                                        <p class="text-xs opacity-80 leading-relaxed font-sans">Opened with a single treatment room, two therapists, and a simple promise: genuine care for every body.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 2017 -->
+                            <div class="relative">
+                                <div class="absolute -left-20 sm:-left-24 top-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-spa-sage-light to-spa-sage text-white flex items-center justify-center shadow-lg border-2 border-white dark:border-dark-card">
+                                    <span class="font-serif font-bold text-sm">'17</span>
+                                </div>
+                                <div class="double-bezel-outer">
+                                    <div class="double-bezel-inner p-5">
+                                        <h4 class="font-serif font-bold text-lg text-neutral-dark dark:text-white mb-1">Clinical Expansion</h4>
+                                        <p class="text-xs opacity-80 leading-relaxed font-sans">Added sports recovery and lymphatic drainage. Became a referral partner for local physiotherapists.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 2022 -->
+                            <div class="relative">
+                                <div class="absolute -left-20 sm:-left-24 top-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-spa-accent to-spa-sage-dark text-white flex items-center justify-center shadow-lg border-2 border-white dark:border-dark-card">
+                                    <span class="font-serif font-bold text-sm">'22</span>
+                                </div>
+                                <div class="double-bezel-outer">
+                                    <div class="double-bezel-inner p-5">
+                                        <h4 class="font-serif font-bold text-lg text-neutral-dark dark:text-white mb-1">The Sanctuary Suite</h4>
+                                        <p class="text-xs opacity-80 leading-relaxed font-sans">Opened a dedicated 5-room wellness wing with couples suites, infrared therapy, and a quiet garden lounge.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Story Copy (7 cols) -->
+                <div class="lg:col-span-7">
+                    <span class="text-spa-sage dark:text-spa-sage-bright font-bold text-xs tracking-[0.25em] font-sans uppercase">ABOUT OUR SPA</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-neutral-dark dark:text-white mt-3 mb-6 leading-tight">
+                        Built by Therapists, <span class="spa-gradient-text italic font-serif">Not Just Business Owners.</span>
+                    </h2>
+
+                    <div class="space-y-5 text-sm sm:text-base opacity-85 font-sans leading-relaxed">
+                        <p>
+                            Serenity Spa began when two licensed massage therapists grew tired of watching clients get rushed, impersonal treatments. They believed a therapy center should feel like a sanctuary — not a factory.
+                        </p>
+                        <p>
+                            So they built one. Every room was designed for quiet. Every treatment was extended by 15 minutes to allow for real consultation. Every therapist was paid fairly and given time to rest between clients.
+                        </p>
+                        <p>
+                            Fourteen years later, that philosophy hasn't changed. We still cap our daily bookings to protect quality. We still personally interview every therapist. And we still measure success by how many clients walk out standing taller than they walked in.
+                        </p>
+                    </div>
+
+                    <!-- Inline stats -->
+                    <div class="grid grid-cols-3 gap-3 mt-8 pt-8 border-t border-spa-sage/15 dark:border-gray-800">
+                        <div class="stat-block">
+                            <div class="stat-number">14</div>
+                            <div class="stat-label">Years Serving</div>
+                        </div>
+                        <div class="stat-block">
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">Licensed LMTs</div>
+                        </div>
+                        <div class="stat-block">
+                            <div class="stat-number">22k+</div>
+                            <div class="stat-label">Sessions Delivered</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 3: OUR THERAPISTS – 2 IMAGES ========== -->
+    <section class="py-16 sm:py-24 lg:py-28 bg-bg-warm dark:bg-dark-bg transition-colors duration-400 relative overflow-hidden">
+        <!-- Ambient Glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-r from-spa-sage/10 via-spa-sage-bright/10 to-transparent rounded-full blur-3xl pointer-events-none -z-0"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-14 sm:mb-18">
+                <span class="eyebrow-pill inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-spa-sage/10 dark:bg-spa-sage-bright/10 border border-spa-sage/25 dark:border-spa-sage-bright/25 mb-4 backdrop-blur-md">
+                    <i class="fas fa-user-md text-spa-sage dark:text-spa-sage-bright text-xs"></i>
+                    <span class="text-[10px] sm:text-[11px] font-bold font-sans tracking-[0.25em] uppercase text-spa-sage dark:text-spa-sage-bright">MEET THE TEAM</span>
+                </span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-neutral-dark dark:text-white mt-1 leading-tight">
+                    Our <span class="spa-gradient-text italic font-serif">Therapists</span>
+                </h2>
+                <div class="premium-line mx-auto !my-4"></div>
+                <p class="text-xs sm:text-sm md:text-base opacity-80 font-sans font-light max-w-lg mx-auto leading-relaxed">
+                    The hands and hearts behind every treatment. Each one licensed, experienced, and genuinely invested in your wellbeing.
+                </p>
+            </div>
+
+            <!-- Two Therapist Profiles with Images -->
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+                <!-- Therapist 1 -->
+                <div class="double-bezel-outer group h-full">
+                    <div class="double-bezel-inner overflow-hidden h-full">
+                        <div class="grid grid-cols-1 sm:grid-cols-5 h-full">
+                            <!-- Image side -->
+                            <div class="sm:col-span-2 relative h-64 sm:h-auto min-h-[260px] sm:min-h-full overflow-hidden bg-spa-sage/10">
+                                <img src="Assets/therapist1.jpg" alt="Elena Vasquez - Lead Massage Therapist"
+                                    class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                                    style="object-position: center 30%;">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent sm:bg-gradient-to-r sm:from-transparent sm:to-black/20"></div>
+                                <!-- Small badge -->
+                                <div class="absolute top-3 left-3 sm:top-4 sm:left-4">
+                                    <span class="badge text-[9px]">Lead Therapist</span>
+                                </div>
+                            </div>
+                            <!-- Content side -->
+                            <div class="sm:col-span-3 p-6 sm:p-7 flex flex-col justify-between">
+                                <div class="flex flex-col flex-1">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="text-[10px] font-bold font-sans uppercase tracking-widest text-spa-sage dark:text-spa-sage-bright">LMT #2481 • 12 YRS</span>
+                                    </div>
+                                    <h3 class="text-2xl font-serif font-bold text-neutral-dark dark:text-white mb-1">Elena Vasquez</h3>
+                                    <p class="text-xs font-sans text-neutral-dark/70 dark:text-gray-400 mb-4">Deep Tissue • Trigger Point • Myofascial Release</p>
+
+                                    <p class="text-xs sm:text-sm opacity-85 leading-relaxed font-sans mb-5 flex-1">
+                                        Elena founded the center after a decade working with professional athletes. She specializes in chronic pain cases that other therapists have given up on. Her pressure is legendary — and so is her intuition.
+                                    </p>
+
+                                    <div class="flex flex-wrap gap-2 mb-5 mt-auto">
+                                        <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-spa-sage/10 dark:bg-spa-sage-bright/10 text-spa-sage dark:text-spa-sage-bright border border-spa-sage/20">Sports Rehab</span>
+                                        <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-spa-sage/10 dark:bg-spa-sage-bright/10 text-spa-sage dark:text-spa-sage-bright border border-spa-sage/20">Chronic Pain</span>
+                                    </div>
+                                </div>
+                                <div class="border-t border-spa-sage/15 dark:border-gray-800 pt-4 flex items-center justify-between">
+                                    <span class="text-[11px] font-sans opacity-70"><i class="fas fa-star text-spa-accent mr-1"></i>4.9 / 5.0 (420 reviews)</span>
+                                    <a href="contact.html" class="text-xs font-bold uppercase tracking-wider text-spa-sage dark:text-spa-sage-bright hover:underline flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                        Book <span>↗</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Therapist 2 -->
+                <div class="double-bezel-outer group h-full">
+                    <div class="double-bezel-inner overflow-hidden h-full">
+                        <div class="grid grid-cols-1 sm:grid-cols-5 h-full">
+                            <!-- Image side -->
+                            <div class="sm:col-span-2 relative h-64 sm:h-auto min-h-[260px] sm:min-h-full overflow-hidden bg-spa-sage/10 order-first sm:order-last">
+                                <img src="Assets/therapist2.jpg" alt="Marcus Chen - Senior Massage Therapist"
+                                    class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                                    style="object-position: center 25%;">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent sm:bg-gradient-to-l sm:from-transparent sm:to-black/20"></div>
+                                <!-- Small badge -->
+                                <div class="absolute top-3 left-3 sm:top-4 sm:left-4">
+                                    <span class="badge text-[9px]">Senior Therapist</span>
+                                </div>
+                            </div>
+                            <!-- Content side -->
+                            <div class="sm:col-span-3 p-6 sm:p-7 flex flex-col justify-between order-last sm:order-first">
+                                <div class="flex flex-col flex-1">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="text-[10px] font-bold font-sans uppercase tracking-widest text-spa-sage dark:text-spa-sage-bright">LMT #3107 • 9 YRS</span>
+                                    </div>
+                                    <h3 class="text-2xl font-serif font-bold text-neutral-dark dark:text-white mb-1">Marcus Chen</h3>
+                                    <p class="text-xs font-sans text-neutral-dark/70 dark:text-gray-400 mb-4">Prenatal • Lymphatic Drainage • Relaxation</p>
+
+                                    <p class="text-xs sm:text-sm opacity-85 leading-relaxed font-sans mb-5 flex-1">
+                                        Marcus brings a rare gentleness to clinical bodywork. Formerly a physical therapy assistant, he excels at prenatal care and post-surgery lymphatic drainage. Clients describe his sessions as "a reset for the nervous system."
+                                    </p>
+
+                                    <div class="flex flex-wrap gap-2 mb-5 mt-auto">
+                                        <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-spa-sage/10 dark:bg-spa-sage-bright/10 text-spa-sage dark:text-spa-sage-bright border border-spa-sage/20">Prenatal Care</span>
+                                        <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-spa-sage/10 dark:bg-spa-sage-bright/10 text-spa-sage dark:text-spa-sage-bright border border-spa-sage/20">Post-Op Recovery</span>
+                                    </div>
+                                </div>
+                                <div class="border-t border-spa-sage/15 dark:border-gray-800 pt-4 flex items-center justify-between">
+                                    <span class="text-[11px] font-sans opacity-70"><i class="fas fa-star text-spa-accent mr-1"></i>5.0 / 5.0 (380 reviews)</span>
+                                    <a href="contact.html" class="text-xs font-bold uppercase tracking-wider text-spa-sage dark:text-spa-sage-bright hover:underline flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                        Book <span>↗</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA below therapists -->
+            <div class="text-center mt-12">
+                <a href="contact.html" class="btn-nested group">
+                    <span>Book With a Therapist</span>
+                    <span class="icon-circle">
+                        <i class="fas fa-arrow-right text-xs"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 4: OUR APPROACH – 3 PILLARS ========== -->
+    <section class="py-16 sm:py-24 lg:py-28 bg-white dark:bg-dark-card transition-colors duration-400 border-y border-neutral-light/50 dark:border-gray-800/60 relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-14 sm:mb-18">
+                <span class="text-spa-sage dark:text-spa-sage-bright font-bold text-xs tracking-[0.25em] font-sans uppercase">OUR PHILOSOPHY</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-neutral-dark dark:text-white mt-3 leading-tight">
+                    The Serenity <span class="spa-gradient-text italic font-serif">Approach</span>
+                </h2>
+                <div class="premium-line mx-auto !my-4"></div>
+                <p class="text-xs sm:text-sm md:text-base opacity-80 font-sans font-light max-w-lg mx-auto leading-relaxed">
+                    Three principles guide every decision we make — from how we train our therapists to how we design our rooms.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+                <!-- Approach 1 -->
+                <div class="double-bezel-outer group hover:-translate-y-2 transition-transform duration-500">
+                    <div class="double-bezel-inner p-7 h-full flex flex-col justify-between relative bg-white dark:bg-[#101D18]">
+                        <div class="absolute top-5 right-6 font-serif text-4xl font-bold text-spa-sage/20 dark:text-spa-sage-bright/20 select-none pointer-events-none leading-none">
+                            01
+                        </div>
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-spa-sage/20 to-spa-sage/5 dark:from-spa-sage-bright/20 dark:to-transparent text-spa-sage dark:text-spa-sage-bright flex items-center justify-center text-xl mb-5 border border-spa-sage/25 group-hover:bg-spa-sage group-hover:text-white transition-all duration-300">
+                                <i class="fas fa-microscope"></i>
+                            </div>
+                            <h3 class="text-xl font-serif font-bold text-neutral-dark dark:text-white mb-3">Evidence-Informed</h3>
+                            <p class="text-xs sm:text-sm opacity-80 leading-relaxed font-sans">
+                                Every technique we use is grounded in anatomy and peer-reviewed research. We don't follow trends — we follow the science of what actually helps bodies heal.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-5 border-t border-spa-sage/15 dark:border-gray-800">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-spa-sage dark:text-spa-sage-bright">Research-Based Protocols</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Approach 2 -->
+                <div class="double-bezel-outer group hover:-translate-y-2 transition-transform duration-500">
+                    <div class="double-bezel-inner p-7 h-full flex flex-col justify-between relative bg-white dark:bg-[#101D18]">
+                        <div class="absolute top-5 right-6 font-serif text-4xl font-bold text-spa-sage/20 dark:text-spa-sage-bright/20 select-none pointer-events-none leading-none">
+                            02
+                        </div>
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-spa-sage/20 to-spa-sage/5 dark:from-spa-sage-bright/20 dark:to-transparent text-spa-sage dark:text-spa-sage-bright flex items-center justify-center text-xl mb-5 border border-spa-sage/25 group-hover:bg-spa-sage group-hover:text-white transition-all duration-300">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3 class="text-xl font-serif font-bold text-neutral-dark dark:text-white mb-3">Unhurried Sessions</h3>
+                            <p class="text-xs sm:text-sm opacity-80 leading-relaxed font-sans">
+                                Every appointment includes a full consultation and 15 minutes of buffer time. We never double-book. Your session ends when your body is ready — not when the clock says so.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-5 border-t border-spa-sage/15 dark:border-gray-800">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-spa-sage dark:text-spa-sage-bright">No Rushed Treatments</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Approach 3 -->
+                <div class="double-bezel-outer group hover:-translate-y-2 transition-transform duration-500">
+                    <div class="double-bezel-inner p-7 h-full flex flex-col justify-between relative bg-white dark:bg-[#101D18]">
+                        <div class="absolute top-5 right-6 font-serif text-4xl font-bold text-spa-sage/20 dark:text-spa-sage-bright/20 select-none pointer-events-none leading-none">
+                            03
+                        </div>
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-spa-sage/20 to-spa-sage/5 dark:from-spa-sage-bright/20 dark:to-transparent text-spa-sage dark:text-spa-sage-bright flex items-center justify-center text-xl mb-5 border border-spa-sage/25 group-hover:bg-spa-sage group-hover:text-white transition-all duration-300">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <h3 class="text-xl font-serif font-bold text-neutral-dark dark:text-white mb-3">Genuine Care</h3>
+                            <p class="text-xs sm:text-sm opacity-80 leading-relaxed font-sans">
+                                We remember your name. We remember your injury history. We remember that you hate lavender oil. You're not a booking slot — you're a person we're invested in helping.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-5 border-t border-spa-sage/15 dark:border-gray-800">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-spa-sage dark:text-spa-sage-bright">Relationship-Based Care</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 5: SPA EXPERIENCE – WHAT TO EXPECT ========== -->
+    <section class="py-16 sm:py-24 lg:py-28 bg-bg-warm dark:bg-dark-bg transition-colors duration-400 relative overflow-hidden">
+        <!-- Ambient Glow -->
+        <div class="absolute -top-24 right-0 w-96 h-96 bg-spa-sage/10 dark:bg-spa-sage-bright/8 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center max-w-6xl mx-auto">
+                <!-- Left: Text (5 cols) -->
+                <div class="lg:col-span-5 order-last lg:order-first">
+                    <span class="text-spa-sage dark:text-spa-sage-bright font-bold text-xs tracking-[0.25em] font-sans uppercase">THE VISIT</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-neutral-dark dark:text-white mt-3 mb-5 leading-tight">
+                        The Spa <span class="spa-gradient-text italic font-serif">Experience</span>
+                    </h2>
+                    <div class="premium-line !my-5"></div>
+                    <p class="text-sm sm:text-base opacity-85 leading-relaxed font-sans mb-6">
+                        From the moment you step through our doors, every detail is designed to slow you down and bring you back into your body. Here's what your first visit looks like.
+                    </p>
+
+                    <!-- Feature list -->
+                    <div class="space-y-3">
+                        <div class="experience-item">
+                            <div class="w-9 h-9 rounded-xl bg-spa-sage/15 dark:bg-spa-sage-bright/15 text-spa-sage dark:text-spa-sage-bright flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-mug-hot text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-sans font-bold text-sm text-neutral-dark dark:text-white mb-0.5">Welcome Tea & Intake</h4>
+                                <p class="text-[11px] opacity-75 font-sans leading-relaxed">Arrive 15 minutes early for herbal tea and a brief consultation about your needs.</p>
+                            </div>
+                        </div>
+                        <div class="experience-item">
+                            <div class="w-9 h-9 rounded-xl bg-spa-sage/15 dark:bg-spa-sage-bright/15 text-spa-sage dark:text-spa-sage-bright flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-shoe-prints text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-sans font-bold text-sm text-neutral-dark dark:text-white mb-0.5">Change & Unwind</h4>
+                                <p class="text-[11px] opacity-75 font-sans leading-relaxed">Slip into a robe and sandals in our private changing lounge. Store your belongings in a secure locker.</p>
+                            </div>
+                        </div>
+                        <div class="experience-item">
+                            <div class="w-9 h-9 rounded-xl bg-spa-sage/15 dark:bg-spa-sage-bright/15 text-spa-sage dark:text-spa-sage-bright flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-bed text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-sans font-bold text-sm text-neutral-dark dark:text-white mb-0.5">Your Treatment</h4>
+                                <p class="text-[11px] opacity-75 font-sans leading-relaxed">Heated table, dimmed lighting, your choice of music or silence. Your therapist adjusts everything to your comfort.</p>
+                            </div>
+                        </div>
+                        <div class="experience-item">
+                            <div class="w-9 h-9 rounded-xl bg-spa-sage/15 dark:bg-spa-sage-bright/15 text-spa-sage dark:text-spa-sage-bright flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-leaf text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-sans font-bold text-sm text-neutral-dark dark:text-white mb-0.5">Post-Treatment Rest</h4>
+                                <p class="text-[11px] opacity-75 font-sans leading-relaxed">Linger in our garden lounge with water, dried fruit, and as much time as you need before rejoining the world.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Visual Card Stack (7 cols) -->
+                <div class="lg:col-span-7 order-first lg:order-last">
+                    <div class="relative">
+                        <!-- Ambient breathe ring behind -->
+                        <div class="absolute inset-4 rounded-[2.5rem] border-2 border-spa-sage/20 dark:border-spa-sage-bright/20 breathe-ring pointer-events-none"></div>
+
+                        <!-- Big quote card -->
+                        <div class="double-bezel-outer">
+                            <div class="double-bezel-inner p-8 sm:p-10 lg:p-12 relative overflow-hidden">
+                                <!-- Decorative quote mark -->
+                                <div class="absolute top-4 left-6 font-serif text-[8rem] leading-none text-spa-sage/10 dark:text-spa-sage-bright/10 select-none pointer-events-none">
+                                    "
+                                </div>
+                                <div class="relative z-10">
+                                    <p class="text-lg sm:text-xl lg:text-2xl font-serif italic text-neutral-dark dark:text-white leading-relaxed mb-6">
+                                        "The moment you walk in, the noise of the outside world fades. By the time your treatment begins, you're already somewhere else entirely."
+                                    </p>
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-full bg-spa-sage/20 dark:bg-spa-sage-bright/20 flex items-center justify-center text-spa-sage dark:text-spa-sage-bright font-serif font-bold">
+                                            S
+                                        </div>
+                                        <div>
+                                            <div class="font-sans font-bold text-sm text-neutral-dark dark:text-white">Sarah M.</div>
+                                            <div class="text-[11px] opacity-70 font-sans">Regular Client, 3 Years</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating mini stat card -->
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 6: WHY CHOOSE US – BENTO GRID ========== -->
+    <section class="py-16 sm:py-24 lg:py-28 bg-white dark:bg-dark-card transition-colors duration-400 border-y border-neutral-light/50 dark:border-gray-800/60 relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-14 sm:mb-18">
+                <span class="eyebrow-pill inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-spa-sage/10 dark:bg-spa-sage-bright/10 border border-spa-sage/25 dark:border-spa-sage-bright/25 mb-4 backdrop-blur-md">
+                    <i class="fas fa-award text-spa-sage dark:text-spa-sage-bright text-xs"></i>
+                    <span class="text-[10px] sm:text-[11px] font-bold font-sans tracking-[0.25em] uppercase text-spa-sage dark:text-spa-sage-bright">WHY CHOOSE US</span>
+                </span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-neutral-dark dark:text-white mt-1 leading-tight">
+                    Reasons Clients <span class="spa-gradient-text italic font-serif">Keep Coming Back</span>
+                </h2>
+                <div class="premium-line mx-auto !my-4"></div>
+            </div>
+
+            <!-- Bento Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                <!-- Card 1: Large (2x) -->
+                <div class="lg:col-span-2 lg:row-span-1 double-bezel-outer group">
+                    <div class="double-bezel-inner p-7 h-full flex flex-col justify-between relative bg-white dark:bg-[#101D18]">
+                        <div class="absolute top-6 right-6 font-serif text-5xl font-bold text-spa-sage/15 dark:text-spa-sage-bright/15 select-none pointer-events-none">
+                            01
+                        </div>
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-spa-sage/20 to-spa-sage/5 dark:from-spa-sage-bright/20 dark:to-transparent text-spa-sage dark:text-spa-sage-bright flex items-center justify-center text-xl mb-5 border border-spa-sage/25 group-hover:bg-spa-sage group-hover:text-white transition-all duration-300">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                            <h3 class="text-2xl font-serif font-bold text-neutral-dark dark:text-white mb-3">Handpicked Therapists</h3>
+                            <p class="text-sm opacity-80 leading-relaxed font-sans max-w-lg">
+                                We personally interview and test every therapist before hiring. Only 1 in 12 applicants makes it through our vetting process. When you book, you're getting someone we'd trust with our own families.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-5 border-t border-spa-sage/15 dark:border-gray-800 flex items-center gap-4 flex-wrap">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-spa-sage dark:text-spa-sage-bright"><i class="fas fa-check-circle mr-1"></i>8% Acceptance Rate</span>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-spa-sage dark:text-spa-sage-bright"><i class="fas fa-check-circle mr-1"></i>Ongoing Peer Review</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="double-bezel-outer group">
+                    <div class="double-bezel-inner p-7 h-full flex flex-col justify-between relative bg-white dark:bg-[#101D18]">
+                        <div class="absolute top-6 right-6 font-serif text-4xl font-bold text-spa-sage/15 dark:text-spa-sage-bright/15 select-none pointer-events-none">
+                            02
+                        </div>
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-spa-sage/20 to-spa-sage/5 dark:from-spa-sage-bright/20 dark:to-transparent text-spa-sage dark:text-spa-sage-bright flex items-center justify-center text-lg mb-5 border border-spa-sage/25 group-hover:bg-spa-sage group-hover:text-white transition-all duration-300">
+                                <i class="fas fa-calendar-day"></i>
+                            </div>
+                            <h3 class="text-xl font-serif font-bold text-neutral-dark dark:text-white mb-2">Same-Day Openings</h3>
+                            <p class="text-xs opacity-80 leading-relaxed font-sans">
+                                Pain doesn't schedule itself. We hold same-day slots every single day for urgent recovery and stress relief.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="double-bezel-outer group">
+                    <div class="double-bezel-inner p-7 h-full flex flex-col justify-between relative bg-white dark:bg-[#101D18]">
+                        <div class="absolute top-6 right-6 font-serif text-4xl font-bold text-spa-sage/15 dark:text-spa-sage-bright/15 select-none pointer-events-none">
+                            03
+                        </div>
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-spa-sage/20 to-spa-sage/5 dark:from-spa-sage-bright/20 dark:to-transparent text-spa-sage dark:text-spa-sage-bright flex items-center justify-center text-lg mb-5 border border-spa-sage/25 group-hover:bg-spa-sage group-hover:text-white transition-all duration-300">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <h3 class="text-xl font-serif font-bold text-neutral-dark dark:text-white mb-2">Clean Products</h3>
+                            <p class="text-xs opacity-80 leading-relaxed font-sans">
+                                Cold-pressed organic oils, paraben-free lotions, and linens washed with hypoallergenic detergent.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="double-bezel-outer group">
+                    <div class="double-bezel-inner p-7 h-full flex flex-col justify-between relative bg-white dark:bg-[#101D18]">
+                        <div class="absolute top-6 right-6 font-serif text-4xl font-bold text-spa-sage/15 dark:text-spa-sage-bright/15 select-none pointer-events-none">
+                            04
+                        </div>
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-spa-sage/20 to-spa-sage/5 dark:from-spa-sage-bright/20 dark:to-transparent text-spa-sage dark:text-spa-sage-bright flex items-center justify-center text-lg mb-5 border border-spa-sage/25 group-hover:bg-spa-sage group-hover:text-white transition-all duration-300">
+                                <i class="fas fa-volume-mute"></i>
+                            </div>
+                            <h3 class="text-xl font-serif font-bold text-neutral-dark dark:text-white mb-2">True Quiet</h3>
+                            <p class="text-xs opacity-80 leading-relaxed font-sans">
+                                Soundproof walls, no loud music, no phone chatter. Just the quiet your nervous system needs.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Large (2x) -->
+                <div class="lg:col-span-2 double-bezel-outer group">
+                    <div class="double-bezel-inner p-7 h-full flex flex-col justify-between relative bg-white dark:bg-[#101D18]">
+                        <div class="absolute top-6 right-6 font-serif text-5xl font-bold text-spa-sage/15 dark:text-spa-sage-bright/15 select-none pointer-events-none">
+                            05
+                        </div>
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-spa-sage/20 to-spa-sage/5 dark:from-spa-sage-bright/20 dark:to-transparent text-spa-sage dark:text-spa-sage-bright flex items-center justify-center text-xl mb-5 border border-spa-sage/25 group-hover:bg-spa-sage group-hover:text-white transition-all duration-300">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <h3 class="text-2xl font-serif font-bold text-neutral-dark dark:text-white mb-3">Honest Pricing, No Upsells</h3>
+                            <p class="text-sm opacity-80 leading-relaxed font-sans max-w-lg">
+                                We never pressure you into add-ons, packages, or memberships you didn't ask for. The price you see is the price you pay. Our membership is genuinely valuable — but it's never pushed.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-5 border-t border-spa-sage/15 dark:border-gray-800 flex items-center gap-4 flex-wrap">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-spa-sage dark:text-spa-sage-bright"><i class="fas fa-check-circle mr-1"></i>Transparent Pricing</span>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-spa-sage dark:text-spa-sage-bright"><i class="fas fa-check-circle mr-1"></i>No Hidden Fees</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="double-bezel-outer group">
+                    <div class="double-bezel-inner p-7 h-full flex flex-col justify-between relative bg-white dark:bg-[#101D18]">
+                        <div class="absolute top-6 right-6 font-serif text-4xl font-bold text-spa-sage/15 dark:text-spa-sage-bright/15 select-none pointer-events-none">
+                            06
+                        </div>
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-spa-sage/20 to-spa-sage/5 dark:from-spa-sage-bright/20 dark:to-transparent text-spa-sage dark:text-spa-sage-bright flex items-center justify-center text-lg mb-5 border border-spa-sage/25 group-hover:bg-spa-sage group-hover:text-white transition-all duration-300">
+                                <i class="fas fa-parking"></i>
+                            </div>
+                            <h3 class="text-xl font-serif font-bold text-neutral-dark dark:text-white mb-2">Easy Access</h3>
+                            <p class="text-xs opacity-80 leading-relaxed font-sans">
+                                Free covered parking, wheelchair accessible, and 2 minutes from the metro. Relaxation starts before you arrive.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 7: CTA BANNER ========== -->
+    <section id="about-cta"
+        class="cta-luxury-banner py-20 sm:py-24 text-white transition-colors duration-400 relative overflow-hidden">
+        <div
+            class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-spa-sage-light/25 via-transparent to-transparent pointer-events-none">
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-10 max-w-6xl mx-auto">
+                <div class="lg:w-2/3 text-center lg:text-left">
+                    <span class="text-white/80 font-bold text-xs tracking-[0.25em] font-sans uppercase">EXPERIENCE IT YOURSELF</span>
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold mb-4 mt-3">Come Meet Us In Person</h2>
+                    <p class="text-lg sm:text-xl opacity-90 max-w-2xl mx-auto lg:mx-0 font-sans font-light leading-relaxed">The best way to understand what makes Serenity different is to walk through our doors. Book your first session and feel the difference.</p>
+                </div>
+                <div class="lg:w-1/3 flex flex-col sm:flex-row lg:flex-col justify-center items-center lg:items-stretch gap-4 w-full lg:w-auto">
+                    <a href="contact.html"
+                        class="w-full sm:w-auto bg-white text-neutral-dark dark:bg-spa-sage-bright dark:text-dark-bg px-8 py-4 rounded-full font-bold text-xs font-sans uppercase tracking-widest hover:shadow-2xl transition duration-300 flex items-center justify-center gap-2">
+                        <i class="fas fa-calendar-check"></i> Book a Visit
+                    </a>
+                    <a href="treatments.html"
+                        class="w-full sm:w-auto border-2 border-white/60 dark:border-spa-sage-bright/60 text-white dark:text-spa-sage-bright px-8 py-4 rounded-full font-bold text-xs font-sans uppercase tracking-widest hover:bg-white/10 dark:hover:bg-spa-sage-bright/10 transition duration-300 flex items-center justify-center gap-2">
+                        <i class="fas fa-spa"></i> Browse Treatments
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="py-20 bg-white dark:bg-[#0A1310] transition-colors duration-400">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="text-center md:text-start">
+                    <a href="index.html" class="flex items-center justify-center md:justify-start gap-3 mb-5 group shrink-0" dir="ltr">
+                        <div class="w-10 h-10 bg-gradient-to-br from-spa-sage-light to-spa-sage rounded-2xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:rotate-6 transition duration-300">
+                            <i class="fas fa-spa text-white dark:text-dark-bg text-lg"></i>
+                        </div>
+                        <div>
+                            <span class="text-lg md:text-2xl font-serif font-bold tracking-wide text-neutral-dark dark:text-white">
+                                Serenity <span class="spa-gradient-text">Spa</span>
+                            </span>
+                        </div>
+                    </a>
+                    <p class="text-sm opacity-80 mb-6 leading-relaxed font-sans">Luxury massage & wellness therapy center. Your sanctuary for deep rest, recovery, and renewal.</p>
+                    <div class="flex justify-center md:justify-start gap-4">
+                        <a href="#" class="social-icon text-sm" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon text-sm" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon text-sm" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="text-center md:text-start">
+                    <h3 class="text-neutral-dark dark:text-white text-lg font-serif font-bold mb-6">Quick Navigation</h3>
+                    <ul class="space-y-3.5 text-sm font-sans">
+                        <li><a href="index.html" class="hover:text-spa-sage dark:hover:text-spa-sage-bright transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-spa-sage dark:hover:text-spa-sage-bright transition">About</a></li>
+                        <li><a href="treatments.html" class="hover:text-spa-sage dark:hover:text-spa-sage-bright transition">Treatments</a></li>
+                        <li><a href="membership.html" class="hover:text-spa-sage dark:hover:text-spa-sage-bright transition">Membership</a></li>
+                        <li><a href="contact.html" class="hover:text-spa-sage dark:hover:text-spa-sage-bright transition">Contact & Booking</a></li>
+                    </ul>
+                </div>
+                <div class="text-center md:text-start">
+                    <h3 class="text-neutral-dark dark:text-white text-lg font-serif font-bold mb-6">Our Treatments</h3>
+                    <ul class="space-y-3.5 text-sm font-sans">
+                        <li><a href="treatments.html#deep-tissue" class="hover:text-spa-sage dark:hover:text-spa-sage-bright transition">Deep Tissue Massage</a></li>
+                        <li><a href="treatments.html#hot-stone" class="hover:text-spa-sage dark:hover:text-spa-sage-bright transition">Hot Stone Therapy</a></li>
+                        <li><a href="treatments.html#facial" class="hover:text-spa-sage dark:hover:text-spa-sage-bright transition">Aromatherapy Facial</a></li>
+                        <li><a href="treatments.html#couples" class="hover:text-spa-sage dark:hover:text-spa-sage-bright transition">Couples Retreat</a></li>
+                        <li><a href="membership.html" class="hover:text-spa-sage dark:hover:text-spa-sage-bright transition">Wellness Memberships</a></li>
+                    </ul>
+                </div>
+                <div class="text-center md:text-start">
+                    <h3 class="text-neutral-dark dark:text-white text-lg font-serif font-bold mb-6">Studio Location</h3>
+                    <ul class="space-y-3 text-sm mb-6 font-sans">
+                        <li class="flex items-center justify-center md:justify-start gap-3">
+                            <i class="fas fa-map-marker-alt text-spa-sage dark:text-spa-sage-bright w-4"></i>
+                            <span dir="ltr">12 Wellness Boulevard, Suite 300</span>
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start gap-3">
+                            <i class="fas fa-phone text-spa-sage dark:text-spa-sage-bright w-4"></i>
+                            <span dir="ltr">+1 (800) 555-0199</span>
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start gap-3">
+                            <i class="fas fa-envelope text-spa-sage dark:text-spa-sage-bright w-4"></i>
+                            <span dir="ltr">hello@serenityspa.com</span>
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start gap-3">
+                            <i class="fas fa-clock text-spa-sage dark:text-spa-sage-bright w-4"></i>
+                            <span dir="ltr">Mon-Sun: 8AM - 8PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-spa-sage/15 dark:border-spa-sage-bright/15 mt-14 pt-8 text-center">
+                <p class="text-sm opacity-90 font-sans" dir="ltr">© 2026 Serenity Spa & Massage Therapy Center. All rights reserved.</p>
+                <p class="text-xs opacity-75 mt-2 font-serif italic text-spa-sage dark:text-spa-sage-bright">Restore • Renew • Rebalance</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Default Theme Initialization
+            document.documentElement.setAttribute('data-theme', 'serene-sage');
+
+            // Dark / Light Theme Toggle Logic
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle?.querySelector('.fa-moon');
+            const themeIconSun = themeToggle?.querySelector('.fa-sun');
+            const mobileThemeToggle = document.getElementById('theme-toggle-mobile');
+            const mobileThemeIcon = mobileThemeToggle?.querySelector('.fa-moon');
+            const mobileThemeIconSun = mobileThemeToggle?.querySelector('.fa-sun');
+
+            function setTheme(isDark) {
+                if (isDark) {
+                    document.documentElement.classList.add('dark');
+                    if (themeIcon) themeIcon.classList.add('hidden');
+                    if (themeIconSun) themeIconSun.classList.remove('hidden');
+                    if (themeToggle) themeToggle.classList.add('active');
+                    if (mobileThemeIcon) mobileThemeIcon.classList.add('hidden');
+                    if (mobileThemeIconSun) mobileThemeIconSun.classList.remove('hidden');
+                    if (mobileThemeToggle) mobileThemeToggle.classList.add('active');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    if (themeIcon) themeIcon.classList.remove('hidden');
+                    if (themeIconSun) themeIconSun.classList.add('hidden');
+                    if (themeToggle) themeToggle.classList.remove('active');
+                    if (mobileThemeIcon) mobileThemeIcon.classList.remove('hidden');
+                    if (mobileThemeIconSun) mobileThemeIconSun.classList.add('hidden');
+                    if (mobileThemeToggle) mobileThemeToggle.classList.remove('active');
+                    localStorage.setItem('theme', 'light');
+                }
+            }
+
+            function toggleTheme() {
+                setTheme(!document.documentElement.classList.contains('dark'));
+            }
+
+            if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+            if (mobileThemeToggle) mobileThemeToggle.addEventListener('click', toggleTheme);
+
+            setTheme(localStorage.getItem('theme') === 'dark');
+
+            // RTL / LTR Direction Toggle Logic
+            const rtlToggle = document.getElementById('rtl-toggle');
+            const mobileRtlToggle = document.getElementById('rtl-toggle-mobile');
+
+            function toggleRTL() {
+                if (document.documentElement.dir === 'rtl') {
+                    document.documentElement.dir = 'ltr';
+                    document.documentElement.lang = 'en';
+                    if (rtlToggle) { rtlToggle.textContent = '⇄'; rtlToggle.classList.remove('active'); }
+                    if (mobileRtlToggle) { mobileRtlToggle.textContent = '⇄'; mobileRtlToggle.classList.remove('active'); }
+                    localStorage.setItem('dir', 'ltr');
+                } else {
+                    document.documentElement.dir = 'rtl';
+                    document.documentElement.lang = 'ar';
+                    if (rtlToggle) { rtlToggle.textContent = '⇄'; rtlToggle.classList.add('active'); }
+                    if (mobileRtlToggle) { mobileRtlToggle.textContent = '⇄'; mobileRtlToggle.classList.add('active'); }
+                    localStorage.setItem('dir', 'rtl');
+                }
+            }
+
+            if (rtlToggle) rtlToggle.addEventListener('click', toggleRTL);
+            if (mobileRtlToggle) mobileRtlToggle.addEventListener('click', toggleRTL);
+
+            if (localStorage.getItem('dir') === 'rtl') {
+                document.documentElement.dir = 'rtl';
+                document.documentElement.lang = 'ar';
+                if (rtlToggle) { rtlToggle.textContent = '⇄'; rtlToggle.classList.add('active'); }
+                if (mobileRtlToggle) { mobileRtlToggle.textContent = '⇄'; mobileRtlToggle.classList.add('active'); }
+            }
+
+            // Mobile Menu Toggle Logic
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileToggleIcon = document.querySelector('#mobile-toggle i');
+
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', () => {
+                    const isOpening = !mobileMenu.classList.contains('open');
+                    if (isOpening) {
+                        mobileMenu.classList.add('open');
+                        mobileToggleIcon.classList.remove('fa-bars');
+                        mobileToggleIcon.classList.add('fa-times');
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        mobileMenu.classList.remove('open');
+                        mobileToggleIcon.classList.remove('fa-times');
+                        mobileToggleIcon.classList.add('fa-bars');
+                        document.body.style.overflow = '';
+                        document.querySelectorAll('.mobile-dropdown-content').forEach(c => c.classList.remove('show'));
+                    }
+                });
+            }
+
+            document.querySelectorAll('.mobile-dropdown-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const dropdown = e.target.closest('.mobile-dropdown');
+                    const content = dropdown.querySelector('.mobile-dropdown-content');
+                    const icon = dropdown.querySelector('.fa-chevron-down');
+                    const isOpening = !content.classList.contains('show');
+                    content.classList.toggle('show');
+                    icon.style.transform = content.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0deg)';
+                    if (isOpening) {
+                        document.querySelectorAll('.mobile-dropdown-content').forEach(other => {
+                            if (other !== content) {
+                                other.classList.remove('show');
+                                const otherIcon = other.parentElement.querySelector('.fa-chevron-down');
+                                if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
